@@ -21,6 +21,6 @@ Route::get('/home', function (){
     return view('home');
 });
 
-Route::get('/car-details', function() {
-    return view('car-details');
+Route::get('/profile', function (){
+    return view('profile');
 });
