@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/navbar', function () {
-    return view('navbar');
-});
+// Route::get('/navbar', function () {
+//     return view('navbar');
+// });
 
-Route::get('/filter', function() {
-    return view('filter');
-});
+// Route::get('/filter', function() {
+//     return view('filter');
+// });
 
 Route::get('/signup', function(){
     return view('signup');

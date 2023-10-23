@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite('resources/css/app.css')
@@ -13,6 +14,7 @@
         }
     </style>
 </head>
+
 <body class="text-Gray w-full h-full p-20">
     <div class="dropdown relative rounded drop-shadow inline-block w-[350px] bg-White">
         <div class="vehicle_type border-b-2 border-lighGray rounded-t py-[20px] px-[15px]">
@@ -20,20 +22,26 @@
             <ul class="text-base text-gray-700 flex flex-col gap-1">
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Car</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Car</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Premium Car</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Premium
+                            Car</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Motorcycle</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Motorcycle</label>
                     </div>
                 </li>
             </ul>
@@ -43,14 +51,18 @@
             <ul class="text-base text-gray-700 flex flex-col gap-1">
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Automatic</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Automatic</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Manual</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Manual</label>
                     </div>
                 </li>
             </ul>
@@ -59,12 +71,16 @@
             <h3 class="font-bold text-lg mb-2">Price Range</h3>
             <ul class="text-base text-gray-700 max-w-[100%] flex justify-between">
                 <div class="flex w-[48%] items-center">
-                    <input id="min" type="number" placeholder="Minimum Price" class="w-[100%] text-sm border-2 pl-8 h-8 rounded">
-                    <label for="min" class="text-base aspect-square w-7 text-center flex justify-center ml-[2px] items-center absolute rounded-l-[2px] bg-borderColor font-semibold">Rp</label>
+                    <input id="min" type="number" placeholder="Minimum Price"
+                        class="w-[100%] text-sm border-2 pl-8 h-8 rounded">
+                    <label for="min"
+                        class="text-base aspect-square w-7 text-center flex justify-center ml-[2px] items-center absolute rounded-l-[2px] bg-borderColor font-semibold">Rp</label>
                 </div>
                 <div class="flex w-[48%] items-center">
-                    <input id="min" type="number" placeholder="Maximum Price" class="w-[100%] text-sm border-2 pl-8 h-8 rounded">
-                    <label for="min" class="text-base aspect-square w-7 text-center flex justify-center ml-[2px] items-center absolute rounded-l-[2px] bg-borderColor font-semibold">Rp</label>
+                    <input id="min" type="number" placeholder="Maximum Price"
+                        class="w-[100%] text-sm border-2 pl-8 h-8 rounded">
+                    <label for="min"
+                        class="text-base aspect-square w-7 text-center flex justify-center ml-[2px] items-center absolute rounded-l-[2px] bg-borderColor font-semibold">Rp</label>
                 </div>
             </ul>
         </div>
@@ -72,10 +88,12 @@
             <h3 class="font-bold text-lg mb-2">Date Range</h3>
             <ul class="text-base text-gray-700 max-w-[100%] flex justify-between">
                 <div class="flex w-[48%]">
-                    <input id="min" type="date" placeholder="Minimum Price" class="w-[100%] placeholder:text-borderColor text-sm border-2 text-left h-8 rounded px-1">
+                    <input id="min" type="date" placeholder="Minimum Price"
+                        class="w-[100%] placeholder:text-borderColor text-sm border-2 text-left h-8 rounded px-1">
                 </div>
                 <div class="flex w-[48%]">
-                    <input id="min" type="date" placeholder="Minimum Price" class="w-[100%] text-sm border-2 h-8 placeholder-borderColor rounded text-left px-1">
+                    <input id="min" type="date" placeholder="Minimum Price"
+                        class="w-[100%] text-sm border-2 h-8 placeholder-borderColor rounded text-left px-1">
                 </div>
             </ul>
         </div>
@@ -84,26 +102,34 @@
             <ul class="text-base text-gray-700 flex flex-col gap-1">
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Gasoline</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Gasoline</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Diesel</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Diesel</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Hybrid</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Hybrid</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Electric</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Electric</label>
                     </div>
                 </li>
             </ul>
@@ -113,92 +139,122 @@
             <ul class="text-base text-gray-700 flex flex-col gap-1">
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Toyota</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Toyota</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Honda</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Honda</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Daihatsu</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Daihatsu</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Suzuki</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Suzuki</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Toyota</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Toyota</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Nissan</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Nissan</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Mitsubishi</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Mitsubishi</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Ferrari</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Ferrari</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Lexus</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Lexus</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Porsche</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Porsche</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">BMW</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">BMW</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Mercedes</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Mercedes</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Hyundai</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Hyundai</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Yamaha</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Yamaha</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Kawasaki</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">Kawasaki</label>
                     </div>
                 </li>
             </ul>
@@ -208,56 +264,47 @@
             <ul class="text-base text-gray-700 flex flex-col gap-1">
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">1</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">1</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">2</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">2</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">4</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">4</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">5-6</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">5-6</label>
                     </div>
                 </li>
                 <li class="block">
                     <div class="flex items-center rounded hover:bg-gray-100">
-                        <input id="checkbox-item" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-                        <label for="checkbox-item" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">>6</label>
+                        <input id="checkbox-item" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                        <label for="checkbox-item"
+                            class="w-full ml-2 text-sm font-medium text-gray-900 rounded">>6</label>
                     </div>
                 </li>
             </ul>
         </div>
     </div>
-    <script>
-        function myFunction() {
-            console.log("Button clicked");
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        window.onclick = function(event) {
-            console.log("Window clicked");
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
 </body>
+
 </html>

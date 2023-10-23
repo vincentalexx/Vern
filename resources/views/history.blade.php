@@ -15,7 +15,7 @@
 {{-- TBD: detail dropdown --}}
 
 <body style="background: #F7F9FA">
-    <div class="bg-gray-500 w-screen h-[10vh] text-center text-white">Navbar</div>
+    <x-navbar />
     <div class="container mx-auto my-10 text-[#00000099]">
         <div class="flex flex-col gap-y-12">
             <div class="flex flex-row justify-between items-center">
