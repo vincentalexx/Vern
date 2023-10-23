@@ -55,14 +55,28 @@
                 </li>
             </ul>
         </div>
-        <div class="price border-b-2 border-lighGray rounded-t py-[20px] px-[15px]">
+        <div class="price border-b-2 border-lighGray rounded-t py-[20px] max-w-[100%] px-[15px]">
             <h3 class="font-bold text-lg mb-2">Price Range</h3>
-            <ul class="text-base text-gray-700 flex flex-col gap-1">
+            <ul class="text-base text-gray-700 max-w-[100%] flex justify-between">
+                <div class="flex w-[48%] items-center">
+                    <input id="min" type="number" placeholder="Minimum Price" class="w-[100%] text-sm border-2 pl-8 h-8 rounded">
+                    <label for="min" class="text-base aspect-square w-7 text-center flex justify-center ml-[2px] items-center absolute rounded-l-[2px] bg-borderColor font-semibold">Rp</label>
+                </div>
+                <div class="flex w-[48%] items-center">
+                    <input id="min" type="number" placeholder="Maximum Price" class="w-[100%] text-sm border-2 pl-8 h-8 rounded">
+                    <label for="min" class="text-base aspect-square w-7 text-center flex justify-center ml-[2px] items-center absolute rounded-l-[2px] bg-borderColor font-semibold">Rp</label>
+                </div>
             </ul>
         </div>
         <div class="date border-b-2 border-lighGray rounded-t py-[20px] px-[15px]">
             <h3 class="font-bold text-lg mb-2">Date Range</h3>
-            <ul class="text-base text-gray-700 flex flex-col gap-1">
+            <ul class="text-base text-gray-700 max-w-[100%] flex justify-between">
+                <div class="flex w-[48%]">
+                    <input id="min" type="date" placeholder="Minimum Price" class="w-[100%] placeholder:text-borderColor text-sm border-2 text-left h-8 rounded px-1">
+                </div>
+                <div class="flex w-[48%]">
+                    <input id="min" type="date" placeholder="Minimum Price" class="w-[100%] text-sm border-2 h-8 placeholder-borderColor rounded text-left px-1">
+                </div>
             </ul>
         </div>
         <div class="fuel border-b-2 border-lighGray rounded-t py-[20px] px-[15px]">
