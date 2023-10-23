@@ -20,3 +20,19 @@ Route::get('/navbar', function () {
 Route::get('/filter', function() {
     return view('filter');
 });
+
+Route::get('/signup', function(){
+    return view('signup');
+});
+
+Route::get('/login', function(){
+    return view('login');
+});
+
+Route::get('/searchresult', function(){
+    return view('searchresult');
+});
+
+Route::get('/history', function(){
+    return view('history');
+});
