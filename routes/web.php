@@ -36,3 +36,11 @@ Route::get('/searchresult', function(){
 Route::get('/history', function(){
     return view('history');
 });
+
+Route::get('/home', function (){
+    return view('home');
+});
+
+Route::get('/profile', function (){
+    return view('profile');
+});
