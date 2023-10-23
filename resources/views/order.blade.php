@@ -86,7 +86,7 @@
                                     <div class="flex">
                                         <p class="text-4xl font-semibold">RP. 1.800.000</p>
                                         <div class="-mt-[2px] text-">
-                                            <button class="bg-[#F6AA40] rounded-[4px] h-10 w-32 tracking-widest text-white font-bold ml-[252px]">Continue</button>
+                                            <button class="bg-[#F6AA40] rounded-[4px] h-10 w-32 tracking-widest text-white font-bold ml-[252px] hover:opacity-80">Continue</button>
                                         </div>
                                     </div>
                                 </div>

@@ -63,7 +63,7 @@
                         <div class="w-full">
                             <p class="text-white ml-1">Rental Location</p>
                             <select name="location" id=""
-                                class="h-14 w-full border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 rounded-l-lg">
+                                class="h-14 w-full border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 rounded-l-2xl px-4">
                                 <option value="" disabled selected>Pick a Location</option>
                                 <option value="Palmerah">Palmerah</option>
                                 <option value="Kebon Jeruk">Kebon Jeruk</option>
@@ -73,19 +73,19 @@
                         <div>
                             <p class="text-white ml-1">Start Date</p>
                             <input type="datetime-local" name="start-date"
-                                class="h-14 border-y-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full">
+                                class="h-14 border-y-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full px-4">
                         </div>
                         <div>
                             <p class="text-white ml-1">Finish Date</p>
                             <input type="datetime-local" name="finish-date"
-                                class="h-14 border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full">
+                                class="h-14 border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full px-4">
                         </div>
                     </div>
                     <div>
                         <p class="opacity-0">p</p>
                         <a href="/searchresult">
                             <button
-                                class="bg-gradient-to-b from-[#F6AA40] to-[#D9822D] rounded-r-lg w-12 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer"><i
+                                class="bg-gradient-to-b from-[#F6AA40] to-[#D9822D] rounded-r-2xl w-12 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer hover:opacity-80"><i
                                     class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i></button>
                         </a>
                     </div>

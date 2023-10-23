@@ -4,8 +4,8 @@
             <img src="images/logo.png" class="h-[65px]" alt="">
         </a>
         <ul class="flex items-center text-white text-xl gap-8">
-            <li class="font-semibold"><a href="#">Rent</a></li>
-            <li class="font-semibold"><a href="/history">Orders</a></li>
+            <li class="font-semibold"><a href="/history">Rent</a></li>
+            <li class="font-semibold"><a href="/order">Orders</a></li>
             <li class="flex">
 
 
