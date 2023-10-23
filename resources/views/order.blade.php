@@ -16,7 +16,7 @@
         <div class="flex justify-center items-center w-full h-full">
             <div class="w-[80vw]">
                 <div class="grid grid-cols-3 items-center">
-                    <a href="/home">
+                    <a href="/card_details">
                         <i class="fa-solid fa-chevron-left text-3xl" style="color: #000000; opacity: 0.7;"></i>
                     </a>
                     <h1 class="text-center text-black text-opacity-70 font-extrabold underline text-4xl mb-5">Your Order</h1>
@@ -86,7 +86,9 @@
                                     <div class="flex">
                                         <p class="text-4xl font-semibold">RP. 1.800.000</p>
                                         <div class="-mt-[2px] text-">
-                                            <button class="bg-[#F6AA40] rounded-[4px] h-10 w-32 tracking-widest text-white font-bold ml-[252px] hover:opacity-80">Continue</button>
+                                            <a href="/success">
+                                                <button class="text-xl font-semibold bg-gradient-to-b from-Orange to-orange-600 text-white hover:opacity-80 rounded-md rounded-[4px] h-10 w-32 tracking-widest text-white font-bold ml-[252px] ">Continue</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

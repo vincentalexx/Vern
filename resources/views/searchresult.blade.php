@@ -318,7 +318,7 @@
                     </div>
                     <div class="flex gap-2 items-center">
                         <p>Sort: </p>
-                        <select name="sort" id="sort" class="border p-3 border-[#00000099] rounded-md">
+                        <select name="sort" id="sort" class="border px-3 py-1 border-[#00000099] rounded-md bg-right">
                             <option value="featured">Featured</option>
                             <option value="price">Price</option>
                             <option value="rating">Rating</option>
@@ -327,32 +327,34 @@
                 </div>
                 <div class="flex flex-wrap justify-center md:justify-normal gap-8">
                     @for ($x = 0; $x < 8; $x++)
-                        <div class="flex flex-col rounded-md shadow-md">
-                            <img src="{{ asset('honda_accord.png') }}" alt="" class="h-[180px] ">
-                            <div class="flex justify-between px-4 pt-2 pb-4 gap-16">
-                                <div class="flex flex-col gap-1">
-                                    <p class="text-lg">Honda Accord 2023</p>
-                                    <div class="grid grid-cols-3 w-fit contents-center grid-flow-dense">
-                                        <div class="px-2 w-min justify-self-center">
-                                            <i class="fa-solid fa-gears"></i>
-                                        </div>
-                                        <div class="col-span-2">
-                                            <small>Automatic</small>
-                                        </div>
-                                        <div class="px-2 w-min justify-self-center">
-                                            <i class="fa-solid fa-gas-pump"></i>
-                                        </div>
-                                        <div class="col-span-2">
-                                            <small>Hybrid</small>
+                        <a href="/card_details">
+                            <div class="flex flex-col rounded-md shadow-md">
+                                <img src="{{ asset('honda_accord.png') }}" alt="" class="h-[180px] ">
+                                <div class="flex justify-between px-4 pt-2 pb-4 gap-16">
+                                    <div class="flex flex-col gap-1">
+                                        <p class="text-lg">Honda Accord 2023</p>
+                                        <div class="grid grid-cols-3 w-fit contents-center grid-flow-dense">
+                                            <div class="px-2 w-min justify-self-center">
+                                                <i class="fa-solid fa-gears"></i>
+                                            </div>
+                                            <div class="col-span-2">
+                                                <small>Automatic</small>
+                                            </div>
+                                            <div class="px-2 w-min justify-self-center">
+                                                <i class="fa-solid fa-gas-pump"></i>
+                                            </div>
+                                            <div class="col-span-2">
+                                                <small>Hybrid</small>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="flex flex-col">
-                                    <p class="text-lg">Rp. 900.000</p>
-                                    <p class="text-sm text-right">/ Day</p>
+                                    <div class="flex flex-col">
+                                        <p class="text-lg">Rp. 900.000</p>
+                                        <p class="text-sm text-right">/ Day</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     @endfor
                 </div>
             </div>

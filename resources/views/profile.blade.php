@@ -19,12 +19,12 @@
             <div>
                 <img src="image/redcar.png" alt="profile" class="border-2 broder-black w-[350px] h-[350px]">
                 <br>
-                <button class="bg-[#F6AA40] w-[350px] h-10 rounded-[4px]">Upload Photo</button>
+                <button class="bg-gradient-to-b from-Orange to-orange-600 text-white hover:opacity-80 font-semibold w-[350px] h-10 rounded-[4px]">Upload Photo</button>
             </div>
             <div>
                 <h1 class="text-2xl underline font-bold mb-3 text-Gray underline-offset-2">Profile Data</h1>
                 <div class="flex gap-8">
-                    <div class="w-[120px] grid text-[19px]">
+                    <div class="w-[125px] grid font-semibold text-[19px]">
                         <label class="h-8">Name :</label>
                         <label class="h-7">Date of Birth :</label>
                         <label class="h-7">Gender :</label>
@@ -52,8 +52,8 @@
                 </div>
                 <br>
                 <div class="-mt-[2px] text-right">
-                    <button class="border-2 border-black h-10 w-20 rounded-[4px]">Back</button>
-                    <button class="bg-[#F6AA40] rounded-[4px] h-10 w-32">Save Changes</button>
+                    <button class="border-2 border-black h-10 w-24 font-semibold rounded-[4px] mr-2">Back</button>
+                    <button class="bg-gradient-to-b from-Orange to-orange-600 text-white hover:opacity-80 font-semibold rounded-[4px] h-10 w-36">Save Changes</button>
                 </div>
             </div>
         </div>

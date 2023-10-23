@@ -29,9 +29,6 @@ Route::get('/login', function(){
     return view('login');
 });
 
-Route::get('/searchresult', function(){
-    return view('searchresult');
-});
 
 Route::get('/history', function(){
     return view('history');
@@ -47,4 +44,16 @@ Route::get('/profile', function (){
 
 Route::get('/order', function(){
     return view('order');
+});
+
+Route::get('/searchresult', function(){
+    return view('searchresult');
+});
+
+Route::get('/card_details', function(){
+    return view('card_details');
+});
+
+Route::get('/success', function(){
+    return view('success');
 });

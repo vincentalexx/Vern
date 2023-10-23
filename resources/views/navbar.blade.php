@@ -18,8 +18,6 @@
                 <li class="font-semibold">Rent</li>
                 <li class="font-semibold">Orders</li>
                 <li class="flex">
-
-
                     <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm font-medium text-gray-white hover:text-gray-00 md:mr-0 " type="button">
                         <span class="sr-only">Open user menu</span>
                         <span class="kiri gap-4">
@@ -45,7 +43,6 @@
                             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
                         </div>
                     </div>
-
                 </li>
             </ul>
         </div>
