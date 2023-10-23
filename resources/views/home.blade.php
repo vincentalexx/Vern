@@ -29,7 +29,7 @@
 <body>
     <x-navbar />
     <div class="w-screen h-[90vh] flex justify-center items-center bg-cover bg-gray-500 bg-blend-multiply"
-        style="background-image: url('{{ asset('image/bg-home.jpg') }}')">
+        style="background-image: url('{{ asset('image/bg-home1.jpg') }}')">
         <div class="space-y-24">
             <h1 class="text-center text-[48px] w-[900px] -mt-40 text-white shadow-inner">Explore Jakarta Anytime You
                 Want With Our Rental Services!</h1>
@@ -59,7 +59,7 @@
                 </div>
                 <br>
                 <div class="flex justify-center">
-                    <div class="grid grid-cols-5 text-gray-600">
+                    <div class="grid grid-cols-3 text-gray-600 w-full">
                         <div class="w-full">
                             <p class="text-white ml-1">Rental Location</p>
                             <select name="location" id=""
@@ -72,30 +72,20 @@
                         </div>
                         <div>
                             <p class="text-white ml-1">Start Date</p>
-                            <input type="date" name="start-date"
+                            <input type="datetime-local" name="start-date"
                                 class="h-14 border-y-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full">
-                        </div>
-                        <div>
-                            <p class="text-white ml-1">Start Time</p>
-                            <input type="time" name="start-time"
-                                class="h-14 w-full border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60">
                         </div>
                         <div>
                             <p class="text-white ml-1">Finish Date</p>
-                            <input type="date" name="finish-date"
-                                class="h-14 border-y-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full">
-                        </div>
-                        <div>
-                            <p class="text-white ml-1">Finish Time</p>
-                            <input type="time" name="finish-time"
-                                class="h-14 w-full border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60">
+                            <input type="datetime-local" name="finish-date"
+                                class="h-14 border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full">
                         </div>
                     </div>
                     <div>
                         <p class="opacity-0">p</p>
                         <a href="/searchresult">
                             <button
-                                class="bg-gradient-to-b from-[#F6AA40] to-[#D9822D] rounded-r-lg w-12 h-14 border-2 border-gray-500 cursor-pointer"><i
+                                class="bg-gradient-to-b from-[#F6AA40] to-[#D9822D] rounded-r-lg w-12 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer"><i
                                     class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i></button>
                         </a>
                     </div>
