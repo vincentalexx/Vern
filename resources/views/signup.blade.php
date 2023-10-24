@@ -12,8 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="m-4">
-    {{-- start of modal, TBD: form wrapper, hover for link & btn  --}}
+<body class="w-[100vw] h-[100vh] justify-center items-center flex">
     <div class="border-2 border-gray-400 rounded-xl w-[500px] py-4 px-6 text-[#00000099]">
         <div class="flex flex-col gap-y-3 divide-solid divide-y-[1px] divide-[#00000099]">
             <div class="flex flex-col gap-y-2">
@@ -24,7 +23,7 @@
                 <div
                     class="border border-[#00000099] rounded-xl cursor-pointer w-full py-3 flex justify-center items-center gap-x-2">
                     <i class="fa-brands fa-google"></i>
-                    <p class="text-xl">Sign up with Google</p>
+                    <p class="text-xl font-semibold">Sign up with Google</p>
                 </div>
             </div>
             <div class="flex flex-col py-2 gap-y-3">
@@ -48,13 +47,13 @@
                     <label for="tnc">I agree with <a href="#" class="text-[#F6AA40] underline">Terms</a> and
                         <a href="#" class="text-[#F6AA40] underline">Privacy</a></label>
                 </div>
-                <button class="text-white text-center text-xl bg-gradient-to-b from-[#F6AA40] to-[#D9822D] py-4">
+                <button class="rounded text-white text-center text-xl bg-gradient-to-b from-[#F6AA40] to-[#D9822D] py-4 font-semibold">
                     Sign up
                 </button>
             </div>
             <div class="py-6 text-center">
                 <p class="text-xl">Already have an account?</p>
-                <a href="#" class="text-xl text-[#F6AA40]">Login</a>
+                <a href="#" class="text-xl text-[#F6AA40] font-bold">Login</a>
             </div>
         </div>
     </div>

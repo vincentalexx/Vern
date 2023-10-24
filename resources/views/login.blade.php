@@ -12,8 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="m-4">
-    {{-- start of modal, TBD: form wrapper, hover for link & btn  --}}
+<body class="w-[100vw] h-[100vh] flex items-center justify-center">
     <div class="border-2 border-gray-400 rounded-xl w-[500px] py-4 px-6 text-[#00000099]">
         <div class="flex flex-col gap-y-3 divide-solid divide-y-[1px] divide-[#00000099]">
             <div class="flex flex-col gap-y-2">
@@ -24,7 +23,7 @@
                 <div
                     class="border border-[#00000099] rounded-xl cursor-pointer w-full py-3 flex justify-center items-center gap-x-2">
                     <i class="fa-brands fa-google"></i>
-                    <p class="text-xl">Login with Google</p>
+                    <p class="text-xl font-semibold">Login with Google</p>
                 </div>
             </div>
             <div class="flex flex-col py-2 gap-y-3">
@@ -42,13 +41,13 @@
                     <input type="checkbox" name="remember" id="remember">
                     <label for="remember">Remember Me</label>
                 </div>
-                <button class="text-white text-center text-xl bg-gradient-to-b from-[#F6AA40] to-[#D9822D] py-4">
+                <button class="text-white text-center text-xl bg-gradient-to-b from-[#F6AA40] to-[#D9822D] py-4 font-bold rounded">
                     Login
                 </button>
             </div>
             <div class="py-6 text-center">
                 <p class="text-xl">Don&apos;t have an account?</p>
-                <a href="#" class="text-xl text-[#F6AA40]">Sign up</a>
+                <a href="#" class="text-xl text-[#F6AA40] font-bold">Sign up</a>
             </div>
         </div>
     </div>
