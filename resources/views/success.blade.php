@@ -14,7 +14,7 @@
 
 <body>
 <x-navbar />
-    <div class="w-full h-[90vh] flex flex-col justify-center gap-4 items-center">
+    <div class="w-full min-h-[100vh] h-[100vh] flex flex-col justify-center gap-4 items-center text-Gray pt-[10vh]">
         <div class="rounded-full w-32 h-32  bg-gradient-to-b from-light-green-700-accent to-green-500 drop-shadow-lg flex items-center justify-center">
             <i class="fa-solid fa-check ml-2 mt-1 text-7xl" style="color: #ffffff;"></i>
         </div>

@@ -14,9 +14,9 @@
 
 {{-- TBD: detail dropdown --}}
 
-<body style="background: #F7F9FA">
+<body class="pt-[15vh]">
     <x-navbar />
-    <div class="container mx-auto my-10 text-[#00000099]">
+    <div class="container mx-auto my-10 text-Gray ">
         <div class="flex flex-col gap-y-12">
             <div class="flex flex-row justify-between items-center">
                 <a href="#">

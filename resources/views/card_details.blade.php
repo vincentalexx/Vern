@@ -14,14 +14,14 @@
 
 <body>
 <x-navbar />
-<div class="container mx-auto flex w-screen p-0 m-0 h-full">
-    <div class="w-[50%] h-[90vh] flex flex-col items-center justify-center relative">
+<div class="container min-h-[100vh] h-[100vh] pt-[10vh] mx-auto flex w-screen p-0 m-0 h-full text-Gray">
+    <div class="w-[50%] h-[100vh] flex flex-col items-center justify-center relative">
         <a href="/searchresult">
             <i class="mt-[150px] ml-28 fa-solid fa-chevron-left text-3xl absolute left-0 top-0"></i>
         </a>
         <img src="images/accord.png" class="max-w-[80%]" alt="">
     </div>
-    <div class="w-[50%] h-[90vh] pt-[120px]">
+    <div class="w-[50%] pt-[120px]">
         <div class="py-8 border-b-2 border-borderColor">
             <h1 class="font-bold text-4xl">Honda Accord 2023</h1>
             <p>Has been Rented 400+ times • <i class="fa-sharp fa-solid fa-star" style="color: #ff9500;"></i>4.5 (248 Ratings)</p>

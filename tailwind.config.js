@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
         colors: {
+            'borbor': '#606061',
             'Primary': '#242424',
             'Orange': '#F4B155',
             'White': '#F7F9FA',

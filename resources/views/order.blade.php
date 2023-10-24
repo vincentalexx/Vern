@@ -12,7 +12,7 @@
 </head>
 <body>
     <x-navbar />
-    <div class="w-screen h-[90vh]">
+    <div class="w-screen min-h-[100vh] h-[100vh] text-Gray">
         <div class="flex justify-center items-center w-full h-full">
             <div class="w-[80vw]">
                 <div class="grid grid-cols-3 items-center">
@@ -21,7 +21,7 @@
                     </a>
                     <h1 class="text-center text-black text-opacity-70 font-extrabold underline text-4xl mb-5">Your Order</h1>
                 </div>
-                <div class="grid grid-cols-2 ">
+                <div class="flex justify-center gap-16 mt-4">
                     <div>
                         <h1 class="text-2xl font-bold mb-2">Order Details</h1>
                         <div class="border-2 w-[650px] h-[440px] rounded-xl shadow-lg py-5 px-7">
@@ -51,7 +51,7 @@
                         <div>
                             <h1 class="text-2xl font-bold mb-2">Rental Details</h1>
                             <div class="border-2 w-[650px] h-[440px] rounded-xl shadow-lg py-5 px-7">
-                                <h1 class="text-4xl border-b-2 border-black border-opacity-30 h-14 mb-3">Honda Accord 2023</h1>
+                                <h1 class="text-4xl border-b-2 border-black border-opacity-30 h-14 mb-3 font-semibold">Honda Accord 2023</h1>
                                 <div class="border-b-2 border-black border-opacity-30 h-[73px] mb-3">
                                     <label class="text-sm font-bold opacity-70">Features :</label>
                                     <div class="flex items-center gap-5 opacity-70 mt-2">
