@@ -33,10 +33,12 @@
             transition: opacity 0.3s ease;
         }
 
+        .labl > div:hover::before, /* Add hover effect */
         .labl > input:checked + div::before {
             opacity: 1;
         }
     </style>
+
 </head>
 
 <body>

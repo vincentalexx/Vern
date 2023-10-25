@@ -18,7 +18,7 @@
     <x-navbar />
     <div class="min-h-[100vh] h-[100vh] container mx-auto my-10 text-Gray pt-[10vh]">
         <div class="flex gap-8">
-            <div class="flex flex-col">
+            <div class="flex drop-shadow mb-16 flex-col">
                 <p class="font-bold text-lg mb-1">Filter</p>
                 <div class="dropdown relative rounded drop-shadow w-[350px] bg-White hidden md:inline-block">
 
@@ -312,7 +312,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col gap-6 w-full">
+            <div class="flex flex-col gap-6 mb-16 w-full">
                 <div class="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
                     <div class="flex flex-col">
                         <p class="text-4xl font-bold">Search Results</p>
