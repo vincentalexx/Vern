@@ -7,7 +7,8 @@
 Execute these lines in your terminal
 
 1. `composer install`
-1. `cp .env.example .env`
+1. `npm install`
+1. `cp .env.example .env` (or copy and rename .env.example to .env)
 1. `php artisan migrate`
 1. `php artisan db:seed`
 

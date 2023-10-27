@@ -11,17 +11,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite(['resources/css/app.css'])
     <style>
-        .labl > input {
+        .labl>input {
             display: none;
             visibility: hidden;
         }
 
-        .labl > div {
+        .labl>div {
             cursor: pointer;
             position: relative;
         }
 
-        .labl > div::before {
+        .labl>div::before {
             content: "";
             position: absolute;
             bottom: 0;
@@ -33,8 +33,9 @@
             transition: opacity 0.3s ease;
         }
 
-        .labl > div:hover::before, /* Add hover effect */
-        .labl > input:checked + div::before {
+        .labl>div:hover::before,
+        /* Add hover effect */
+        .labl>input:checked+div::before {
             opacity: 1;
         }
     </style>
@@ -42,44 +43,46 @@
 </head>
 
 <body>
-{{--    <x-navbar />--}}
+    {{--    <x-navbar /> --}}
     <x-clearnavbar />
-    <div class="w-screen h-[100vh] flex justify-center items-center bg-cover bg-blend-multiply bg-black bg-opacity-70"
-        style="background-image: url('{{ asset('image/bg-home1.jpg') }}'); ">
+    <div class="w-screen h-screen flex justify-center items-center bg-cover bg-blend-multiply bg-black bg-opacity-70"
+        style="background-image: url('{{ asset('images/mobil.jpg') }}'); ">
         <div class="space-y-24">
-            <h1 class="text-center text-[48px] w-[900px] font-semibold text-white shadow-inner">Explore Jakarta Anytime You
+            <h1 class="text-center text-5xl leading-[60px] max-w-4xl font-semibold text-white shadow-inner">Explore
+                Jakarta
+                Anytime
+                You
                 Want With Our Rental Services!</h1>
-            <div>
+            <div class="flex flex-col gap-6">
                 <div class="grid grid-cols-3 text-center">
                     <label for="car" class="labl">
                         <input type="radio" id="car" name="vehicle_type" value="1" checked>
                         <div class="text-white">
-                            <i class="fa-solid fa-car text-4xl" style="color: #ffffff;"></i>
+                            <i class="fa-solid fa-car text-4xl"></i>
                             <p class="text-white">Car</p>
                         </div>
                     </label>
                     <label for="premium" class="labl">
                         <input type="radio" id="premium" name="vehicle_type" value="2">
                         <div class="text-white">
-                            <i class="fa-solid fa-car-rear text-4xl" style="color: #ffffff;"></i>
+                            <i class="fa-solid fa-car-rear text-4xl"></i>
                             <p class="text-white">Premium</p>
                         </div>
                     </label>
                     <label for="motorcycle" class="labl">
                         <input type="radio" id="motorcycle" name="vehicle_type" value="3">
                         <div class="text-white">
-                            <i class="fa-solid fa-motorcycle text-4xl" style="color: #ffffff;"></i>
+                            <i class="fa-solid fa-motorcycle text-4xl"></i>
                             <p class="text-white">Motorcycle</p>
                         </div>
                     </label>
                 </div>
-                <br>
                 <div class="flex justify-center">
-                    <div class="grid grid-cols-3 text-gray-600 w-full">
+                    <div class="grid grid-cols-3 w-full text-White">
                         <div class="w-full">
-                            <p class="text-white ml-1">Rental Location</p>
+                            <p class="ml-1">Rental Location</p>
                             <select name="location" id=""
-                                class="text-xl h-14 w-full border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 rounded-l-2xl px-4">
+                                class="text-xl h-14 w-full border-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 rounded-l-2xl rounded-r-none px-4">
                                 <option value="" disabled selected>Pick a Location</option>
                                 <option value="Palmerah">Palmerah</option>
                                 <option value="Kebon Jeruk">Kebon Jeruk</option>
@@ -87,21 +90,20 @@
                             </select>
                         </div>
                         <div>
-                            <p class="text-white ml-1">Start Date</p>
+                            <p class="ml-1">Start Date</p>
                             <input type="datetime-local" name="start-date"
-                                class="text-xl h-14 border-y-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full px-4">
+                                class="text-xl h-14 border-y-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 w-full px-4">
                         </div>
                         <div>
-                            <p class="text-white ml-1">Finish Date</p>
+                            <p class="ml-1">Finish Date</p>
                             <input type="datetime-local" name="finish-date"
-                                class="text-xl h-14 border-2 border-gray-500 cursor-pointer bg-[#f3f3f3] bg-opacity-60 w-full px-4">
+                                class="text-xl h-14 border-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 w-full px-4">
                         </div>
                     </div>
-                    <div>
-                        <p class="opacity-0">p</p>
+                    <div class="flex items-end">
                         <a href="/searchresult">
                             <button
-                                class="bg-gradient-to-b from-[#F6AA40] to-[#D9822D] rounded-r-2xl w-14 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer hover:opacity-80"><i
+                                class="bg-gradient-to-b from-OrangeA to-OrangeB rounded-r-2xl w-14 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer hover:opacity-80"><i
                                     class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i></button>
                         </a>
                     </div>

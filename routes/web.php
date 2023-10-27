@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/','/home');
+
 // Route::get('/navbar', function () {
 //     return view('navbar');
 // });
