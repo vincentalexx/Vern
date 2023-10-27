@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +46,8 @@ Route::get('/profile', function (){
     return view('profile');
 });
 
-Route::get('/order', function(){
-    return view('order');
-});
+Route::get('/order', [OrderController::class, 'orderform'])->name('order.form');
+Route::post('/order', [OrderController::class, 'orderplace'])->name('order.place');
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
@@ -57,3 +58,5 @@ Route::get('/card_details', function(){
 Route::get('/success', function(){
     return view('success');
 });
+
+Route::get('/vehicle/{id}', [VehicleController::class, 'detail'])->name('vehicle.detail');

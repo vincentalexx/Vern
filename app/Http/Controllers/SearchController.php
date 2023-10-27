@@ -12,7 +12,7 @@ class SearchController extends Controller
         $request -> validate([
             'location' => 'required|not_in:0',
             'startDate' => 'required',
-            'finishDate' => 'required',
+            'finishDate' => 'required|after:startDate',
         ]);
         $type = $request->vehicle_type;
         $startDate = $request->startDate;
@@ -22,7 +22,7 @@ class SearchController extends Controller
         ->get();
         $results = $vehicles->filter(function ($vehicle) use ($startDate, $endDate) {
             return $this->checkAvailabilityForTimeRange($vehicle->id, $startDate, $endDate);
-        });
+        })->values();
         return view('search', ['results' => $results, 'startDate' => $startDate, 'endDate' => $endDate]);
     }
 

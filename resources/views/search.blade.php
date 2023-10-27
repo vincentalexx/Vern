@@ -300,8 +300,7 @@
                     {{-- TBD: flex wrap but fit by width --}}
                     <div class="flex flex-wrap justify-center md:justify-normal gap-8">
                         @foreach ($results as $result)
-                            <a href="/card_details">
-                                {{-- <a href="/vehicle/:id?startDate=&endDate="> --}}
+                            <a href="{{ route('vehicle.detail', ['id' => $result->id, 'startDate' => $startDate, 'endDate' => $endDate]) }}">
                                 <div class="flex flex-col rounded-md shadow-md">
                                     {{-- <img src="{{ asset('/images/vehicles/{{$results->image}}.png') }}" alt="" class="max-h-[180px]"> --}}
                                     <img src="{{ asset('/images/accord.png') }}" alt=""

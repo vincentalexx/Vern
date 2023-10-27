@@ -90,7 +90,7 @@
                                 @endforeach
                             </select>
                             @error('location')
-                                <div class="text-red-500">Please fill location</div>
+                                <div class="text-red-500">{{ $message }}</div>
                             @enderror
                         </div>
                         <div>
@@ -98,7 +98,7 @@
                             <input type="datetime-local" name="startDate"
                                 class="text-xl h-14 border-y-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 w-full px-4 @error('startDate') border-red-500 @enderror">
                             @error('startDate')
-                                <div class="text-red-500">Please fill start date</div>
+                                <div class="text-red-500">{{ $message }}</div>
                             @enderror
                         </div>
                         <div>
@@ -106,12 +106,12 @@
                             <input type="datetime-local" name="finishDate"
                                 class="text-xl h-14 border-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 w-full px-4 @error('finishDate') border-red-500 @enderror">
                             @error('finishDate')
-                                <div class="text-red-500">Please fill finish date</div>
+                                <div class="text-red-500">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                     <div class="flex items-end @if ($errors->any()) items-center @endif">
-                        <button action="submit"
+                        <button type="submit"
                             class="bg-gradient-to-b from-OrangeA to-OrangeB rounded-r-2xl w-14 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer hover:opacity-80"><i
                                 class="fa-solid fa-magnifying-glass fa-xl text-white"></i></button>
                     </div>

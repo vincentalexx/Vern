@@ -1,7 +1,7 @@
 <div class="h-[10vh] bg-Primary fixed top-0 z-20 w-full border-b-2 border-slate-700">
     <div class="container justify-between flex mx-auto h-full items-center">
         <a href="/home" class="h-full flex items-center">
-            <img src="images/logo.png" class="h-3/4" alt="">
+            <img src="/images/logo.png" class="h-3/4" alt="">
         </a>
         <ul class="flex items-center text-white text-xl gap-8">
             <li class="font-semibold"><a href="/order">Rent</a></li>
