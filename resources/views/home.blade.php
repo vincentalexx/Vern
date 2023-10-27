@@ -53,7 +53,8 @@
                 Anytime
                 You
                 Want With Our Rental Services!</h1>
-            <div class="flex flex-col gap-6">
+            <form method="GET" action="{{ route('search') }}" class="flex flex-col gap-6">
+                @csrf
                 <div class="grid grid-cols-3 text-center">
                     <label for="car" class="labl">
                         <input type="radio" id="car" name="vehicle_type" value="1" checked>
@@ -82,33 +83,40 @@
                         <div class="w-full">
                             <p class="ml-1">Rental Location</p>
                             <select name="location" id=""
-                                class="text-xl h-14 w-full border-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 rounded-l-2xl rounded-r-none px-4">
-                                <option value="" disabled selected>Pick a Location</option>
-                                <option value="Palmerah">Palmerah</option>
-                                <option value="Kebon Jeruk">Kebon Jeruk</option>
-                                <option value="Tanah Abang">Tanah Abang</option>
+                                class="text-xl h-14 w-full border-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 rounded-l-2xl rounded-r-none px-4 @error('location') border-red-500 @enderror">
+                                <option value="0" disabled selected>Pick a Location</option>
+                                @foreach ($locations as $location)
+                                    <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                @endforeach
                             </select>
+                            @error('location')
+                                <div class="text-red-500">Please fill location</div>
+                            @enderror
                         </div>
                         <div>
                             <p class="ml-1">Start Date</p>
-                            <input type="datetime-local" name="start-date"
-                                class="text-xl h-14 border-y-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 w-full px-4">
+                            <input type="datetime-local" name="startDate"
+                                class="text-xl h-14 border-y-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 w-full px-4 @error('startDate') border-red-500 @enderror">
+                            @error('startDate')
+                                <div class="text-red-500">Please fill start date</div>
+                            @enderror
                         </div>
                         <div>
                             <p class="ml-1">Finish Date</p>
-                            <input type="datetime-local" name="finish-date"
-                                class="text-xl h-14 border-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 w-full px-4">
+                            <input type="datetime-local" name="finishDate"
+                                class="text-xl h-14 border-2 border-gray-500 cursor-pointer bg-homeInput text-black/[0.3] bg-opacity-70 w-full px-4 @error('finishDate') border-red-500 @enderror">
+                            @error('finishDate')
+                                <div class="text-red-500">Please fill finish date</div>
+                            @enderror
                         </div>
                     </div>
-                    <div class="flex items-end">
-                        <a href="/searchresult">
-                            <button
-                                class="bg-gradient-to-b from-OrangeA to-OrangeB rounded-r-2xl w-14 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer hover:opacity-80"><i
-                                    class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i></button>
-                        </a>
+                    <div class="flex items-end @if ($errors->any()) items-center @endif">
+                        <button action="submit"
+                            class="bg-gradient-to-b from-OrangeA to-OrangeB rounded-r-2xl w-14 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer hover:opacity-80"><i
+                                class="fa-solid fa-magnifying-glass fa-xl text-white"></i></button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>

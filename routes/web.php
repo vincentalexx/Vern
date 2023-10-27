@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +38,7 @@ Route::get('/history', function(){
     return view('history');
 });
 
-Route::get('/home', function (){
-    return view('home');
-});
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 Route::get('/profile', function (){
     return view('profile');
@@ -48,9 +48,7 @@ Route::get('/order', function(){
     return view('order');
 });
 
-Route::get('/searchresult', function(){
-    return view('searchresult');
-});
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/card_details', function(){
     return view('card_details');

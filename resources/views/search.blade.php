@@ -273,59 +273,68 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col gap-6 mb-16 w-full">
-                <div class="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
-                    <div class="flex flex-col">
-                        <p class="text-4xl font-bold">Search Results</p>
-                        <p class="font-semibold">for Soekarno Hatta International Airport (CGK) • Thursday, 12 October
-                            2023 09:00 -
-                            Saturday,
-                            14 October 2023</p>
-                    </div>
-                    <div class="flex gap-2 items-center">
-                        <p class="font-semibold">Sort: </p>
-                        <select name="sort" id="sort"
-                            class="border px-3 py-1 border-sortBorder rounded-md bg-right min-w-[160px]">
-                            <option value="featured">Featured</option>
-                            <option value="price">Price</option>
-                            <option value="rating">Rating</option>
-                        </select>
-                    </div>
+            @if ($results->isEmpty())
+                <div class="w-full flex flex-col items-center mt-16">
+                    <p class="text-2xl font-semibold">No results found</p>
+                    <p class="text-lg">Please try again with different search criteria</p>
                 </div>
-                {{-- TBD: flex wrap but fit by width --}}
-                <div class="flex flex-wrap justify-center md:justify-normal gap-8">
-                    @for ($x = 0; $x < 8; $x++)
-                        <a href="/card_details">
-                            <div class="flex flex-col rounded-md shadow-md">
-                                <img src="{{ asset('/images/accord.png') }}" alt="" class="max-h-[180px]">
-                                <div class="flex justify-between px-4 pt-2 pb-4 gap-16">
-                                    <div class="flex flex-col gap-1">
-                                        <p class="text-lg font-semibold">Honda Accord 2023</p>
-                                        <div class="grid grid-cols-3 w-fit contents-center grid-flow-dense">
-                                            <div class="w-min justify-self-center">
-                                                <i class="fa-solid fa-gears"></i>
-                                            </div>
-                                            <div class="col-span-2">
-                                                <small>Automatic</small>
-                                            </div>
-                                            <div class="w-min justify-self-center">
-                                                <i class="fa-solid fa-gas-pump"></i>
-                                            </div>
-                                            <div class="col-span-2">
-                                                <small>Hybrid</small>
+            @else
+                <div class="flex flex-col gap-6 mb-16 w-full">
+                    <div class="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
+                        <div class="flex flex-col">
+                            <p class="text-4xl font-bold">Search Results</p>
+                            <p class="font-semibold">for {{ $results[0]->location->name }} •
+                                {{ date('D, d M Y H:i', strtotime($startDate)) }} -
+                                {{ date('D, d M Y H:i', strtotime($endDate)) }}</p>
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <p class="font-semibold">Sort: </p>
+                            <select name="sort" id="sort"
+                                class="border px-3 py-1 border-sortBorder rounded-md bg-right min-w-[160px]">
+                                <option value="featured">Featured</option>
+                                <option value="price">Price</option>
+                                <option value="rating">Rating</option>
+                            </select>
+                        </div>
+                    </div>
+                    {{-- TBD: flex wrap but fit by width --}}
+                    <div class="flex flex-wrap justify-center md:justify-normal gap-8">
+                        @foreach ($results as $result)
+                            <a href="/card_details">
+                                {{-- <a href="/vehicle/:id?startDate=&endDate="> --}}
+                                <div class="flex flex-col rounded-md shadow-md">
+                                    {{-- <img src="{{ asset('/images/vehicles/{{$results->image}}.png') }}" alt="" class="max-h-[180px]"> --}}
+                                    <img src="{{ asset('/images/accord.png') }}" alt=""
+                                        class="max-h-[180px]">
+                                    <div class="flex justify-between px-4 pt-2 pb-4 gap-16">
+                                        <div class="flex flex-col gap-1">
+                                            <p class="text-lg font-semibold">{{ $result->fullname }}</p>
+                                            <div class="grid grid-cols-3 w-fit contents-center grid-flow-dense">
+                                                <div class="w-min justify-self-center">
+                                                    <i class="fa-solid fa-gears"></i>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <small>{{ $result->transmission }}</small>
+                                                </div>
+                                                <div class="w-min justify-self-center">
+                                                    <i class="fa-solid fa-gas-pump"></i>
+                                                </div>
+                                                <div class="col-span-2">
+                                                    <small>{{ $result->fuel }}</small>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <p class="text-lg font-semibold">Rp. 900.000</p>
-                                        <p class="text-sm text-right">/ Day</p>
+                                        <div class="flex flex-col">
+                                            <p class="text-lg font-semibold">Rp. {{ rupiah($result->price) }}</p>
+                                            <p class="text-sm text-right">/ Day</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    @endfor
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
     <script>
