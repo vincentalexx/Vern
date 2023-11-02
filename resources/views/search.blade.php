@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('title', 'Search')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css'])
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-{{-- TBD: hover --}}
-
-<body style="background: #F7F9FA">
-    <x-navbar />
+@section('content')
     <div class="min-h-screen h-screen container mx-auto my-10 text-Gray pt-[10vh]">
         <div class="flex gap-8">
             <div class="flex drop-shadow mb-16 flex-col">
@@ -300,11 +286,11 @@
                     {{-- TBD: flex wrap but fit by width --}}
                     <div class="flex flex-wrap justify-center md:justify-normal gap-8">
                         @foreach ($results as $result)
-                            <a href="{{ route('vehicle.detail', ['id' => $result->id, 'startDate' => $startDate, 'endDate' => $endDate]) }}">
+                            <a
+                                href="{{ route('vehicle.detail', ['id' => $result->id, 'startDate' => $startDate, 'endDate' => $endDate]) }}">
                                 <div class="flex flex-col rounded-md shadow-md">
                                     {{-- <img src="{{ asset('/images/vehicles/{{$results->image}}.png') }}" alt="" class="max-h-[180px]"> --}}
-                                    <img src="{{ asset('/images/accord.png') }}" alt=""
-                                        class="max-h-[180px]">
+                                    <img src="{{ asset('/images/accord.png') }}" alt="" class="max-h-[180px]">
                                     <div class="flex justify-between px-4 pt-2 pb-4 gap-16">
                                         <div class="flex flex-col gap-1">
                                             <p class="text-lg font-semibold">{{ $result->fullname }}</p>
@@ -344,6 +330,4 @@
             });
         });
     </script>
-</body>
-
-</html>
+@endsection

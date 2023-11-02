@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @vite(['resources/css/app.css'])
+@extends('layouts.app')
+@section('title', 'Home')
+@push('styles')
     <style>
         .labl>input {
             display: none;
@@ -39,15 +30,9 @@
             opacity: 1;
         }
     </style>
+@endpush
 
-</head>
-
-<body>
-    @if (Auth::check())
-        <x-navbar />
-    @else
-        <x-guestNavbar />
-    @endif
+@section('content')
     <div class="w-screen h-screen flex justify-center items-center bg-cover bg-blend-multiply bg-black bg-opacity-70"
         style="background-image: url('{{ asset('images/mobil.jpg') }}'); ">
         <div class="space-y-24">
@@ -122,6 +107,4 @@
             </form>
         </div>
     </div>
-</body>
-
-</html>
+@endsection
