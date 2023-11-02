@@ -20,11 +20,11 @@
                     <p class="font-bold">Sign up</p>
                     <i class="fa-solid fa-xmark"></i>
                 </div>
-                <div
+                <a href="{{ route('auth.google') }}"
                     class="border border-sortBorder rounded-xl cursor-pointer w-full py-3 flex justify-center items-center gap-x-2">
                     <i class="fa-brands fa-google"></i>
                     <p class="text-xl font-semibold">Sign up with Google</p>
-                </div>
+                </a>
             </div>
             <form method="POST" action="{{ route('auth.signup') }}" class="flex flex-col py-2 gap-y-3">
                 @csrf

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -15,7 +16,7 @@ class AuthController extends Controller
         ]);
 
         if(User::where('email', $request->email)->value('google_id') != null){
-            $request->session()->put('error', 'Please login using google!');
+            $request->session()->put('authError', 'Please login using google!');
             return redirect()->back();
         }
 
@@ -46,5 +47,33 @@ class AuthController extends Controller
             'password' => bcrypt($request->password)
         ]);
         return redirect()->route('login');
+    }
+
+    public function google(){
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function googleCallback(){
+        $googleUser = Socialite::driver('google')->user();
+        // $user = User::updateOrCreate([
+        //     'google_id' => $googleUser->getId(),
+        // ], [
+        //     'name' => $googleUser->getName(),
+        //     'email' => $googleUser->getEmail(),
+        //     'password' => '',
+        // ]);
+        $user;
+        if(User::where('google_id', $googleUser->getId())->exists()){
+            $user = User::where('google_id', $googleUser->getId())->first();
+        }else{
+            $user = User::factory()->create([
+                'name' => $googleUser->getName(),
+                'email' => $googleUser->getEmail(),
+                'google_id' => $googleUser->getId(),
+                'password' => '',
+            ]);
+        }
+        Auth::login($user);
+        return redirect()->route('home');
     }
 }

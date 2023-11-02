@@ -42,6 +42,9 @@ Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
+Route::get("/auth/google", [AuthController::class, 'google'])->name("auth.google");
+Route::get("/auth/google/callback", [AuthController::class, 'googleCallback'])->name("auth.google_callback");
+
 Route::get('/history', function(){
     return view('history');
 })->name('history');
