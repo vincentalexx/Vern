@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Vehicle;
 use Carbon\Carbon;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
+use App\Services\Midtrans\CreateSnapToken;
 
 class OrderController extends Controller
 {
@@ -31,7 +33,7 @@ class OrderController extends Controller
         $duration = $this->durationCount($request->startDate, $request->endDate);
         $totalPrice = $duration * $vehicle->price;
         $order = [
-            'user_id' => 1, // ini kalo udah ada auth, sementara bound to user 1
+            'user_id' => Auth::user()->id,
             'vehicle_id' => $request->vehicle_id,
             'start_time' => $request->startDate,
             'end_time' => $request->endDate,
@@ -41,12 +43,40 @@ class OrderController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
             'total_price' => $totalPrice,
-            'payment_type' => 1, // 1 = cash, 2 = midtrans (sementara default ke cash karena belum ada popup sama logic midtransnya)
+            'payment_type' => 0, // 1 = cash, 2 = midtrans (sementara default ke cash karena belum ada popup sama logic midtransnya)
             'payment_ref' => '',
-            'status' => 2, // 1 = menunggu pembayaran, 2 = menunggu konfirmasi, 3 = sedang berlangsung, 4 = selesai, 5 = dibatalkan
+            'status' => 1, // 1 = menunggu pembayaran, 2 = menunggu konfirmasi, 3 = sedang berlangsung, 4 = selesai, 5 = dibatalkan
         ];
-        Order::create($order);
-        return view('success');
+        $order = Order::create($order);
+        return view('payment', ['order' => $order]);
+    }
+
+    public function pay(Request $request){
+        $request->validate([
+            'metode' => 'not_in:0',
+        ]);
+        $order = Order::find($request->id);
+
+        if($request->metode == 1){
+            $order->payment_type = 1;
+            $order->status = 2;
+            $order->save();
+            return redirect()->route('success');
+        }
+        else if($request->metode == 2){
+            $order->payment_type = 2;
+            $midtrans = new CreateSnapToken($order);
+            $url = $midtrans->getRedirectURL();
+            return redirect($url);
+        }
+    }
+
+    public function midtransCallback(Request $request){
+        if($request->transaction_status == 'capture' || $request->transaction_status == 'settlement'){
+            $order = Order::where('id', $request->order_id)->first();
+            $order->status = 2;
+            $order->save();
+        }
     }
 
     private function durationCount($startTime, $endTime){

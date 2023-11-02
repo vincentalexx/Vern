@@ -31,13 +31,11 @@ Route::redirect('/','/home');
 Route::get('/signup', function(){
     return view('signup');
 })->name('signup');
-
 Route::post('/signup', [AuthController::class, 'signup'])->name('auth.signup');
 
 Route::get('/login', function(){
     return view('login');
 })->name('login');
-
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
@@ -45,23 +43,26 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get("/auth/google", [AuthController::class, 'google'])->name("auth.google");
 Route::get("/auth/google/callback", [AuthController::class, 'googleCallback'])->name("auth.google_callback");
 
-Route::get('/history', function(){
-    return view('history');
-})->name('history');
-
 Route::get('/home', [HomeController::class, 'home'])->name('home');
-
-Route::get('/profile', function (){
-    return view('profile');
-})->name('profile');
-
-Route::get('/order', [OrderController::class, 'orderform'])->name('order.form');
-Route::post('/order', [OrderController::class, 'orderplace'])->name('order.place');
-
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-Route::get('/success', function(){
-    return view('success');
-})->name('success');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/vehicle/{id}', [VehicleController::class, 'detail'])->name('vehicle.detail');
 
-Route::get('/vehicle/{id}', [VehicleController::class, 'detail'])->name('vehicle.detail');
+    Route::get('/history', function(){
+        return view('history');
+    })->name('history');
+
+    Route::get('/profile', function (){
+        return view('profile');
+    })->name('profile');
+
+    Route::get('/order', [OrderController::class, 'orderform'])->name('order.form');
+    Route::post('/order/pay', [OrderController::class, 'orderplace'])->name('order.place');
+    Route::post('/order/pay/confirm', [OrderController::class, 'pay'])->name('order.pay');
+    Route::get('/order/success', function(){
+        return view('success');
+    })->name('success');
+});
+
+Route::post('/midtrans/callback', [OrderController::class, 'midtransCallback'])->name('midtrans.callback');
