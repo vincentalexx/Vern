@@ -43,8 +43,11 @@
 </head>
 
 <body>
-    {{--    <x-navbar /> --}}
-    <x-clearnavbar />
+    @if (Auth::check())
+        <x-navbar />
+    @else
+        <x-guestNavbar />
+    @endif
     <div class="w-screen h-screen flex justify-center items-center bg-cover bg-blend-multiply bg-black bg-opacity-70"
         style="background-image: url('{{ asset('images/mobil.jpg') }}'); ">
         <div class="space-y-24">
@@ -110,7 +113,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="flex items-end @if ($errors->any()) items-center @endif">
+                    <div class="flex {{ $errors->any() ? 'items-center' : 'items-end' }}">
                         <button type="submit"
                             class="bg-gradient-to-b from-OrangeA to-OrangeB rounded-r-2xl w-14 h-14 border-y-2 border-r-2 border-gray-500 cursor-pointer hover:opacity-80"><i
                                 class="fa-solid fa-magnifying-glass fa-xl text-white"></i></button>
