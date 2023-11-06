@@ -287,27 +287,28 @@
                     <div class="flex flex-wrap justify-center md:justify-normal gap-8">
                         @foreach ($results as $result)
                             <a
-                                href="{{ route('vehicle.detail', ['id' => $result->id, 'startDate' => $startDate, 'endDate' => $endDate]) }}">
+                                href="{{ route('vehicle.detail', ['id' => $result->id, 'startDate' => strtotime($startDate), 'endDate' => strtotime($endDate)]) }}">
                                 <div class="flex flex-col rounded-md shadow-md px-2 py-4 my-auto gap-8">
                                     {{-- <img src="{{ asset('/images/vehicles/{{$results->image}}.png') }}" alt="" class="max-h-[180px]"> --}}
-                                    <img src="{{ asset('/images/accord.png') }}" alt="" class="max-h-[120px] max-w-full">
+                                    <img src="{{ asset('/images/accord.png') }}" alt=""
+                                        class="max-h-[120px] max-w-full">
                                     <div class="flex flex-col justify-between px-4 pt-2">
                                         <div class="flex flex-col gap-1">
                                             <p class="text-lg font-normal">{{ $result->fullname }}</p>
-{{--                                            <div class="grid grid-cols-3 w-fit contents-center grid-flow-dense">--}}
-{{--                                                <div class="w-min justify-self-center">--}}
-{{--                                                    <i class="fa-solid fa-gears"></i>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="col-span-2">--}}
-{{--                                                    <small>{{ $result->transmission }}</small>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="w-min justify-self-center">--}}
-{{--                                                    <i class="fa-solid fa-gas-pump"></i>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="col-span-2">--}}
-{{--                                                    <small>{{ $result->fuel }}</small>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                                            {{-- <div class="grid grid-cols-3 w-fit contents-center grid-flow-dense"> --}}
+                                            {{--    <div class="w-min justify-self-center"> --}}
+                                            {{--        <i class="fa-solid fa-gears"></i> --}}
+                                            {{--    </div> --}}
+                                            {{--    <div class="col-span-2"> --}}
+                                            {{--        <small>{{ $result->transmission }}</small> --}}
+                                            {{--    </div> --}}
+                                            {{--    <div class="w-min justify-self-center"> --}}
+                                            {{--        <i class="fa-solid fa-gas-pump"></i> --}}
+                                            {{--    </div> --}}
+                                            {{--    <div class="col-span-2"> --}}
+                                            {{--        <small>{{ $result->fuel }}</small> --}}
+                                            {{--    </div> --}}
+                                            {{-- </div> --}}
                                         </div>
                                         <div class="flex">
                                             <p class="text-lg font-bold">Rp. {{ rupiah($result->price) }}</p>

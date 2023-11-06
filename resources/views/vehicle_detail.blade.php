@@ -12,10 +12,11 @@
     @vite(['resources/css/app.css'])
 </head>
 
-<body class="overflow-y-hidden">
+<body class="md:overflow-y-hidden">
     <x-navbar />
-    <div class="container min-h-screen mt-[16vh] mx-auto h-screen flex text-Gray">
-        <div class="w-1/2 flex flex-col gap-y-32">
+    <div
+        class="container min-h-screen mt-[16vh] mx-auto h-screen flex flex-col md:flex-row gap-16 md:gap-0 text-Gray px-6 md:px-0">
+        <div class="md:w-1/2 flex flex-col gap-y-8 md:gap-y-32">
             <div>
                 <a onclick="window.history.back()" class="cursor-pointer">
                     <i class="fa-solid fa-chevron-left text-3xl"></i>
@@ -24,7 +25,7 @@
             <img src="/images/accord.png" class="max-w-[80%] self-center" alt="">
             {{-- <img src="/images/vehicle/:id.png" class="max-w-[80%] self-center" alt=""> --}}
         </div>
-        <div class="w-1/2 flex flex-col gap-8 divide-y-2 divide-borderColor overflow-y-scroll max-h-[75vh]">
+        <div class="md:w-1/2 flex flex-col gap-8 divide-y-2 divide-borderColor md:overflow-y-scroll max-h-[75vh]">
             <div class="">
                 <h1 class="font-bold text-4xl">{{ $vehicle->fullname }}</h1>
                 <p>Has been Rented 400+ times • <i class="fa-sharp fa-solid fa-star text-OrangeA"></i>4.5
@@ -65,11 +66,32 @@
                 <form action="{{ route('order.form') }}" method="GET">
                     @csrf
                     <input type="hidden" name="vehicle_id" value="{{ $vehicle->id }}">
-                    <input type="hidden" name="startDate" value="{{ $startDate }}">
-                    <input type="hidden" name="endDate" value="{{ $endDate }}">
-                    <h3 class="font-bold">Rent Now:</h3>
-                    <button type="submit"
-                        class="mt-1 py-1 w-28 text-xl font-semibold bg-gradient-to-b from-OrangeA to-OrangeB text-white rounded-md hover:opacity-80">Rent</button>
+                    <input type="hidden" name="startDate" value="{{ $startDate }}"
+                        @if ($startDate == null) disabled @endif>
+                    <input type="hidden" name="endDate" value="{{ $endDate }}"
+                        @if ($endDate == null) disabled @endif>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex flex-col">
+                            <p>Start Date</p>
+                            <input type="datetime-local" name="startDate"
+                                @if ($startDate != null) value="{{ date('Y-m-d', $startDate) . 'T' . date('H:i', $startDate) }}" @endif
+                                class="border rounded-sm px-2"
+                                @if ($startDate != null) disabled @else required @endif>
+                        </div>
+                        <div class="flex flex-col">
+                            <p>End Date</p>
+                            <input type="datetime-local" name="endDate"
+                                @if ($endDate != null) value="{{ date('Y-m-d', $endDate) . 'T' . date('H:i', $endDate) }}" @endif
+                                class="border rounded-sm px-2"
+                                @if ($endDate != null) disabled @else required @endif>
+                        </div>
+                    </div>
+                    <p class="pt-2 text-red-500">{{ Session::pull('error') }}</p>
+                    <div class="pt-2">
+                        <h3 class="font-bold">Rent Now:</h3>
+                        <button type="submit"
+                            class="mt-1 py-1 w-28 text-xl font-semibold bg-gradient-to-b from-OrangeA to-OrangeB text-white rounded-md hover:opacity-80">Rent</button>
+                    </div>
 
                 </form>
             </div>

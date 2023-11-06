@@ -13,8 +13,18 @@ class OrderController extends Controller
 {
     public function orderform(Request $request){
         $vehicle = Vehicle::find($request->vehicle_id);
-        $duration = $this->durationCount($request->startDate, $request->endDate);
-        return view('order', ['vehicle' => $vehicle, 'startDate' => $request->startDate, 'endDate' => $request->endDate, 'duration' => $duration]);
+        $startDate = $request->startDate;
+        $endDate = $request->endDate;
+        if(intval($startDate) > 10000 && intval($endDate) > 10000){
+            $startDate = date('c', $request->startDate);
+            $endDate = date('c', $request->endDate);
+        }
+        if(!$this->checkAvailabilityForTimeRange($vehicle->id, $startDate, $endDate)){
+            $request->session()->put('error', 'Kendaraan tidak tersedia di tanggal yang dipilih');
+            return redirect()->back();
+        }
+        $duration = $this->durationCount($startDate, $endDate);
+        return view('order', ['vehicle' => $vehicle, 'startDate' => $startDate, 'endDate' => $endDate, 'duration' => $duration]);
     }
 
     public function orderplace(Request $request){
@@ -90,5 +100,16 @@ class OrderController extends Controller
             $duration = (((int) ($minutesDiff/1440)) + 1);
         }
         return $duration;
+    }
+    private function checkAvailabilityForTimeRange($vehicleId, $startTime, $endTime)
+    {
+        $isAvailable = !Order::where('vehicle_id', $vehicleId)
+            ->where(function ($query) use ($startTime, $endTime) {
+                $query->where('start_time', '<', $endTime)
+                    ->where('end_time', '>', $startTime);
+            })
+            ->exists();
+
+        return $isAvailable;
     }
 }

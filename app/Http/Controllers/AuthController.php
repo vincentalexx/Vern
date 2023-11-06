@@ -53,7 +53,7 @@ class AuthController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
-    public function googleCallback(){
+    public function googleCallback(Request $request){
         $googleUser = Socialite::driver('google')->user();
         // $user = User::updateOrCreate([
         //     'google_id' => $googleUser->getId(),
@@ -63,14 +63,17 @@ class AuthController extends Controller
         //     'password' => '',
         // ]);
         $user;
-        if(User::where('google_id', $googleUser->getId())->exists()){
+        if(User::where('email', $googleUser->getEmail())->exists()){
             $user = User::where('google_id', $googleUser->getId())->first();
+            if($user == NULL){
+                $request->session()->put('authError', 'Please login using email!');
+                return redirect()->route('login');
+            }
         }else{
             $user = User::factory()->create([
                 'name' => $googleUser->getName(),
                 'email' => $googleUser->getEmail(),
                 'google_id' => $googleUser->getId(),
-                'password' => '',
             ]);
         }
         Auth::login($user);
