@@ -28,7 +28,7 @@
         <div class="md:w-1/2 flex flex-col gap-8 divide-y-2 divide-borderColor md:overflow-y-scroll max-h-[75vh]">
             <div class="">
                 <h1 class="font-bold text-4xl">{{ $vehicle->fullname }}</h1>
-                <p>Has been Rented 400+ times • <i class="fa-sharp fa-solid fa-star text-OrangeA"></i>4.5
+                <p>Has been Rented 500+ times • <i class="fa-sharp fa-solid fa-star text-OrangeA"></i>4.5
                     (248 Ratings)</p>
                 <h1 class="font-bold text-5xl mt-3">Rp. {{ rupiah($vehicle->price) }}/Day</h1>
             </div>
