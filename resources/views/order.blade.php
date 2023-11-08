@@ -135,6 +135,7 @@
                                                 class="text-xl font-semibold bg-gradient-to-b from-OrangeA to-OrangeB text-white hover:opacity-80 rounded-md h-10 w-32 tracking-widest ">Continue</button>
                                         </div>
                                     </div>
+                                    <p class="pt-2 text-red-500">{{ Session::pull('error') }}</p>
                                     @if ($errors->has('vehicle_id') || $errors->has('startDate') || $errors->has('endDate'))
                                         <p class="text-red-500 text-sm pt-8">Error in passing data to server, please
                                             try

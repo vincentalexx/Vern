@@ -66,3 +66,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::post('/midtrans/callback', [OrderController::class, 'midtransCallback'])->name('midtrans.callback');
+Route::get('/mailable', function(){
+    $order = App\Models\Order::where('user_id', 1)->first();
+    return new App\Mail\OrderSuccess($order);
+}); // ini buat test email
