@@ -76,12 +76,13 @@ class OrderController extends Controller
             $order->payment_type = 1;
             $order->status = 2;
             $order->save();
-            Mail::to('testing@vern.dta32.my.id')->send(new OrderSuccess($order)); // ga dikirim ke email yang diinput, tapi ke testing
-            // Mail::to($order->email)->send(new OrderSuccess($order)); // disable on development, kalo mau coba uncomment aja
+            Mail::to('adm.vern@gmail.com')->send(new OrderSuccess($order)); // ga dikirim ke email yang diinput, tapi ke email kita
+            // Mail::to($order->email)->send(new OrderSuccess($order)); // real case but disable on development, kalo mau coba uncomment aja
             return redirect()->route('success');
         }
         else if($request->metode == 2){
             $order->payment_type = 2;
+            $order->save();
             $midtrans = new CreateSnapToken($order);
             $url = $midtrans->getRedirectURL();
             return redirect($url);
@@ -92,9 +93,10 @@ class OrderController extends Controller
         if($request->transaction_status == 'capture' || $request->transaction_status == 'settlement'){
             $order = Order::where('id', $request->order_id)->first();
             $order->status = 2;
+            $order->payment_ref = $request->transaction_id;
             $order->save();
-            Mail::to('testing@vern.dta32.my.id')->send(new OrderSuccess($order)); // ga dikirim ke email yang diinput, tapi ke testing
-            // Mail::to($order->email)->send(new OrderSuccess($order)); // disable on development, kalo mau coba uncomment aja
+            Mail::to('adm.vern@gmail.com')->send(new OrderSuccess($order)); // ga dikirim ke email yang diinput, tapi ke email kita
+            // Mail::to($order->email)->send(new OrderSuccess($order)); // real case but disable on development, kalo mau coba uncomment aja
         }
     }
 

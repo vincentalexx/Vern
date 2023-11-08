@@ -10,14 +10,10 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Order;
-use MailerSend\Helpers\Builder\Variable;
-use MailerSend\Helpers\Builder\Personalization;
-use MailerSend\LaravelDriver\MailerSendTrait;
-use Illuminate\Support\Arr;
 
 class OrderSuccess extends Mailable
 {
-    use Queueable, SerializesModels, MailerSendTrait;
+    use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
@@ -58,34 +54,4 @@ class OrderSuccess extends Mailable
         return [];
     }
 
-    // public function build()
-    // {
-    //     $to = Arr::get($this->to, '0.address');
-
-    //     return $this->view('emails.ordersuccess')
-    //         ->mailersend(
-    //             null,
-    //             [
-    //                 new Variable($to, ['name' => 'Your Name'])
-    //             ],
-    //             ['tag'],
-    //             [
-    //                 new Personalization($to, [
-    //                     'var' => 'variable',
-    //                     'number' => 123,
-    //                     'object' => [
-    //                         'key' => 'object-value'
-    //                     ],
-    //                     'objectCollection' => [
-    //                         [
-    //                             'name' => 'MailerSend'
-    //                         ],
-    //                         [
-    //                             'name' => 'Guru'
-    //                         ]
-    //                     ],
-    //                 ])
-    //             ]
-    //         );
-    // }
 }

@@ -55,13 +55,6 @@ class AuthController extends Controller
 
     public function googleCallback(Request $request){
         $googleUser = Socialite::driver('google')->user();
-        // $user = User::updateOrCreate([
-        //     'google_id' => $googleUser->getId(),
-        // ], [
-        //     'name' => $googleUser->getName(),
-        //     'email' => $googleUser->getEmail(),
-        //     'password' => '',
-        // ]);
         $user;
         if(User::where('email', $googleUser->getEmail())->exists()){
             $user = User::where('google_id', $googleUser->getId())->first();

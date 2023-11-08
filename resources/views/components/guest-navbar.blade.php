@@ -6,7 +6,7 @@
                 class="h-3/4" alt="">
         </a>
         <ul class="flex items-center text-white text-xl gap-8">
-            <li class="font-semibold"><a href="{{ route('order.form') }}">Rent</a></li>
+            <li class="font-semibold"><a href="{{ route('home') }}">Rent</a></li>
             <li class="font-semibold"><a href="{{ route('history') }}">Orders</a></li>
             <li>
                 <a href="{{ route('login') }}">
