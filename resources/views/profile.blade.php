@@ -54,7 +54,7 @@
                 </div>
                 <div class="text-right mt-[7.4px]">
                     <button class="border-2 border-black h-10 w-24 font-semibold rounded-[4px] mr-2">Back</button>
-                    <button class="bg-gradient-to-b from-Orange to-orange-600 text-white hover:opacity-80 font-semibold rounded-[4px] h-10 w-36">Save Changes</button>
+                    <button class="border-2 border-black hover:opacity-80 font-semibold rounded-[4px] h-10 w-36" >Save Changes</button>
                 </div>
             </div>
         </div>

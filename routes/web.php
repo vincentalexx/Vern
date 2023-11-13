@@ -47,6 +47,7 @@ Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::middleware(['auth'])->group(function () {
+    
     Route::get('/vehicle/{id}', [VehicleController::class, 'detail'])->name('vehicle.detail');
 
     Route::get('/history', function(){
@@ -54,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('history');
 
     Route::get('/profile', function (){
+        Route::resource('userprofile', UserProfileController::class);
         return view('profile');
     })->name('profile');
 
