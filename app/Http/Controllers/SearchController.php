@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vehicle;
 use App\Models\Order;
+use Inertia\Inertia;
 
 class SearchController extends Controller
 {
@@ -25,6 +26,32 @@ class SearchController extends Controller
         })->values();
         return view('search', ['results' => $results, 'startDate' => $startDate, 'endDate' => $endDate]);
     }
+
+    public function inertiaSearch(Request $request)
+    {
+        $request->validate([
+            'location' => 'required|not_in:0',
+            'startDate' => 'required',
+            'finishDate' => 'required|after:startDate',
+        ]);
+
+        $type = $request->vehicle_type;
+        $startDate = $request->startDate;
+        $endDate = $request->finishDate;
+
+        $vehicles = Vehicle::with('location')->where('type_id', $type)->where('location_id', $request->location)->get();
+
+        $results = $vehicles->filter(function ($vehicle) use ($startDate, $endDate) {
+            return $this->checkAvailabilityForTimeRange($vehicle->id, $startDate, $endDate);
+        })->values();
+//        dd($results);
+        return Inertia::render('SearchPage', [
+            'results' => $results,
+            'startDate' => $startDate,
+            'endDate' => $endDate,
+        ]);
+    }
+
 
     private function checkAvailabilityForTimeRange($vehicleId, $startTime, $endTime)
     {

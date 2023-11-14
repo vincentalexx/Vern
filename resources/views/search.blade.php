@@ -9,8 +9,7 @@
                     <p class="font-bold text-lg mb-1">Filter</p>
                     <button class="text-sm text-gray-600" id="resetButton">Reset</button>
                 </div>
-                <div
-                    class="dropdown relative rounded drop-shadow w-[350px] bg-White hidden md:inline-block divide-y divide-lighGray">
+                <div class="dropdown relative rounded drop-shadow w-[350px] bg-White hidden md:inline-block divide-y divide-lighGray">
                     <div class="rounded-t py-5 px-4">
                         <h3 class="font-bold text-lg mb-2">Transmission</h3>
                         <ul class="text-base text-gray-700 flex flex-col gap-1">
@@ -286,8 +285,7 @@
                     {{-- TBD: flex wrap but fit by width --}}
                     <div class="flex flex-wrap justify-center md:justify-normal gap-8">
                         @foreach ($results as $result)
-                            <a
-                                href="{{ route('vehicle.detail', ['id' => $result->id, 'startDate' => strtotime($startDate), 'endDate' => strtotime($endDate)]) }}">
+                            <a href="{{ route('vehicle.detail', ['id' => $result->id, 'startDate' => strtotime($startDate), 'endDate' => strtotime($endDate)]) }}">
                                 <div class="flex flex-col rounded-md shadow-md px-2 py-4 my-auto gap-8">
                                     {{-- <img src="{{ asset('/images/vehicles/{{$results->image}}.png') }}" alt="" class="max-h-[180px]"> --}}
                                     <img src="{{ asset('/images/accord.png') }}" alt=""
@@ -295,20 +293,6 @@
                                     <div class="flex flex-col justify-between px-4 pt-2">
                                         <div class="flex flex-col gap-1">
                                             <p class="text-lg font-normal">{{ $result->fullname }}</p>
-                                            {{-- <div class="grid grid-cols-3 w-fit contents-center grid-flow-dense"> --}}
-                                            {{--    <div class="w-min justify-self-center"> --}}
-                                            {{--        <i class="fa-solid fa-gears"></i> --}}
-                                            {{--    </div> --}}
-                                            {{--    <div class="col-span-2"> --}}
-                                            {{--        <small>{{ $result->transmission }}</small> --}}
-                                            {{--    </div> --}}
-                                            {{--    <div class="w-min justify-self-center"> --}}
-                                            {{--        <i class="fa-solid fa-gas-pump"></i> --}}
-                                            {{--    </div> --}}
-                                            {{--    <div class="col-span-2"> --}}
-                                            {{--        <small>{{ $result->fuel }}</small> --}}
-                                            {{--    </div> --}}
-                                            {{-- </div> --}}
                                         </div>
                                         <div class="flex">
                                             <p class="text-lg font-bold">Rp. {{ rupiah($result->price) }}</p>
