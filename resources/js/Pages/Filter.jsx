@@ -88,6 +88,7 @@ export default function SearchPage({
         for (var i = 0; i < x.length; i++) {
             x[i].checked = false;
         }
+        window.location.reload();
     }
 
 

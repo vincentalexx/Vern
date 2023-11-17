@@ -102,3 +102,9 @@ Route::get('/search', [SearchController::class, 'inertiaSearch'])->name('search'
 //});
 //
 //require __DIR__.'/auth.php';
+
+
+// CATCH ALL REACT ROUTES:
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');
