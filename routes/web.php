@@ -50,9 +50,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/vehicle/{id}', [VehicleController::class, 'detail'])->name('vehicle.detail');
 
-    Route::get('/history', function(){
-        return view('history');
-    })->name('history');
+    Route::get('/history', [OrderController::class, 'history'])->name('history');
 
     Route::get('/profile', function (){
         Route::resource('userprofile', UserProfileController::class);

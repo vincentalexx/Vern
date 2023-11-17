@@ -123,4 +123,9 @@ class OrderController extends Controller
 
         return $isAvailable;
     }
+
+    public function history(){
+        $orders = Order::all();
+        return view('history', ['orders' => $orders]);
+    }
 }
