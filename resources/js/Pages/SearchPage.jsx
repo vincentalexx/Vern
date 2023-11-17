@@ -152,6 +152,7 @@ export default function SearchPage({ results, startDate, endDate }) {
                     <div>
                         <div className="flex flex-col ">
                             <ul className="flex gap-[2.666666666666667%] flex-wrap">
+                                {console.log(startDate)}
                                 {sortedResults.map((result) => (
                                     <li key={result.id} className="min-h-[270px] max-h-[300px] w-[23%] ">
                                         <Cards result={result} startDate={startDate} endDate={endDate} />

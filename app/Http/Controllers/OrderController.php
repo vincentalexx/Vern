@@ -17,10 +17,6 @@ class OrderController extends Controller
         $vehicle = Vehicle::find($request->vehicle_id);
         $startDate = $request->startDate;
         $endDate = $request->endDate;
-        if(intval($startDate) > 10000 && intval($endDate) > 10000){
-            $startDate = date('c', $request->startDate);
-            $endDate = date('c', $request->endDate);
-        }
         if(!$this->checkAvailabilityForTimeRange($vehicle->id, $startDate, $endDate)){
             $request->session()->put('error', 'Kendaraan tidak tersedia di tanggal yang dipilih');
             return redirect()->back();

@@ -74,14 +74,14 @@
                     <div class="flex flex-col">
                         <p>Start Date</p>
                         <input type="datetime-local" name="startDate"
-                               @if ($startDate != null) value="{{ date('Y-m-d', $startDate) . 'T' . date('H:i', $startDate) }}" @endif
+                               @if ($startDate != null) value="{{ date('Y-m-d', strtotime($startDate)) . 'T' . date('H:i', strtotime($startDate)) }}" @endif
                                class="border rounded-sm px-2"
                                @if ($startDate != null) disabled @else required @endif>
                     </div>
                     <div class="flex flex-col">
                         <p>End Date</p>
                         <input type="datetime-local" name="endDate"
-                               @if ($endDate != null) value="{{ date('Y-m-d', $endDate) . 'T' . date('H:i', $endDate) }}" @endif
+                               @if ($endDate != null) value="{{ date('Y-m-d', strtotime($endDate)) . 'T' . date('H:i', strtotime($endDate)) }}" @endif
                                class="border rounded-sm px-2"
                                @if ($endDate != null) disabled @else required @endif>
                     </div>
