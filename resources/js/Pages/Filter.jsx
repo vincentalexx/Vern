@@ -6,92 +6,17 @@ export default function SearchPage({
                                        onTransmissionChange,
                                        onFuelTypeChange,
                                        onBrandChange,
-                                       onCapacityChange
+                                       onCapacityChange,
+                                       onPriceStartChange,
+                                       onPriceEndChange,
                                    }) {
-    const [transmissionFilters, setTransmissionFilters] = useState({
-        automatic: false,
-        manual: false,
-    })
-
-    const [fuelFilters, setFuelFilters] = useState({
-        gasoline: false,
-        diesel: false,
-    });
-
-    const [brandFilters, setBrandFilters] = useState({
-        toyota: false,
-        honda: false,
-        daihatsu: false,
-        suzuki: false,
-        nissan: false,
-        mitsubishi: false,
-        ferrari: false,
-        lexus: false,
-        porsche: false,
-        bmw: false,
-        mercedes: false,
-        hyundai: false,
-        yamaha: false,
-        kawasaki: false,
-    });
-
-    const [passengerCapacityFilters, setPassengerCapacityFilters] = useState({
-        one: false,
-        two: false,
-        three: false,
-        four: false,
-        five: false,
-    });
-
-    const handleReset = () => {
-        console.log("MASUK BOS")
-        setTransmissionFilters({
-            automatic: false,
-            manual: false,
-        });
-
-        setFuelFilters({
-            gasoline: false,
-            diesel: false,
-            hybrid: false,
-            electric: false,
-        });
-
-        setBrandFilters({
-            toyota: false,
-            honda: false,
-            daihatsu: false,
-            suzuki: false,
-            nissan: false,
-            mitsubishi: false,
-            ferrari: false,
-            lexus: false,
-            porsche: false,
-            bmw: false,
-            mercedes: false,
-            hyundai: false,
-            yamaha: false,
-            kawasaki: false,
-        });
-
-        setPassengerCapacityFilters({
-            one: false,
-            two: false,
-            three: false,
-            four: false,
-            five: false,
-        });
-    };
-
     function unCheck() {
         var x = document.getElementsByClassName("checkbox");
         for (var i = 0; i < x.length; i++) {
             x[i].checked = false;
         }
-        window.location.reload();
+        // window.location.reload();
     }
-
-
 
     return (
         <div className="flex drop-shadow mb-16 flex-col">
@@ -121,11 +46,11 @@ export default function SearchPage({
                     <h3 className="font-bold text-lg mb-2">Price Range</h3>
                     <ul className="text-base text-gray-700 flex justify-between">
                         <div className="flex w-[48%] items-center">
-                            <input id="min" htmlFor="" type="number" placeholder="Minimum Price" name="min_price" className="checkbox w-full text-sm border-2 pl-8 h-8 rounded"/>
+                            <input id="min" htmlFor="" onChange={(e) => onPriceStartChange(e.target.value)} type="number" placeholder="Minimum Price" name="min_price" className="checkbox w-full text-sm border-2 pl-8 h-8 rounded"/>
                             <label htmlFor="min" className="text-base aspect-square w-7 text-center flex justify-center ml-0.5 items-center absolute rounded-l-sm bg-borderColor font-semibold">Rp</label>
                         </div>
                         <div className="flex w-[48%] items-center">
-                            <input id="max" type="number" placeholder="Maximum Price" name="max_price" className="checkbox w-full text-sm border-2 pl-8 h-8 rounded"/>
+                            <input id="max" htmlFor="" onChange={(e) => onPriceEndChange(e.target.value)} type="number" placeholder="Maximum Price" name="max_price" className="checkbox w-full text-sm border-2 pl-8 h-8 rounded"/>
                             <label htmlFor="max" className="text-base aspect-square w-7 text-center flex justify-center ml-0.5 items-center absolute rounded-l-sm bg-borderColor font-semibold">Rp</label>
                         </div>
                     </ul>

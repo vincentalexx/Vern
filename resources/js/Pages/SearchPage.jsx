@@ -15,13 +15,12 @@ export default function SearchPage({ results, startDate, endDate }) {
         }));
     }
 
-    // PRICE RANGE FILTERS
-
-
     // FUEL FILTERS
     const [fuelFilters, setFuelFilters] = useState({
         gasoline: false,
         diesel: false,
+        hybrid: false,
+        electric: false,
     });
 
     const handleFuelChange = (type, checked) => {
@@ -72,41 +71,81 @@ export default function SearchPage({ results, startDate, endDate }) {
         }));
     }
 
+    // PRICE RANGE FILTERS
+    const [priceStart, setPriceStart] = useState(0);
+    const handlePriceStartChange = (e) => {
+        setPriceStart(parseInt(e, 10));
+    }
+
+    const [priceEnd, setPriceEnd] = useState(0);
+    const handlePriceEndChange = (e) => {
+        setPriceEnd(parseInt(e, 10));
+    }
 
     const filteredResults = results.filter((result) => {
-        const meetsTransmissionFilter =
-            (!transmissionFilters.automatic || result.transmission === "Automatic") &&
-            (!transmissionFilters.manual || result.transmission === "Manual");
+        const meetsPriceRangeFilter = (
+            (priceStart === 0 && priceEnd === 0) || // Both are 0
+            (priceStart === 0 && priceEnd !== 0 && result.price <= parseInt(priceEnd)) || // Only priceStart is 0
+            (priceStart !== 0 && priceEnd === 0 && result.price >= parseInt(priceStart)) || // Only priceEnd is 0
+            (priceStart !== 0 && priceEnd !== 0 && result.price >= parseInt(priceStart) && result.price <= parseInt(priceEnd)) // Both are not 0
+        );
 
-        const meetsFuelFilter =
-            (!fuelFilters.gasoline || result.fuel === "Gasoline") &&
-            (!fuelFilters.diesel || result.fuel === "Diesel");
+        const isAnyTransmissionFilterSelected =
+            Object.values(transmissionFilters).some((filter) => filter);
 
-        const meetsBrandFilter =
-            (!brandFilters.toyota || result.brand === "Toyota") &&
-            (!brandFilters.honda || result.brand === "Honda") &&
-            (!brandFilters.daihatsu || result.brand === "Daihatsu") &&
-            (!brandFilters.suzuki || result.brand === "Suzuki") &&
-            (!brandFilters.nissan || result.brand === "Nissan") &&
-            (!brandFilters.mitsubishi || result.brand === "Mitsubishi") &&
-            (!brandFilters.ferrari || result.brand === "Ferrari") &&
-            (!brandFilters.lexus || result.brand === "Lexus") &&
-            (!brandFilters.porsche || result.brand === "Porsche") &&
-            (!brandFilters.bmw || result.brand === "BMW") &&
-            (!brandFilters.mercedes || result.brand === "Mercedes") &&
-            (!brandFilters.hyundai || result.brand === "Hyundai") &&
-            (!brandFilters.yamaha || result.brand === "Yamaha") &&
-            (!brandFilters.kawasaki || result.brand === "Kawasaki");
+        const meetsTransmissionFilter = isAnyTransmissionFilterSelected
+            ? (
+                transmissionFilters.automatic && result.transmission === "Automatic" ||
+                transmissionFilters.manual && result.transmission === "Manual"
+            ) : true;
 
-        const meetsPassengerCapacityFilter =
-            (!passengerCapacityFilters.one || result.capacity === 1) &&
-            (!passengerCapacityFilters.two || result.capacity === 2) &&
-            (!passengerCapacityFilters.three || result.capacity === 4) &&
-            (!passengerCapacityFilters.four || (result.capacity >= 5 && result.capacity <= 6)) &&
-            (!passengerCapacityFilters.five || result.capacity > 6);
+        const isAnyFuelFilterSelected =
+            Object.values(fuelFilters).some((filter) => filter);
 
-        return meetsTransmissionFilter && meetsFuelFilter && meetsBrandFilter && meetsPassengerCapacityFilter;
+        const meetsFuelFilter = isAnyFuelFilterSelected
+            ? (
+                fuelFilters.gasoline && result.fuel === "Gasoline" ||
+                fuelFilters.diesel && result.fuel === "Diesel" ||
+                fuelFilters.hybrid && result.fuel === "Hybrid" ||
+                fuelFilters.electric && result.fuel === "Electric"
+            ) : true;
+
+        const isAnyBrandFilterSelected =
+            Object.values(brandFilters).some((filter) => filter);
+
+        const meetsBrandFilter = isAnyBrandFilterSelected
+            ? (
+                brandFilters.toyota && result.brand === "Toyota" ||
+                brandFilters.honda && result.brand === "Honda" ||
+                brandFilters.daihatsu && result.brand === "Daihatsu" ||
+                brandFilters.suzuki && result.brand === "Suzuki" ||
+                brandFilters.nissan && result.brand === "Nissan" ||
+                brandFilters.mitsubishi && result.brand === "Mitsubishi" ||
+                brandFilters.ferrari && result.brand === "Ferrari" ||
+                brandFilters.lexus && result.brand === "Lexus" ||
+                brandFilters.porsche && result.brand === "Porsche" ||
+                brandFilters.bmw && result.brand === "BMW" ||
+                brandFilters.mercedes && result.brand === "Mercedes" ||
+                brandFilters.hyundai && result.brand === "Hyundai" ||
+                brandFilters.yamaha && result.brand === "Yamaha" ||
+                brandFilters.kawasaki && result.brand === "Kawasaki"
+            ) : true;
+
+        const isAnyCapacityFilterSelected =
+            Object.values(passengerCapacityFilters).some((filter) => filter);
+
+        const meetsPassengerCapacityFilter = isAnyCapacityFilterSelected
+            ? (
+                passengerCapacityFilters.one && result.capacity === 1 ||
+                passengerCapacityFilters.two && result.capacity === 2 ||
+                passengerCapacityFilters.three && result.capacity === 4 ||
+                passengerCapacityFilters.four && (result.capacity >= 5 && result.capacity <= 6) ||
+                passengerCapacityFilters.five && result.capacity > 6
+            ) : true;
+
+        return meetsTransmissionFilter && meetsFuelFilter && meetsBrandFilter && meetsPassengerCapacityFilter && meetsPriceRangeFilter;
     });
+
 
     // SORTING
     const [sortOption, setSortOption] = useState("none");
@@ -133,7 +172,10 @@ export default function SearchPage({ results, startDate, endDate }) {
                 <Filter onTransmissionChange={handleTransmissionChange}
                         onFuelTypeChange={handleFuelChange}
                         onBrandChange={handleBrandChange}
-                        onCapacityChange={handlePassengerCapacityChange}/>
+                        onCapacityChange={handlePassengerCapacityChange}
+                        onPriceStartChange={handlePriceStartChange}
+                        onPriceEndChange={handlePriceEndChange}
+                />
                 <div className="flex flex-col w-full">
                     <div className="flex flex-col md:flex-row w-[100%] justify-between gap-4 md:gap-0">
                         <div className="flex flex-col">
@@ -150,14 +192,19 @@ export default function SearchPage({ results, startDate, endDate }) {
                         </div>
                     </div>
                     <div>
-                        <div className="flex flex-col ">
+                        <div className="flex flex-col">
                             <ul className="flex gap-[2.666666666666667%] flex-wrap">
-                                {console.log(startDate)}
-                                {sortedResults.map((result) => (
-                                    <li key={result.id} className="min-h-[270px] max-h-[300px] w-[23%] ">
-                                        <Cards result={result} startDate={startDate} endDate={endDate} />
-                                    </li>
-                                ))}
+                                {sortedResults.length > 0 ? (
+                                    sortedResults.map((result) => (
+                                        <li key={result.id} className="min-h-[270px] max-h-[300px] w-[23%]">
+                                            <Cards result={result} startDate={startDate} endDate={endDate} />
+                                        </li>
+                                    ))
+                                ) : (
+                                    <div>
+                                        <p className="font-semibold text-4xl">No results found</p>
+                                    </div>
+                                )}
                             </ul>
                         </div>
                     </div>
