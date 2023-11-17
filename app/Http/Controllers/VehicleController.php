@@ -11,7 +11,6 @@ class VehicleController extends Controller
         $vehicle = Vehicle::find($request->id);
         $startDate = $request->startDate;
         $endDate = $request->endDate;
-//        dd($vehicle);
         return view('vehicle_detail', ['vehicle' => $vehicle, 'startDate' => $startDate, 'endDate' => $endDate]);
     }
 }

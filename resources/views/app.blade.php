@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'React')
+@section('title', $page['component'])
 
 @push('scripts')
     @routes

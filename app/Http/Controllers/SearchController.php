@@ -9,24 +9,6 @@ use Inertia\Inertia;
 
 class SearchController extends Controller
 {
-    public function search(Request $request){
-        $request -> validate([
-            'location' => 'required|not_in:0',
-            'startDate' => 'required',
-            'finishDate' => 'required|after:startDate',
-        ]);
-        $type = $request->vehicle_type;
-        $startDate = $request->startDate;
-        $endDate = $request->finishDate;
-        $vehicles = Vehicle::where('type_id', $type)
-        ->where('location_id', $request->location)
-        ->get();
-        $results = $vehicles->filter(function ($vehicle) use ($startDate, $endDate) {
-            return $this->checkAvailabilityForTimeRange($vehicle->id, $startDate, $endDate);
-        })->values();
-        return view('search', ['results' => $results, 'startDate' => $startDate, 'endDate' => $endDate]);
-    }
-
     public function inertiaSearch(Request $request)
     {
         $request->validate([
@@ -44,8 +26,8 @@ class SearchController extends Controller
         $results = $vehicles->filter(function ($vehicle) use ($startDate, $endDate) {
             return $this->checkAvailabilityForTimeRange($vehicle->id, $startDate, $endDate);
         })->values();
-//        dd($results);
-        return Inertia::render('SearchPage', [
+
+        return Inertia::render('Search', [
             'results' => $results,
             'startDate' => $startDate,
             'endDate' => $endDate,

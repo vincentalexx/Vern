@@ -22,14 +22,6 @@ use App\Http\Controllers\AuthController;
 */
 Route::redirect('/','/home');
 
-// Route::get('/navbar', function () {
-//     return view('navbar');
-// });
-
-// Route::get('/filter', function() {
-//     return view('filter');
-// });
-
 Route::get('/signup', function(){
     return view('signup');
 })->name('signup');
@@ -46,7 +38,7 @@ Route::get("/auth/google", [AuthController::class, 'google'])->name("auth.google
 Route::get("/auth/google/callback", [AuthController::class, 'googleCallback'])->name("auth.google_callback");
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
-//Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/search', [SearchController::class, 'inertiaSearch'])->name('search');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/vehicle/{id}', [VehicleController::class, 'detail'])->name('vehicle.detail');
@@ -72,39 +64,3 @@ Route::get('/mailable', function(){
     $order = App\Models\Order::where('user_id', 1)->first();
     return new App\Mail\OrderSuccess($order);
 }); // ini buat test email
-
-//INERTIA
-//Route::get('/search', function () {
-//    return Inertia::render('SearchPage');
-//})->name('search');
-Route::get('/search', [SearchController::class, 'inertiaSearch'])->name('search');
-
-
-
-// BREEZE
-//Route::get('/', function () {
-//    return Inertia::render('Welcome', [
-//        'canLogin' => Route::has('login'),
-//        'canRegister' => Route::has('register'),
-//        'laravelVersion' => Application::VERSION,
-//        'phpVersion' => PHP_VERSION,
-//    ]);
-//});
-//
-//Route::get('/dashboard', function () {
-//    return Inertia::render('Dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
-//
-//Route::middleware('auth')->group(function () {
-//    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-//});
-//
-//require __DIR__.'/auth.php';
-
-
-// CATCH ALL REACT ROUTES:
-//Route::get('/{any}', function () {
-//    return view('app');
-//})->where('any', '.*');
