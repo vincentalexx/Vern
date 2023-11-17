@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VehicleController;
@@ -13,20 +16,11 @@ use App\Http\Controllers\AuthController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::redirect('/','/home');
-
-// Route::get('/navbar', function () {
-//     return view('navbar');
-// });
-
-// Route::get('/filter', function() {
-//     return view('filter');
-// });
 
 Route::get('/signup', function(){
     return view('signup');
@@ -44,7 +38,7 @@ Route::get("/auth/google", [AuthController::class, 'google'])->name("auth.google
 Route::get("/auth/google/callback", [AuthController::class, 'googleCallback'])->name("auth.google_callback");
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
-Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/search', [SearchController::class, 'inertiaSearch'])->name('search');
 
 Route::middleware(['auth'])->group(function () {
     

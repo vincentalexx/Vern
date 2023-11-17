@@ -36,11 +36,7 @@
     <div class="w-screen h-screen flex justify-center items-center bg-cover bg-blend-multiply bg-black bg-opacity-70"
         style="background-image: url('{{ asset('images/mobil.jpg') }}'); ">
         <div class="space-y-24">
-            <h1 class="text-center text-5xl leading-[60px] max-w-4xl font-semibold text-white shadow-inner">Explore
-                Jakarta
-                Anytime
-                You
-                Want With Our Rental Services!</h1>
+            <h1 class="text-center text-5xl leading-[60px] max-w-4xl font-semibold text-white shadow-inner">Explore Jakarta Anytime You Want With Our Rental Services!</h1>
             <form method="GET" action="{{ route('search') }}" class="flex flex-col gap-6">
                 @csrf
                 <div class="grid grid-cols-3 text-center">
