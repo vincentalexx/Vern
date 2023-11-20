@@ -62,7 +62,7 @@ class AuthController extends Controller
                 $request->session()->put('authError', 'Please login using email!');
                 return redirect()->route('login');
             }
-        }else{
+        } else {
             $user = User::factory()->create([
                 'name' => $googleUser->getName(),
                 'email' => $googleUser->getEmail(),

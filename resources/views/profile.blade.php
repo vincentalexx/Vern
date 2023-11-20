@@ -16,48 +16,58 @@
     <x-navbar />
     <div class="justify-center items-center flex flex-col min-h-[100vh] h-[100vh] text-Gray w-screen pt-[10vh]">
         <h1 class="text-4xl underline font-bold mb-10 text-Gray underline-offset-2">Profile Data</h1>
-        <div class="flex w-full justify-center gap-16">
-            <div>
-                <img src="images/saul.jpeg" alt="profile" class="border-2 broder-black w-[500px] h-[500px]">
-                <button class="bg-gradient-to-b from-Orange to-orange-600 text-white hover:opacity-80 font-semibold mt-4 text-lg w-[500px] h-10 rounded-[4px]">Upload Photo</button>
-            </div>
-            <div class="">
-                <div class="flex flex-col font-semibold">
-                    <div class="flex flex-col">
-                        <label class="h-8 font-bold">Name</label>
-                        <input type="text" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" placeholder="Vincent Alexander Haris">
+        <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data">
+            @csrf
+            <div class="flex w-full justify-center gap-16">
+                <div>
+                    <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Profile Picture" class="border-2 broder-black w-[500px] h-[500px]">
+                    <input type="file" name="image" id="image" accept="image/*">
+                </div>
+                <div>
+                    <div class="flex flex-col font-semibold">
+                        <div class="flex flex-col">
+                            <label class="h-8 font-bold">Name</label>
+                            <input type="text" name="name" id="name" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ Auth::user()->name }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="h-7 font-bold">Date of Birth</label>
+                            <input type="date" name="dob" id="dob" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ Auth::user()->dob }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="h-7 font-bold">Gender</label>
+                            <select name="gender" id="gender" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 pt-[2px] px-2">
+                                <option value="1" @if(Auth::user()->gender === true) selected @endif>Male</option>
+                                <option value="0" @if(Auth::user()->gender === false) selected @endif>Female</option>
+                                <option value="" @if(Auth::user()->gender === null) selected @endif>Select Gender</option>
+                            </select>
+                        </div>
+
+
+
+                        <div class="flex flex-col">
+                            <label class="h-7 font-bold">Address</label>
+                            <input type="text" name="address" id="address" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ Auth::user()->address }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="h-7 font-bold">Phone</label>
+                            <input type="text" name="phone" id="phone" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ Auth::user()->phone }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="h-7 font-bold">Email</label>
+                            <input type="text" name="email" id="email" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ Auth::user()->email }}">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="h-7 font-bold">Password</label>
+                            <input type="password" name="password" id="password" class="border-2 border-black rounded-md w-[400px] mb-3 h-8" value="{{ Auth::user()->password }}" readonly>
+                        </div>
                     </div>
-                    <div class="flex flex-col">
-                        <label class="h-7 font-bold">Date of Birth</label>
-                        <input type="text" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" placeholder="02 December 2003">
-                    </div>
-                    <div class="flex flex-col">
-                        <label class="h-7 font-bold">Gender</label>
-                        <input type="text" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" placeholder="Male">
-                    </div>
-                    <div class="flex flex-col">
-                        <label class="h-7 font-bold">Address</label>
-                        <input type="text" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" placeholder="Jl. Sandang no. 1">
-                    </div>
-                    <div class="flex flex-col">
-                        <label class="h-7 font-bold">Phone</label>
-                        <input type="text" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" placeholder="1234567890">
-                    </div>
-                    <div class="flex flex-col">
-                        <label class="h-7 font-bold">Email</label>
-                        <input type="text" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" placeholder="vincentalexx03@gmail.com">
-                    </div>
-                    <div class="flex flex-col">
-                        <label class="h-7 font-bold">Password</label>
-                        <input type="password" class="border-2 border-black rounded-md w-[400px] mb-3 h-8" placeholder="">
+                    <div class="text-right mt-[7.4px]">
+                        <button class="border-2 border-black h-10 w-24 font-semibold rounded-[4px] mr-2">Back</button>
+                        <button type="submit" class="border-2 border-black hover:opacity-80 font-semibold rounded-[4px] h-10 w-36" >Save Changes</button>
                     </div>
                 </div>
-                <div class="text-right mt-[7.4px]">
-                    <button class="border-2 border-black h-10 w-24 font-semibold rounded-[4px] mr-2">Back</button>
-                    <button class="border-2 border-black hover:opacity-80 font-semibold rounded-[4px] h-10 w-36" >Save Changes</button>
-                </div>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 
