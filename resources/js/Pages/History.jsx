@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function History({orders}){
     // console.log(orders)
     const onGoingState = orders.filter(order => order.status >= 1 && order.status <= 3);
-    const historyState = orders.filter(order => order.status > 4 && order.status <= 5);
+    const historyState = orders.filter(order => order.status >= 4 && order.status <= 5);
 
     let [isOpen, setisOpen] = useState(false)
 
@@ -32,6 +32,26 @@ export default function History({orders}){
         }
     }
 
+    var statusText = ["Menunggu Pembayaran", " Menunggu Konfirmasi", "Sedang Berlangsung", "Selesai", "Dibatalkan"]
+    var statusField
+    function orderStatus(order){
+        if(order.status === 1){
+            statusField = statusText[0]
+        }
+        if(order.status === 2){
+            statusField = statusText[1]
+        }
+        if(order.status === 3){
+            statusField = statusText[2]
+        }
+        if(order.status === 4){
+            statusField = statusText[3]
+        }
+        if(order.status === 5){
+            statusField = statusText[4]
+        }
+    }
+
     return(
         <div>
         <div className="container mx-auto my-10 text-Gray mt-28">
@@ -52,47 +72,56 @@ export default function History({orders}){
                             return (
                             <li key={order.id} className="list-none">
                                 <div className="" >
-                                    <div className="flex justify-between items-center py-4 cursor-pointer px-6" onClick={() => open(order.id)}
+                                    <div className="flex justify-between items-center py-4 cursor-pointer px-6" onClick={() => open(order.id)} onload={orderStatus(order)}
 >
                                         <div className="flex flex-col">
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
-                                            <p className="text-base font-normal"> {order.start_time} - {order.end_time} • {order.total_price} </p>
+                                            {/* <p className="text-base font-normal"> {order.start_time} - {order.end_time} • {order.total_price} • {statusField}</p> */}
+                                            <p className="text-base font-normal"> {order.start_time} • {order.total_price} • {statusField}</p>
                                         </div>
                                         <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
                                     <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-transform all duration-500 bg-slate-200" id={order.id}>
                                         <div className="px-12 py-4">
                                             <div>
-                                                <p className="font-semibold text-sm">Name :</p>
-                                                <p className="text-sm pb-2">{order.name} </p>
                                                 <div className="grid grid-cols-2">
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Name :</p>
+                                                        <p className="text-sm pb-2">{order.name} </p>
+                                                    </div>
                                                     <div>
                                                         <p className="font-semibold text-sm">ID NIK :</p>
                                                         <p className="text-sm pb-2">{order.id_nik} </p>
                                                     </div>
+                                                </div>
+                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">ID SIM :</p>
                                                         <p className="text-sm pb-2">{order.id_sim} </p>
                                                     </div>
-                                                </div>
-                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">Phone :</p>
                                                         <p className="text-sm pb-2">{order.phone} </p>
                                                     </div>
+                                                </div>
+                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">Email :</p>
                                                         <p className="text-sm pb-2">{order.email} </p>
                                                     </div>
-                                                </div>
-                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">Vehicle :</p>
                                                         <p className="text-sm pb-2">{order.vehicle.brand} { order.vehicle.model}</p>
                                                     </div>
+                                                </div>
+                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">Year :</p>
                                                         <p className="text-sm pb-2">{order.vehicle.year}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="status font-semibold text-sm">Status : </p>
+                                                        <p className="text-sm pb-2">{statusField}</p>
                                                     </div>
                                                 </div>
                                                 <p className="font-semibold text-sm">Features :</p>
@@ -150,47 +179,55 @@ export default function History({orders}){
                             return (
                             <li key={order.id} className="list-none">
                                 <div className="" >
-                                    <div className="flex justify-between items-center py-4 cursor-pointer px-6" onClick={() => open(order.id)}
->
+                                    <div className="flex justify-between items-center py-4 cursor-pointer px-6" onClick={() => open(order.id)} onload={orderStatus(order)}>
                                         <div className="flex flex-col">
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
-                                            <p className="text-base font-normal"> {order.start_time} - {order.end_time} • {order.total_price}</p>
+                                            {/* <p className="text-base font-normal"> {order.start_time} - {order.end_time} • {order.total_price} • {statusField}</p> */}
+                                            <p className="text-base font-normal"> {order.start_time} • {order.total_price} • {statusField}</p>
                                         </div>
                                         <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
                                     <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-all 0.3s bg-slate-200" id={order.id}>
                                         <div className="px-12 py-4">
                                             <div>
-                                            <p className="font-semibold text-sm">Name :</p>
-                                                <p className="text-sm pb-2">{order.name} </p>
-                                                <div className="grid grid-cols-2">
+                                            <div className="grid grid-cols-2">
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Name :</p>
+                                                        <p className="text-sm pb-2">{order.name} </p>
+                                                    </div>
                                                     <div>
                                                         <p className="font-semibold text-sm">ID NIK :</p>
                                                         <p className="text-sm pb-2">{order.id_nik} </p>
                                                     </div>
+                                                </div>
+                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">ID SIM :</p>
                                                         <p className="text-sm pb-2">{order.id_sim} </p>
                                                     </div>
-                                                </div>
-                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">Phone :</p>
                                                         <p className="text-sm pb-2">{order.phone} </p>
                                                     </div>
+                                                </div>
+                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">Email :</p>
                                                         <p className="text-sm pb-2">{order.email} </p>
                                                     </div>
-                                                </div>
-                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">Vehicle :</p>
                                                         <p className="text-sm pb-2">{order.vehicle.brand} { order.vehicle.model}</p>
                                                     </div>
+                                                </div>
+                                                <div className="grid grid-cols-2">
                                                     <div>
                                                         <p className="font-semibold text-sm">Year :</p>
                                                         <p className="text-sm pb-2">{order.vehicle.year}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="status font-semibold text-sm">Status : </p>
+                                                        <p className="text-sm pb-2">{statusField}</p>
                                                     </div>
                                                 </div>
                                                 <p className="font-semibold text-sm">Features :</p>
