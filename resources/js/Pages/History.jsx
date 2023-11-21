@@ -77,7 +77,7 @@ export default function History({orders}){
                                         <div className="flex flex-col">
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
                                             {/* <p className="text-base font-normal"> {order.start_time} - {order.end_time} • {order.total_price} • {statusField}</p> */}
-                                            <p className="text-base font-normal"> {order.start_time} • {order.total_price} • {statusField}</p>
+                                            <p className="text-base font-semibold"> {order.start_time} • {statusField}</p>
                                         </div>
                                         <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
@@ -110,14 +110,14 @@ export default function History({orders}){
                                                         <p className="text-sm pb-2">{order.email} </p>
                                                     </div>
                                                     <div>
-                                                        <p className="font-semibold text-sm">Vehicle :</p>
-                                                        <p className="text-sm pb-2">{order.vehicle.brand} { order.vehicle.model}</p>
+                                                        <p className="font-semibold text-sm">Year :</p>
+                                                        <p className="text-sm pb-2">{order.vehicle.year}</p>
                                                     </div>
                                                 </div>
                                                 <div className="grid grid-cols-2">
                                                     <div>
-                                                        <p className="font-semibold text-sm">Year :</p>
-                                                        <p className="text-sm pb-2">{order.vehicle.year}</p>
+                                                        <p className="font-semibold text-sm">Vehicle :</p>
+                                                        <p className="text-sm pb-2">{order.vehicle.brand} { order.vehicle.model}</p>
                                                     </div>
                                                     <div>
                                                         <p className="status font-semibold text-sm">Status : </p>
@@ -160,7 +160,7 @@ export default function History({orders}){
                                             </div>
                                             <div className="py-2">
                                                 <p className="text-sm font-semibold">Grand Total :</p>
-                                                <p className="text-2xl">{order.total_price} </p>
+                                                <p className="text-2xl">Rp. {order.total_price} </p>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +183,7 @@ export default function History({orders}){
                                         <div className="flex flex-col">
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
                                             {/* <p className="text-base font-normal"> {order.start_time} - {order.end_time} • {order.total_price} • {statusField}</p> */}
-                                            <p className="text-base font-normal"> {order.start_time} • {order.total_price} • {statusField}</p>
+                                            <p className="text-base font-semibold"> {order.start_time} • {statusField}</p>
                                         </div>
                                         <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
@@ -216,14 +216,14 @@ export default function History({orders}){
                                                         <p className="text-sm pb-2">{order.email} </p>
                                                     </div>
                                                     <div>
-                                                        <p className="font-semibold text-sm">Vehicle :</p>
-                                                        <p className="text-sm pb-2">{order.vehicle.brand} { order.vehicle.model}</p>
+                                                        <p className="font-semibold text-sm">Year :</p>
+                                                        <p className="text-sm pb-2">{order.vehicle.year}</p>
                                                     </div>
                                                 </div>
                                                 <div className="grid grid-cols-2">
                                                     <div>
-                                                        <p className="font-semibold text-sm">Year :</p>
-                                                        <p className="text-sm pb-2">{order.vehicle.year}</p>
+                                                        <p className="font-semibold text-sm">Vehicle :</p>
+                                                        <p className="text-sm pb-2">{order.vehicle.brand} { order.vehicle.model}</p>
                                                     </div>
                                                     <div>
                                                         <p className="status font-semibold text-sm">Status : </p>
@@ -266,7 +266,7 @@ export default function History({orders}){
                                             </div>
                                             <div className="py-2">
                                                 <p className="text-sm font-semibold">Grand Total :</p>
-                                                <p className="text-2xl">{order.total_price} </p>
+                                                <p className="text-2xl">Rp. {order.total_price} </p>
                                             </div>
                                         </div>
                                     </div>
