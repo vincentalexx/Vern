@@ -26,7 +26,7 @@ class SearchController extends Controller
         $results = $vehicles->filter(function ($vehicle) use ($startDate, $endDate) {
             return $this->checkAvailabilityForTimeRange($vehicle->id, $startDate, $endDate);
         })->values();
-
+//        dd($results);
         return Inertia::render('Search', [
             'results' => $results,
             'startDate' => $startDate,

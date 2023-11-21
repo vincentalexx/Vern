@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import Filter from "../Components/Filter.jsx";
 import Cards from "../Components/Cards.jsx";
 export default function Search({ results, startDate, endDate }) {
+    // Create Date objects
+    const startDates = new Date(startDate);
+    const endDates = new Date(endDate);
+
+    // Format date and time
+    const startFormatted = `${startDates.toDateString()} ${startDates.toLocaleTimeString()}`;
+    const endFormatted = `${endDates.toDateString()} ${endDates.toLocaleTimeString()}`;
+
     // TRANSMISSION FILTERS
     const [transmissionFilters, setTransmissionFilters] = useState({
         automatic: false,
         manual: false,
     });
+
 
     const handleTransmissionChange = (type, checked) => {
         setTransmissionFilters((prevState) => ({
@@ -196,7 +205,7 @@ export default function Search({ results, startDate, endDate }) {
                         <div className="flex flex-col">
                             <p className="text-4xl font-bold">Search Results</p>
                             <p>
-                                {startDate} {endDate}
+                                {startFormatted} - {endFormatted}
                             </p>
                         </div>
                         <div className="flex gap-2 items-center">
