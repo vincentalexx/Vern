@@ -68,7 +68,7 @@ export default function History({orders}){
                     <p className="text-2xl font-bold">Ongoing</p>
                     <div
                     className="py-2 border border-gray-300 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
-                        {onGoingState.map((order) => {
+                        {onGoingState.toReversed().map((order) => {
                             return (
                             <li key={order.id} className="list-none">
                                 <div className="" >
@@ -175,7 +175,7 @@ export default function History({orders}){
                 <p className="text-2xl font-bold">History</p>
                 <div
                     className="py-2 border border-gray-300 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
-                        {historyState.map((order) => {
+                        {historyState.toReversed().map((order) => {
                             return (
                             <li key={order.id} className="list-none">
                                 <div className="" >
