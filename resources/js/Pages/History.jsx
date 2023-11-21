@@ -56,7 +56,7 @@ export default function History({orders}){
 >
                                         <div className="flex flex-col">
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
-                                            <p className="text-base font-normal"> {order.start_time} - {order.end_time} </p>
+                                            <p className="text-base font-normal"> {order.start_time} - {order.end_time} • {order.total_price} </p>
                                         </div>
                                         <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
@@ -154,7 +154,7 @@ export default function History({orders}){
 >
                                         <div className="flex flex-col">
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
-                                            <p className="text-base font-normal"> {order.start_time} - {order.end_time} </p>
+                                            <p className="text-base font-normal"> {order.start_time} - {order.end_time} • {order.total_price}</p>
                                         </div>
                                         <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
