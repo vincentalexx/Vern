@@ -5,7 +5,11 @@ export default function History({orders}){
     const onGoingState = orders.filter(order => order.status >= 1 && order.status <= 3);
     const historyState = orders.filter(order => order.status > 4 && order.status <= 5);
 
+    let [isOpen, setisOpen] = useState(false)
 
+    const closeModel = () => {
+        setisOpen(false);
+    }
     
     var compContent = document.getElementsByClassName("content")
     console.log(compContent)
@@ -25,7 +29,7 @@ export default function History({orders}){
 
     return(
         <div>
-        <div className="container mx-auto my-10 text-Gray ">
+        <div className="container mx-auto my-10 text-Gray mt-28">
             <div className="flex flex-col gap-y-12">
                 <div className="flex flex-row justify-between items-center">
                     <a href="{ route('home') }">
@@ -38,7 +42,7 @@ export default function History({orders}){
                 <div className="flex flex-col gap-y-2 w-full">
                     <p className="text-2xl font-bold">Ongoing</p>
                     <div
-                    className="py-2 border rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
+                    className="py-2 border border-gray-300 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
                         {onGoingState.map((order) => {
                             return (
                             <li key={order.id} className="list-none">
@@ -49,13 +53,38 @@ export default function History({orders}){
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
                                             <p className="text-base font-normal"> {order.start_time} - {order.end_time} </p>
                                         </div>
-                                        <i className="fa-solid fa-circle-chevron-down fa-2xl"></i>
+                                        <i className="fa-solid fa-circle-chevron-down fa-2xl"/>
+                                        {/* {
+                                            isOpen ? <i className="fa-solid fa-circle-chevron-down fa-2xl"/> : <i className="fa-solid fa-circle-chevron-up fa-2xl"/>
+                                        } */}
                                     </div>
-                                    <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-all duration-300 bg-slate-100" id={order.id}>
-                                        <div className="px-6">
+                                    <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-transform all duration-500 bg-slate-200" id={order.id}>
+                                        <div className="px-12 py-4">
                                             <div>
+                                                <p className="font-semibold text-sm">Name :</p>
+                                                <p className="text-sm pb-2">{order.name} </p>
+                                                <div className="grid grid-cols-2">
+                                                    <div>
+                                                        <p className="font-semibold text-sm">ID NIK :</p>
+                                                        <p className="text-sm pb-2">{order.id_nik} </p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold text-sm">ID SIM :</p>
+                                                        <p className="text-sm pb-2">{order.id_sim} </p>
+                                                    </div>
+                                                </div>
+                                                <div className="grid grid-cols-2">
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Phone :</p>
+                                                        <p className="text-sm pb-2">{order.phone} </p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Email :</p>
+                                                        <p className="text-sm pb-2">{order.email} </p>
+                                                    </div>
+                                                </div>
                                                 <p className="font-semibold text-sm">Features:</p>
-                                                <ul className="flex gap-6 text-sm py-2">
+                                                <ul className="flex gap-6 text-sm p-2">
                                                     <li className="flex items-center gap-1">
                                                         <i className="fa-solid fa-chair"></i>
                                                         <p>{ order.vehicle.capacity }-Seater</p>
@@ -104,7 +133,7 @@ export default function History({orders}){
             <div className="flex flex-col gap-y-2 w-full">
                 <p className="text-2xl font-bold">History</p>
                 <div
-                    className="py-2 border rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
+                    className="py-2 border border-gray-300 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
                         {historyState.map((order) => {
                             return (
                             <li key={order.id} className="list-none">
@@ -117,9 +146,31 @@ export default function History({orders}){
                                         </div>
                                         <i className="fa-solid fa-circle-chevron-down fa-2xl"></i>
                                     </div>
-                                    <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-all 0.3s bg-slate-100" id={order.id}>
-                                        <div className="px-6">
+                                    <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-all 0.3s bg-slate-200" id={order.id}>
+                                        <div className="px-12 py-4">
                                             <div>
+                                            <p className="font-semibold text-sm">Name :</p>
+                                                <p className="text-sm pb-2">{order.name} </p>
+                                                <div className="grid grid-cols-2">
+                                                    <div>
+                                                        <p className="font-semibold text-sm">ID NIK :</p>
+                                                        <p className="text-sm pb-2">{order.id_nik} </p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold text-sm">ID SIM :</p>
+                                                        <p className="text-sm pb-2">{order.id_sim} </p>
+                                                    </div>
+                                                </div>
+                                                <div className="grid grid-cols-2">
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Phone :</p>
+                                                        <p className="text-sm pb-2">{order.phone} </p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Email :</p>
+                                                        <p className="text-sm pb-2">{order.email} </p>
+                                                    </div>
+                                                </div>
                                                 <p className="font-semibold text-sm">Features:</p>
                                                 <ul className="flex gap-6 text-sm py-2">
                                                     <li className="flex items-center gap-1">
