@@ -16,14 +16,15 @@
 <x-navbar />
 <div
     class="container min-h-screen mt-[16vh] mx-auto h-screen flex flex-col md:flex-row gap-16 md:gap-0 text-Gray px-6 md:px-0">
-    <div class="md:w-1/2 flex flex-col gap-y-8 md:gap-y-32">
-        <div>
+    <div class="md:w-1/2 flex flex-col">
+        <div class="">
             <a onclick="window.history.back()" class="cursor-pointer">
                 <i class="fa-solid fa-chevron-left text-3xl"></i>
             </a>
         </div>
-        <img src="/images/accord.png" class="max-w-[80%] self-center" alt="">
-        {{-- <img src="/images/vehicle/:id.png" class="max-w-[80%] self-center" alt=""> --}}
+        <div class="flex justify-center align-center h-[75vh]">
+            <img src="/images/{{ $vehicle->image }}" class="max-w-[80%] self-center " alt="">
+        </div>
     </div>
     <div class="md:w-1/2 flex flex-col gap-8 divide-y-2 divide-borderColor md:overflow-y-scroll max-h-[75vh]">
         <div class="">
@@ -35,8 +36,8 @@
         <div class="pt-8 flex flex-col gap-4">
             <div class="flex items-center gap-2">
                 <h3 class="font-bold">Color:</h3>
-                <div class="flex items-center gap-1 rounded-full border border-black px-2 py-0.5">
-                    <div class="bg-{{ strtolower($vehicle->color) }} rounded-full w-4 h-4"></div>
+                <div class="flex items-center gap-1 rounded-full border border-black px-2 py-0.5 ">
+                    <div class="bg-{{ strtolower($vehicle->color) }}-500 rounded-full w-4 h-4"></div>
                     <p class="font-semibold">{{ $vehicle->color }}</p>
                 </div>
             </div>

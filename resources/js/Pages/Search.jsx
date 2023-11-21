@@ -183,6 +183,10 @@ export default function Search({ results, startDate, endDate }) {
                 return a.price - b.price;
             case "priceB":
                 return b.price - a.price;
+            case "yearA":
+                return a.year - b.year;
+            case "yearB":
+                return b.year - a.year;
             default:
                 return 0;
         }
@@ -213,7 +217,7 @@ export default function Search({ results, startDate, endDate }) {
                             <select
                                 name="sort"
                                 id="sort"
-                                className="border px-3 py-1 border-sortBorder rounded-md bg-right min-w-[160px]"
+                                className="border px-3 py-1 border-sortBorder rounded-md bg-right min-w-[170px]"
                                 onChange={handleSortChange}
                             >
                                 <option value="" selected disabled hidden>
@@ -224,6 +228,12 @@ export default function Search({ results, startDate, endDate }) {
                                 </option>
                                 <option value="priceB">
                                     Price (Descending)
+                                </option>
+                                <option value="yearA">
+                                    Year (Ascending)
+                                </option>
+                                <option value="yearB">
+                                    Year (Descending)
                                 </option>
                             </select>
                         </div>
