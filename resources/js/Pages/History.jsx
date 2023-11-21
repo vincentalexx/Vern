@@ -28,9 +28,6 @@ export default function History({orders}){
                     arrowIcon[i].classList.add("fa-circle-chevron-up")
                     arrowIcon[i].classList.remove("fa-circle-chevron-down")
                 }
-                // if(arrowIcon[i].classList.contains("fa-circle-chevron-up")){
-                //     arrowIcon[i].classList.add("fa-circle-chevron-down")
-                // }
             }
         }
     }
@@ -88,8 +85,18 @@ export default function History({orders}){
                                                         <p className="text-sm pb-2">{order.email} </p>
                                                     </div>
                                                 </div>
-                                                <p className="font-semibold text-sm">Features:</p>
-                                                <ul className="flex gap-6 text-sm p-2">
+                                                <div className="grid grid-cols-2">
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Vehicle :</p>
+                                                        <p className="text-sm pb-2">{order.vehicle.brand} { order.vehicle.model}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Year :</p>
+                                                        <p className="text-sm pb-2">{order.vehicle.year}</p>
+                                                    </div>
+                                                </div>
+                                                <p className="font-semibold text-sm">Features :</p>
+                                                <ul className="flex gap-6 text-sm py-2">
                                                     <li className="flex items-center gap-1">
                                                         <i className="fa-solid fa-chair"></i>
                                                         <p>{ order.vehicle.capacity }-Seater</p>
@@ -106,7 +113,7 @@ export default function History({orders}){
                                             </div>
                                             <div className="flex py-2">
                                                 <p className="text-sm font-semibold">Color : </p>
-                                                <p className="text-sm">{order.vehicle.color}</p>
+                                                <p className="text-sm pl-1">{order.vehicle.color}</p>
                                             </div>
                                         <div className="py-2 text-sm">
                                             <p className="font-semibold text-sm">Pick Up Location :</p>
@@ -176,7 +183,17 @@ export default function History({orders}){
                                                         <p className="text-sm pb-2">{order.email} </p>
                                                     </div>
                                                 </div>
-                                                <p className="font-semibold text-sm">Features:</p>
+                                                <div className="grid grid-cols-2">
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Vehicle :</p>
+                                                        <p className="text-sm pb-2">{order.vehicle.brand} { order.vehicle.model}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-semibold text-sm">Year :</p>
+                                                        <p className="text-sm pb-2">{order.vehicle.year}</p>
+                                                    </div>
+                                                </div>
+                                                <p className="font-semibold text-sm">Features :</p>
                                                 <ul className="flex gap-6 text-sm py-2">
                                                     <li className="flex items-center gap-1">
                                                         <i className="fa-solid fa-chair"></i>
@@ -194,7 +211,7 @@ export default function History({orders}){
                                             </div>
                                             <div className="flex py-2">
                                                 <p className="text-sm font-semibold">Color : </p>
-                                                <p className="text-sm">{order.vehicle.color}</p>
+                                                <p className="text-sm pl-1">{order.vehicle.color}</p>
                                             </div>
                                         <div className="py-2 text-sm">
                                             <p className="font-semibold text-sm">Pick Up Location :</p>
