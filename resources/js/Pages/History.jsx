@@ -12,17 +12,25 @@ export default function History({orders}){
     }
     
     var compContent = document.getElementsByClassName("content")
+    var arrowIcon = document.getElementsByClassName("arrow")
     console.log(compContent)
     
     function open(id){
         for(var i = 0; i < compContent.length; i++){
             if(compContent[i].id === id){
                 if(!compContent[i].classList.contains('hidden')){
-                    document.getElementById(id).classList.add("hidden");
+                    compContent[i].classList.add("hidden");
+                    arrowIcon[i].classList.add("fa-circle-chevron-down")
+                    arrowIcon[i].classList.remove("fa-circle-chevron-up")
                 }
                 else {
-                    document.getElementById(id).classList.remove("hidden");
+                    compContent[i].classList.remove("hidden");
+                    arrowIcon[i].classList.add("fa-circle-chevron-up")
+                    arrowIcon[i].classList.remove("fa-circle-chevron-down")
                 }
+                // if(arrowIcon[i].classList.contains("fa-circle-chevron-up")){
+                //     arrowIcon[i].classList.add("fa-circle-chevron-down")
+                // }
             }
         }
     }
@@ -53,10 +61,7 @@ export default function History({orders}){
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
                                             <p className="text-base font-normal"> {order.start_time} - {order.end_time} </p>
                                         </div>
-                                        <i className="fa-solid fa-circle-chevron-down fa-2xl"/>
-                                        {/* {
-                                            isOpen ? <i className="fa-solid fa-circle-chevron-down fa-2xl"/> : <i className="fa-solid fa-circle-chevron-up fa-2xl"/>
-                                        } */}
+                                        <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
                                     <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-transform all duration-500 bg-slate-200" id={order.id}>
                                         <div className="px-12 py-4">
@@ -144,7 +149,7 @@ export default function History({orders}){
                                             <p className="text-3xl font-semibold">{order.vehicle.brand} { order.vehicle.model} {order.vehicle.year}</p>
                                             <p className="text-base font-normal"> {order.start_time} - {order.end_time} </p>
                                         </div>
-                                        <i className="fa-solid fa-circle-chevron-down fa-2xl"></i>
+                                        <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
                                     <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-all 0.3s bg-slate-200" id={order.id}>
                                         <div className="px-12 py-4">
