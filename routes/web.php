@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Foundation\Application;
@@ -69,3 +70,11 @@ Route::get('/mailable', function(){
     $order = App\Models\Order::where('user_id', 1)->first();
     return new App\Mail\OrderSuccess($order);
 }); // ini buat test email
+
+
+// BUAT ADMIN
+Route::get('/admin_history', [AdminController::class, 'getAllHistory'])->name('admin.history');
+Route::get('/admin_orders', [AdminController::class, 'getAllOrders'])->name('admin.orders');
+Route::get('/admin_vehicle', [AdminController::class, 'getAllVehicle'])->name('admin.vehicle');
+Route::get('/admin_users', [AdminController::class, 'getAllUsers'])->name('admin.users');
+Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');

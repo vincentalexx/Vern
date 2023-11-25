@@ -13,7 +13,11 @@
 </head>
 
 <body>
-    <x-navbar />
+    @if (Auth::check() && Auth::user()->email != 'admin@gmail.com')
+        <x-navbar />
+    @elseif(Auth::check() && Auth::user()->email == 'admin@gmail.com')
+        <x-admin-navbar />
+    @endif
     <div class="justify-center items-center flex flex-col min-h-[100vh] h-[100vh] text-Gray w-screen pt-[10vh]">
         <h1 class="text-4xl underline font-bold mb-10 text-Gray underline-offset-2">Profile Data</h1>
         <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data">

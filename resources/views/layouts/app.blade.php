@@ -10,10 +10,12 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-{{-- Date Picker CDN--}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+{{--    BLADEWIND--}}
+    <link href="{{ asset('vendor/bladewind/css/animate.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" />
+    <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
+{{--BLADEWIND DATEPICKER--}}
+    <script src="//unpkg.com/alpinejs" defer></script>
 
     @vite(['resources/css/app.css'])
     @stack('styles')
@@ -21,26 +23,14 @@
 </head>
 
 <body>
-    @if (Auth::check())
+    @if (Auth::check() && Auth::user()->email != 'admin@gmail.com')
         <x-navbar />
+    @elseif(Auth::check() && Auth::user()->email == 'admin@gmail.com')
+        <x-admin-navbar />
     @else
         <x-guestNavbar />
     @endif
     @yield('content')
-
-{{--    Date Picker--}}
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-    <!-- Initialize flatpickr with 30-minute interval -->
-    <script>
-        flatpickr("#datetime", {
-            enableTime: true,
-            noCalendar: true,
-            dateFormat: "H:i",
-            time_24hr: true,
-            minuteIncrement: 30
-        });
-    </script>
 </body>
 
 </html>

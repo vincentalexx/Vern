@@ -16,6 +16,7 @@
         "laravel/socialite": "^5.10",
         "laravel/tinker": "^2.8",
         "midtrans/midtrans-php": "^2.5",
+        "mkocansey/bladewind": "^2.4",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

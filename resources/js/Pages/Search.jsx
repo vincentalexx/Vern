@@ -93,7 +93,7 @@ export default function Search({ results, startDate, endDate }) {
 
     const filteredResults = results.filter((result) => {
         const meetsPriceRangeFilter =
-            (priceStart === 0 && priceEnd === 0) || // Both are 0
+            ((priceStart === 0 && priceEnd === 0) || (priceStart === "" && priceEnd === "")) || // Both are 0
             (priceStart === 0 &&
                 priceEnd !== 0 &&
                 result.price <= parseInt(priceEnd)) || // Only priceStart is 0

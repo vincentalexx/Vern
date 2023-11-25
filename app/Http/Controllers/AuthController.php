@@ -22,6 +22,9 @@ class AuthController extends Controller
 
         if(Auth::attempt($request->only('email', 'password'), $request->filled('remember'))){
             $request->session()->regenerate();
+            if (Auth::user()->email == 'admin@gmail.com') {
+                return redirect()->intended('admin_home');
+            }
             return redirect()->intended('home');
         }
 
