@@ -21,25 +21,25 @@
                 </div>
             </div>
             <div class="w-full container flex gap-6 mt-8">
-                <div class="w-[14%] border-2 p-4 border-gray-300 h-32 rounded-2xl bg-biruBagus flex flex-col justify-center text-left shadow-lg">
+                <div class="w-[14%] border-2 p-4 border-gray-300 h-36 rounded-2xl bg-biruBagus flex flex-col justify-center text-left shadow-lg">
                     <div>
-                        <h1 class="text-2xl text-gray-200 font-normal">Total Users :</h1>
+                        <h1 class="text-2xl text-gray-200 font-normal">Total Users Created :</h1>
                         <h1 class="text-3xl text-gray-50 font-semibold">{{ $countUsers }} Accounts</h1>
                     </div>
                 </div>
-                <div class="w-[14%] border-2 p-4 border-gray-300 h-32 rounded-2xl bg-biruBagus flex flex-col justify-center text-left shadow-lg">
+                <div class="w-[14%] border-2 p-4 border-gray-300 h-36 rounded-2xl bg-biruBagus flex flex-col justify-center text-left shadow-lg">
                     <div>
-                        <h1 class="text-2xl text-gray-200 font-normal">Total Vehicles :</h1>
+                        <h1 class="text-2xl text-gray-200 font-normal">Total Vehicles Created :</h1>
                         <h1 class="text-3xl text-gray-50 font-semibold">{{ $countVehicles }} Vehicles</h1>
                     </div>
                 </div>
-                <div class="w-[14%] border-2 p-4 border-gray-300 h-32 rounded-2xl bg-biruBagus flex flex-col justify-center text-left shadow-lg">
+                <div class="w-[14%] border-2 p-4 border-gray-300 h-36 rounded-2xl bg-biruBagus flex flex-col justify-center text-left shadow-lg">
                     <div>
                         <h1 class="text-xl text-gray-200 font-normal">Total Orders :</h1>
                         <h1 class="text-3xl text-gray-50 font-semibold">{{ $countOrders }} Orders</h1>
                     </div>
                 </div>
-                <div class="w-[14%] border-2 p-4 border-gray-300 h-32 rounded-2xl bg-biruBagus flex flex-col justify-center text-left shadow-lg">
+                <div class="w-[14%] border-2 p-4 border-gray-300 h-36 rounded-2xl bg-biruBagus flex flex-col justify-center text-left shadow-lg">
                     <div>
                         <h1 class="text-2xl text-gray-200 font-normal">Total Rent :</h1>
                         <h1 class="text-3xl text-gray-50 font-semibold">{{ $countHistory }} Rents</h1>

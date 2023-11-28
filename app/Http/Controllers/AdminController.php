@@ -38,10 +38,10 @@ class AdminController extends Controller
     public function adminHome() {
         $chart = app(MonthlyRentChart::class);
         $chartData = $chart->build(date('Y'));
-        $countUsers = User::all()->count();
-        $countOrders = Order::where('status', [1, 2, 3])->count();
-        $countVehicles = Vehicle::all()->count();
-        $countHistory = Order::where('status', 4)->count();
+        $countUsers = User::whereYear('created_at', date('Y'))->count();
+        $countOrders = Order::whereIn('status', [1, 2, 3])->whereYear('start_time', date('Y'))->count();
+        $countVehicles = Vehicle::whereYear('created_at', date('Y'))->count();
+        $countHistory = Order::where('status', 4)->whereYear('start_time', date('Y'))->count();
         return view('admin_home', compact('chartData', 'countUsers', 'countOrders', 'countVehicles', 'countHistory'));
     }
 
@@ -49,13 +49,14 @@ class AdminController extends Controller
         $request->validate([
             'year' => 'required|integer|min:1900|max:2099',
         ]);
-        $countUsers = User::all()->count();
-        $countOrders = Order::where('status', [1, 2, 3])->count();
-        $countVehicles = Vehicle::all()->count();
-        $countHistory = Order::where('status', 4)->count();
         $year = $request->input('year');
+        $countUsers = User::whereYear('created_at', $year)->count();
+        $countOrders = Order::whereIn('status', [1, 2, 3])->whereYear('start_time', $year)->count();
+        $countVehicles = Vehicle::whereYear('created_at', $year)->count();
+        $countHistory = Order::where('status', 4)->whereYear('start_time', $year)->count();
         $chartData = $chart->build($year);
 
         return view('admin_home', compact('chartData', 'countUsers', 'countOrders', 'countVehicles', 'countHistory'));
     }
+
 }
