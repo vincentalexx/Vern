@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\Midtrans\CreateSnapToken;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderSuccess;
+use Inertia\Inertia;
 
 class OrderController extends Controller
 {
@@ -121,7 +122,9 @@ class OrderController extends Controller
     }
 
     public function history(){
-        $orders = Order::all();
-        return view('history', ['orders' => $orders]);
+        $user = Auth::user()->id;
+        $orders = Order::where('user_id', $user)->with('vehicle')->get();
+        // return view('history', ['orders' => $orders]);
+        return Inertia::render('History', ['orders' => $orders]);
     }
 }
