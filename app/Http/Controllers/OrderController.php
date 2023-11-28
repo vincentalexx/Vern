@@ -123,6 +123,7 @@ class OrderController extends Controller
 
     public function history(){
         $user = Auth::user()->id;
+
         $orders = Order::where('user_id', $user)->with('vehicle')->get();
         // return view('history', ['orders' => $orders]);
         return Inertia::render('History', ['orders' => $orders]);

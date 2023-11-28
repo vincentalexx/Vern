@@ -13,7 +13,7 @@ export default function Cards({ result, startDate, endDate }) {
                         <p className="text-md font-semibold">{result.brand} {result.model} {result.year}</p>
                     </div>
                     <div className="flex">
-                        <p className="text-lg font-bold">Rp. {result.price}</p>
+                        <p className="text-lg font-bold">Rp. {(result.price).toLocaleString()}</p>
                         <p className="text-lg font-bold">/ Day</p>
                     </div>
                 </div>

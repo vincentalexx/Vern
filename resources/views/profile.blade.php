@@ -24,7 +24,7 @@
             @csrf
             <div class="flex w-full justify-center gap-16">
                 <div>
-                    <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Profile Picture" class="border-2 broder-black w-[500px] h-[500px]">
+                    <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Profile Picture" class="border-2 rounded-lg broder-black w-[500px] h-[500px]">
                     <input type="file" name="image" id="image" accept="image/*">
                 </div>
                 <div>

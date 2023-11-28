@@ -11,6 +11,7 @@ Execute these lines in your terminal
 1. `cp .env.example .env` (or copy and rename .env.example to .env)
 1. `php artisan migrate`
 1. `php artisan db:seed`
+1. `php artisan storage:link`
 
 Please do `php artisan optimize` and `composer dumpautoload` on every pull :D
 

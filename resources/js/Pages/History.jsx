@@ -5,16 +5,20 @@ export default function History({orders}){
     const onGoingState = orders.filter(order => order.status >= 1 && order.status <= 3);
     const historyState = orders.filter(order => order.status >= 4 && order.status <= 5);
 
+    // FOR toLocaleString()
+    const number = 1234567.89;
+
+
     let [isOpen, setisOpen] = useState(false)
 
     const closeModel = () => {
         setisOpen(false);
     }
-    
+
     var compContent = document.getElementsByClassName("content")
     var arrowIcon = document.getElementsByClassName("arrow")
     console.log(compContent)
-    
+
     function open(id){
         for(var i = 0; i < compContent.length; i++){
             if(compContent[i].id === id){
@@ -32,7 +36,8 @@ export default function History({orders}){
         }
     }
 
-    var statusText = ["Menunggu Pembayaran", " Menunggu Konfirmasi", "Sedang Berlangsung", "Selesai", "Dibatalkan"]
+    // var statusText = ["Menunggu Pembayaran", " Menunggu Konfirmasi", "Sedang Berlangsung", "Selesai", "Dibatalkan"]
+    var statusText = ["Waiting for Payment", "Waiting for Confirmation", "In Progress", "Completed", "Cancelled"];
     var statusField
     function orderStatus(order){
         if(order.status === 1){
@@ -53,21 +58,21 @@ export default function History({orders}){
     }
 
     return(
-        <div>
-        <div className="container mx-auto my-10 text-Gray mt-28">
+        <div className="pb-14">
+        <div className="container mx-auto text-Gray pt-[20vh]">
             <div className="flex flex-col gap-y-12">
                 <div className="flex flex-row justify-between items-center">
-                    <a href="{ route('home') }">
-                    <i className="fa-solid fa-arrow-left-long fa-2xl"></i>
-                </a>
-                <h1 className="text-4xl font-bold">Orders</h1>
-                <div></div>
+                    <a href={`/home`}>
+                        <i className="fa-solid fa-arrow-left-long fa-2xl"></i>
+                    </a>
+                    <h1 className="text-4xl font-bold">Orders</h1>
+                    <div></div>
             </div>
             <div className="flex w-full flex-col md:flex-row gap-12">
                 <div className="flex flex-col gap-y-2 w-full">
                     <p className="text-2xl font-bold">Ongoing</p>
                     <div
-                    className="py-2 border border-gray-300 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
+                    className="py-2 border-2 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
                         {onGoingState.toReversed().map((order) => {
                             return (
                             <li key={order.id} className="list-none">
@@ -81,7 +86,7 @@ export default function History({orders}){
                                         </div>
                                         <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
-                                    <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-transform all duration-500 bg-slate-200" id={order.id}>
+                                    <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-transform all duration-500 border-t-2" id={order.id}>
                                         <div className="px-12 py-4">
                                             <div>
                                                 <div className="grid grid-cols-2">
@@ -160,7 +165,7 @@ export default function History({orders}){
                                             </div>
                                             <div className="py-2">
                                                 <p className="text-sm font-semibold">Grand Total :</p>
-                                                <p className="text-2xl">Rp. {order.total_price} </p>
+                                                <p className="text-2xl font-semibold">Rp. {(order.total_price).toLocaleString()} </p>
                                             </div>
                                         </div>
                                     </div>
@@ -174,7 +179,7 @@ export default function History({orders}){
             <div className="flex flex-col gap-y-2 w-full">
                 <p className="text-2xl font-bold">History</p>
                 <div
-                    className="py-2 border border-gray-300 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
+                    className="py-2 border-2 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-gray flex flex-col">
                         {historyState.toReversed().map((order) => {
                             return (
                             <li key={order.id} className="list-none">
@@ -187,7 +192,7 @@ export default function History({orders}){
                                         </div>
                                         <i className="arrow fa-solid fa-circle-chevron-down fa-2xl" id={order.id}/>
                                     </div>
-                                    <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-all 0.3s bg-slate-200" id={order.id}>
+                                    <div className="content hidden divide-solid divide-y-[0.5px] divide-[#00000099] transition-all 0.3s border-t-2" id={order.id}>
                                         <div className="px-12 py-4">
                                             <div>
                                             <div className="grid grid-cols-2">
@@ -266,7 +271,7 @@ export default function History({orders}){
                                             </div>
                                             <div className="py-2">
                                                 <p className="text-sm font-semibold">Grand Total :</p>
-                                                <p className="text-2xl">Rp. {order.total_price} </p>
+                                                <p className="text-2xl font-semibold">Rp. {(order.total_price).toLocaleString()} </p>
                                             </div>
                                         </div>
                                     </div>
