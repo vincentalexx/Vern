@@ -16,6 +16,7 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
+                biruBagus: "#219AF6",
                 Black: "#000000",
                 Red: "#B30E16",
                 Blue: "#035096",

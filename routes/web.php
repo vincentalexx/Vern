@@ -77,4 +77,8 @@ Route::get('/admin_history', [AdminController::class, 'getAllHistory'])->name('a
 Route::get('/admin_orders', [AdminController::class, 'getAllOrders'])->name('admin.orders');
 Route::get('/admin_vehicle', [AdminController::class, 'getAllVehicle'])->name('admin.vehicle');
 Route::get('/admin_users', [AdminController::class, 'getAllUsers'])->name('admin.users');
+//Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
+// ADMIN CHART
 Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
+Route::post('/admin_home', [AdminController::class, 'index']);
+
