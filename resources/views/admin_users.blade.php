@@ -61,7 +61,7 @@
                                 {{ $user->address }}
                             </td>
                             <td class="px-4 py-4 text-right flex">
-                                <a href="#" class="font-medium text-Blue hover:underline">Detail</a>
+                                <a href="{{ route('admin.users.detail', ['user' => $user->id]) }}" class="font-medium text-Blue hover:underline">Detail</a>
                             </td>
                         </tr>
                     @endforeach

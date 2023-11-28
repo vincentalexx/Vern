@@ -25,14 +25,26 @@ class AdminController extends Controller
         return view('admin_orders', ['orders' => $orders]);
     }
 
+    public function getOrderDetail(Order $order) {
+        return view('admin_order_detail', ['order' => $order]);
+    }
+
     public function getAllVehicle() {
         $vehicles = Vehicle::all();
         return view('admin_vehicle', ['vehicles' => $vehicles]);
     }
 
+    public function getVehicleDetail(Vehicle $vehicle) {
+        return view('admin_vehicle_detail', ['vehicle' => $vehicle]);
+    }
+
     public function getAllUsers() {
         $users = User::all();
         return view('admin_users', ['users' => $users]);
+    }
+
+    public function getUsersDetail(User $user) {
+        return view('admin_users_detail', ['user' => $user]);
     }
 
     public function adminHome() {

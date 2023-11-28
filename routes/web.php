@@ -75,8 +75,14 @@ Route::get('/mailable', function(){
 // BUAT ADMIN
 Route::get('/admin_history', [AdminController::class, 'getAllHistory'])->name('admin.history');
 Route::get('/admin_orders', [AdminController::class, 'getAllOrders'])->name('admin.orders');
+Route::get('/admin_history/{order}', [AdminController::class, 'getOrderDetail'])->name('admin.history.detail');
+
+
 Route::get('/admin_vehicle', [AdminController::class, 'getAllVehicle'])->name('admin.vehicle');
+Route::get('/admin_vehicle/{vehicle}', [AdminController::class, 'getVehicleDetail'])->name('admin.vehicle.detail');
+
 Route::get('/admin_users', [AdminController::class, 'getAllUsers'])->name('admin.users');
+Route::get('/admin_users/{user}', [AdminController::class, 'getUsersDetail'])->name('admin.users.detail');
 //Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
 // ADMIN CHART
 Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
