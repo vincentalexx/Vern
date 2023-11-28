@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import Filter from "../Components/Filter.jsx";
 import Cards from "../Components/Cards.jsx";
 export default function Search({ results, startDate, endDate }) {
+    // Create Date objects
+    const startDates = new Date(startDate);
+    const endDates = new Date(endDate);
+
+    // Format date and time
+    const startFormatted = `${startDates.toDateString()} ${startDates.toLocaleTimeString()}`;
+    const endFormatted = `${endDates.toDateString()} ${endDates.toLocaleTimeString()}`;
+
     // TRANSMISSION FILTERS
     const [transmissionFilters, setTransmissionFilters] = useState({
         automatic: false,
         manual: false,
     });
+
 
     const handleTransmissionChange = (type, checked) => {
         setTransmissionFilters((prevState) => ({
@@ -84,7 +93,7 @@ export default function Search({ results, startDate, endDate }) {
 
     const filteredResults = results.filter((result) => {
         const meetsPriceRangeFilter =
-            (priceStart === 0 && priceEnd === 0) || // Both are 0
+            ((priceStart === 0 && priceEnd === 0) || (priceStart === "" && priceEnd === "")) || // Both are 0
             (priceStart === 0 &&
                 priceEnd !== 0 &&
                 result.price <= parseInt(priceEnd)) || // Only priceStart is 0
@@ -174,6 +183,10 @@ export default function Search({ results, startDate, endDate }) {
                 return a.price - b.price;
             case "priceB":
                 return b.price - a.price;
+            case "yearA":
+                return a.year - b.year;
+            case "yearB":
+                return b.year - a.year;
             default:
                 return 0;
         }
@@ -196,7 +209,7 @@ export default function Search({ results, startDate, endDate }) {
                         <div className="flex flex-col">
                             <p className="text-4xl font-bold">Search Results</p>
                             <p>
-                                {startDate} {endDate}
+                                {startFormatted} - {endFormatted}
                             </p>
                         </div>
                         <div className="flex gap-2 items-center">
@@ -204,7 +217,7 @@ export default function Search({ results, startDate, endDate }) {
                             <select
                                 name="sort"
                                 id="sort"
-                                className="border px-3 py-1 border-sortBorder rounded-md bg-right min-w-[160px]"
+                                className="border px-3 py-1 border-sortBorder rounded-md bg-right min-w-[170px]"
                                 onChange={handleSortChange}
                             >
                                 <option value="" selected disabled hidden>
@@ -215,6 +228,12 @@ export default function Search({ results, startDate, endDate }) {
                                 </option>
                                 <option value="priceB">
                                     Price (Descending)
+                                </option>
+                                <option value="yearA">
+                                    Year (Ascending)
+                                </option>
+                                <option value="yearB">
+                                    Year (Descending)
                                 </option>
                             </select>
                         </div>
