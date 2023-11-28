@@ -26,7 +26,7 @@
                     <p class="text-xl font-semibold">Login with Google</p>
                 </a>
             </div>
-            <form method="POST" action={{ route('auth.login') }} class="flex flex-col py-2 gap-y-3">
+            <form method="POST" action={{ route('auth.login') }} class="flex flex-col py-2 gap-y-3" >
                 @csrf
                 <div class="flex flex-col gap-y-2">
                     <label for="email" class="font-semibold text-xl">Email</label>

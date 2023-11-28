@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,6 +32,7 @@ Route::post('/signup', [AuthController::class, 'signup'])->name('auth.signup');
 Route::get('/login', function(){
     return view('login');
 })->name('login');
+
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
@@ -41,7 +44,7 @@ Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/search', [SearchController::class, 'inertiaSearch'])->name('search');
 
 Route::middleware(['auth'])->group(function () {
-    
+
     Route::get('/vehicle/{id}', [VehicleController::class, 'detail'])->name('vehicle.detail');
 
     Route::get('/history', [OrderController::class, 'history'])->name('history');
@@ -50,6 +53,9 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('userprofile', UserProfileController::class);
         return view('profile');
     })->name('profile');
+
+    Route::post('/profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
+
 
     Route::get('/order', [OrderController::class, 'orderform'])->name('order.form');
     Route::post('/order/pay', [OrderController::class, 'orderplace'])->name('order.place');
@@ -64,3 +70,11 @@ Route::get('/mailable', function(){
     $order = App\Models\Order::where('user_id', 1)->first();
     return new App\Mail\OrderSuccess($order);
 }); // ini buat test email
+
+
+// BUAT ADMIN
+Route::get('/admin_history', [AdminController::class, 'getAllHistory'])->name('admin.history');
+Route::get('/admin_orders', [AdminController::class, 'getAllOrders'])->name('admin.orders');
+Route::get('/admin_vehicle', [AdminController::class, 'getAllVehicle'])->name('admin.vehicle');
+Route::get('/admin_users', [AdminController::class, 'getAllUsers'])->name('admin.users');
+Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');

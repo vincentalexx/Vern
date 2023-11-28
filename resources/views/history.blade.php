@@ -16,7 +16,6 @@
 
 <body class="pt-[15vh]">
     <x-navbar />
-    <form action="{{ route('history')}}">
         <div class="container mx-auto my-10 text-Gray ">
             <div class="flex flex-col gap-y-12">
                 <div class="flex flex-row justify-between items-center">
@@ -149,10 +148,9 @@
                                 </div>
                                 @endif
                                 @endforeach
-                            </div>  
+                            </div>
                         </div>
                     </div>
-                </form>
             </div>
 </body>
 

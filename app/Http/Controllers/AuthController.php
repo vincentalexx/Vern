@@ -22,6 +22,9 @@ class AuthController extends Controller
 
         if(Auth::attempt($request->only('email', 'password'), $request->filled('remember'))){
             $request->session()->regenerate();
+            if (Auth::user()->email == 'admin@gmail.com') {
+                return redirect()->intended('admin_home');
+            }
             return redirect()->intended('home');
         }
 
@@ -62,7 +65,7 @@ class AuthController extends Controller
                 $request->session()->put('authError', 'Please login using email!');
                 return redirect()->route('login');
             }
-        }else{
+        } else {
             $user = User::factory()->create([
                 'name' => $googleUser->getName(),
                 'email' => $googleUser->getEmail(),
