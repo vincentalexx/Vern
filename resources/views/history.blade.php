@@ -28,8 +28,7 @@
             <div class="flex w-full flex-col md:flex-row gap-12">
                 <div class="flex flex-col gap-y-2 w-full">
                     <p class="text-2xl font-bold">Ongoing</p>
-                    <div
-                    class="py-2 border rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
+                    <div class="py-2 border rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
                     @foreach ($orders as $order)
                         @if ($order->status == 1 || $order->status == 2 || $order->status == 3)
                             <div class="">
