@@ -12,8 +12,8 @@
         </div>
         <div class="mt-12 w-full">
             <div class="py-4 flex justify-between w-full">
-                <div class="w-[40%]">
-                    <img src="{{ asset('storage/' . $user->image) }}" alt="Profile Picture" class="border-2 rounded-lg">
+                <div class="w-[40%] flex justify-center items-center rounded-lg border-2">
+                    <img src="{{ asset('storage/' . $user->image) }}" alt="Profile Picture" class="rounded-lg">
                 </div>
                 <div class="w-[54%] flex flex-col gap-x-6">
                     <div class="flex gap-6">
@@ -69,7 +69,7 @@
                             @csrf
                             @method('DELETE')
                             <div class="flex flex-col">
-                                <button type="submit" class="bg-OrangeB w-[400px] h-8 flex justify-center items-center text-white rounded-md mt-7 font-semibold">
+                                <button type="submit" class="bg-OrangeB w-[400px] h-8 flex justify-center items-center text-white rounded-md hover:shadow-md mt-7 font-semibold">
                                     Delete
                                 </button>
                             </div>
@@ -77,7 +77,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Add more details as needed -->
         </div>
     </div>
 @endsection
