@@ -35,7 +35,7 @@
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Capacity</label>
-                            <input name="capacity" class="border-2 rounded-md w-[200px] mb-3 h-8 px-2">
+                            <input type="number" name="capacity" class="border-2 rounded-md w-[200px] mb-3 h-8 px-2">
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Brand</label>

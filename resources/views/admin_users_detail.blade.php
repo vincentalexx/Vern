@@ -5,7 +5,7 @@
 @section('content')
     <div class="container mx-auto mt-8 pt-[15vh] text-gray-600">
         <div class="flex items-center gap-4">
-            <a onclick="window.history.back()" class="cursor-pointer">
+            <a href="{{ route('admin.users') }}" class="cursor-pointer">
                 <i class="fa-solid fa-chevron-left text-3xl"></i>
             </a>
             <h1 class="text-Blue font-black mb-2 text-5xl">User Detail</h1>
@@ -39,7 +39,11 @@
                     <div class="flex gap-6">
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Gender</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->gender }}" readonly>
+                            @if($user->gender)
+                                <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="Male" readonly>
+                            @elseif(!($user->gender))
+                                <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="Female" readonly>
+                            @endif
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Address</label>

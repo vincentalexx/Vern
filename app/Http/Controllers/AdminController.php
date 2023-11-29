@@ -14,14 +14,14 @@ class AdminController extends Controller
 {
     //
     public function getAllHistory() {
-        $allowedStatus = [1, 2, 3];
+        $allowedStatus = [4, 5];
         $orders = Order::whereIn('status', $allowedStatus)->get();
 
         return view('admin_history', ['orders' => $orders]);
     }
 
     public function getAllOrders() {
-        $allowedStatus = [4, 5];
+        $allowedStatus = [1, 2, 3];
         $orders = Order::whereIn('status', $allowedStatus)->get();
 
         return view('admin_orders', ['orders' => $orders]);
@@ -40,7 +40,9 @@ class AdminController extends Controller
     }
 
     public function getVehicleDetail(Vehicle $vehicle) {
-        return view('admin_vehicle_detail', ['vehicle' => $vehicle]);
+        $locations = Location::all();
+        $types = Type::all();
+        return view('admin_vehicle_detail', ['vehicle' => $vehicle, 'locations' => $locations, 'types' => $types]);
     }
 
     public function createVehicle(Request $request)
@@ -82,6 +84,51 @@ class AdminController extends Controller
 
         return redirect()->route('admin.vehicle')->with('success', 'Vehicle created successfully.');
     }
+
+    public function updateVehicle(Request $request, Vehicle $vehicle): \Illuminate\Http\RedirectResponse
+    {
+//        dd($request->all());
+        $request->validate([
+            'location' => 'required|max:100',
+            'type' => 'required|max:100',
+            'capacity' => 'required|max:100',
+            'brand' => 'required|max:100',
+            'model' => 'required|max:100',
+            'year' => 'required|max:100',
+            'color' => 'required|max:100',
+            'transmission' => 'required|max:100',
+            'fuel' => 'required|max:100',
+            'price' => 'required|max:100',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $vehicle->type_id = $request->input('type');
+        $vehicle->location_id = $request->input('location');
+        $vehicle->capacity = $request->input('capacity');
+        $vehicle->brand = $request->input('brand');
+        $vehicle->model = $request->input('model');
+        $vehicle->year = $request->input('year');
+        $vehicle->color = $request->input('color');
+        $vehicle->transmission = $request->input('transmission');
+        $vehicle->fuel = $request->input('fuel');
+        $vehicle->price = $request->input('price');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $vehicle->image = $imageName;
+        }
+
+        $vehicle->save();
+        $locations = Location::all();
+        $types = Type::all();
+        return redirect()->route('admin.vehicle.detail', [
+            'vehicle' => $vehicle,
+            'locations' => $locations,
+            'types' => $types
+        ])->with('success', 'Vehicle updated successfully.');
+    }
+
 
     public function getAllUsers() {
         $users = User::all();
