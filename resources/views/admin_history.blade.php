@@ -7,6 +7,12 @@
 @section('content')
     <div class="flex justify-center items-center w-full h-full pt-[10vh]">
         <div class="container pt-20">
+            <div class="flex items-center gap-4 mb-8">
+                <a onclick="window.history.back()" class="cursor-pointer">
+                    <i class="fa-solid fa-chevron-left text-3xl"></i>
+                </a>
+                <h1 class="text-Blue font-black mb-2 text-5xl">History Records</h1>
+            </div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-400">
                     <thead class="text-xs uppercase bg-gray-300 text-gray-500">

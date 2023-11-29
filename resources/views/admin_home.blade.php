@@ -10,9 +10,14 @@
                     <h1 class="text-Blue font-black text-5xl">Admin Dashboard</h1>
                 </div>
                 <div class="container mx-auto mt-4">
-                    <div class="flex ">
-                        <h3 class="text-3xl text-gray-400 w-full justify-between font-bold">Rent Sales Chart</h3>
-                        <input type="number" name="year" min="1900" max="2099" step="1" class="rounded"/>
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-3xl text-gray-400 w-full font-bold">Rent Sales Chart</h3>
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <p class="font-semibold text-lg text-gray-600 ">Year :</p>
+                            <input type="number" name="year" min="1900" max="2099" step="1" class="rounded"/>
+                        </div>
                     </div>
                     <div class="rounded shadow mt-2">
                         {!! $chartData->container() !!}

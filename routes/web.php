@@ -80,9 +80,12 @@ Route::get('/admin_history/{order}', [AdminController::class, 'getOrderDetail'])
 
 Route::get('/admin_vehicle', [AdminController::class, 'getAllVehicle'])->name('admin.vehicle');
 Route::get('/admin_vehicle/{vehicle}', [AdminController::class, 'getVehicleDetail'])->name('admin.vehicle.detail');
+Route::delete('/admin_vehicle/{vehicle}', [AdminController::class, 'deleteVehicle'])->name('admin.vehicle.delete');
+Route::post('/admin_vehicle/create', [AdminController::class, 'createVehicle'])->name('admin.vehicle.create');
 
 Route::get('/admin_users', [AdminController::class, 'getAllUsers'])->name('admin.users');
 Route::get('/admin_users/{user}', [AdminController::class, 'getUsersDetail'])->name('admin.users.detail');
+Route::delete('/admin_users/{user}', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
 //Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
 // ADMIN CHART
 Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');

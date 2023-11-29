@@ -61,6 +61,15 @@
                             <label class="h-7 font-bold">Password</label>
                             <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->password }}" readonly>
                         </div>
+                        <form method="POST" action="{{ route('admin.users.delete', ['user' => $user->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                            <div class="flex flex-col">
+                                <button type="submit" class="bg-OrangeB w-[400px] h-8 flex justify-center items-center text-white rounded-md mt-7 font-semibold">
+                                    Delete
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
