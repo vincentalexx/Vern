@@ -12,7 +12,7 @@
         </div>
         <div class="mt-12 w-full">
             <div class="py-4 flex justify-between w-full">
-                <form method="POST" action="{{ route('admin.vehicle.update', ['vehicle' => $vehicle->id]) }}" class="flex justify-between w-full" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.vehicle.update', ['vehicle' => $vehicle->id]) }}" class="flex justify-between items-center w-full " enctype="multipart/form-data">
                     @csrf
 {{--                    @method('PUT')--}}
                     <div class="w-[40%]">
@@ -86,11 +86,11 @@
                         <div class="flex gap-6">
                             <div class="flex flex-col">
                                 <label class="h-7 font-bold">Price</label>
-                                <input name="price" type="number" class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $vehicle->price }}" >
+                                <input name="price" type="number" class="border-2 border-black rounded-md w-[400px] h-8 px-2" value="{{ $vehicle->price }}" >
                             </div>
                         </div>
                         <div class="flex flex-col">
-                            <button type="submit" class="bg-OrangeB w-[400px] h-8 flex justify-center items-center text-white rounded-md mt-7 font-semibold">
+                            <button type="submit" class="border-2 border-gray-600 w-[400px] h-8 flex justify-center items-center text-gray-600 hover:shadow-md rounded-md mt-7 font-semibold">
                                 Update
                             </button>
                         </div>
@@ -98,14 +98,16 @@
                 </form>
             </div>
         </div>
-        <form method="POST" action="{{ route('admin.vehicle.delete', ['vehicle' => $vehicle->id]) }}">
-            @csrf
-            @method('DELETE')
-            <div class="flex flex-col">
-                <button type="submit" class="bg-OrangeB w-[400px] h-8 flex justify-center items-center text-white rounded-md mt-7 font-semibold">
-                    Delete
-                </button>
-            </div>
-        </form>
+        <div class="block flex justify-end mt-[-48px]">
+            <form method="POST" action="{{ route('admin.vehicle.delete', ['vehicle' => $vehicle->id]) }}" >
+                @csrf
+                @method('DELETE')
+                <div class="">
+                    <button type="submit" class="bg-OrangeB w-[400px] h-8 flex justify-center items-center text-white rounded-md hover:shadow-md font-semibold">
+                        Delete
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 @endsection
