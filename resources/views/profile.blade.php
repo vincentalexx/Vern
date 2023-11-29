@@ -24,7 +24,7 @@
             @csrf
             <div class="flex w-full justify-center gap-16">
                 <div>
-                    <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Profile Picture" class="border-2 rounded-lg broder-black w-[500px] h-[500px]">
+                    <img src="{{Auth::user()->image == null ? '/images/generic.png' : asset('storage/', Auth::user()->image)}}" alt="Profile Picture" class="border-2 rounded-lg broder-black w-[500px] h-[500px]">
                     <input type="file" name="image" id="image" accept="image/*">
                 </div>
                 <div>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Password</label>
-                            <input type="password" name="password" id="password" class="border-2 border-black rounded-md w-[400px] mb-3 h-8" value="{{ Auth::user()->password }}" readonly>
+                            <input type="password" name="password" id="password" class="border-2 border-black rounded-md w-[400px] mb-3 h-8">
                         </div>
                     </div>
                     <div class="text-right mt-[7.4px]">

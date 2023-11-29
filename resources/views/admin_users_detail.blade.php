@@ -19,57 +19,57 @@
                     <div class="flex gap-6">
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">User ID</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->id }}" readonly>
+                            <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->id }}" readonly>
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Google ID</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->google_id }}" readonly>
+                            <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->google_id }}" readonly>
                         </div>
                     </div>
                     <div class="flex gap-6">
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Name</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->name }}" readonly>
+                            <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->name }}" readonly>
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Date of Birth</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->dob }}" readonly>
+                            <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->dob }}" readonly>
                         </div>
                     </div>
                     <div class="flex gap-6">
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Gender</label>
                             @if($user->gender)
-                                <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="Male" readonly>
+                                <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="Male" readonly>
                             @elseif(!($user->gender))
-                                <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="Female" readonly>
+                                <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="Female" readonly>
                             @endif
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Address</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->address }}" readonly>
+                            <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->address }}" readonly>
                         </div>
                     </div>
                     <div class="flex gap-6">
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Phone</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->phone }}" readonly>
+                            <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->phone }}" readonly>
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Email</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->email }}" readonly>
+                            <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->email }}" readonly>
                         </div>
                     </div>
                     <div class="flex gap-6">
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Password</label>
-                            <input class="border-2 border-black rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->password }}" readonly>
+                            <input class="border rounded-md w-[400px] mb-3 h-8 px-2" value="{{ $user->password }}" readonly>
                         </div>
                         <form method="POST" action="{{ route('admin.users.delete', ['user' => $user->id]) }}">
                             @csrf
                             @method('DELETE')
                             <div class="flex flex-col">
-                                <button type="submit" class="bg-OrangeB w-[400px] h-8 flex justify-center items-center text-white rounded-md hover:shadow-md mt-7 font-semibold">
+                                <button type="submit" class="bg-OrangeA w-[400px] h-8 flex justify-center items-center text-white rounded-md hover:shadow-md mt-7 font-semibold">
                                     Delete
                                 </button>
                             </div>
