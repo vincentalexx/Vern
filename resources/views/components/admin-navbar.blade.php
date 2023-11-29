@@ -41,7 +41,7 @@
                     <ul class="py-2 text-sm text-gray-700"
                         aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                         <li>
-                            <a href="" class="block px-4 py-2 hover:bg-gray-100">Change Password</a>
+                            <a href="{{ route('change_password') }}" class="block px-4 py-2 hover:bg-gray-100">Change Password</a>
                         </li>
                     </ul>
                     <div class="py-2">
