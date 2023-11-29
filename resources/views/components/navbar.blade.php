@@ -13,9 +13,7 @@
                     class="flex items-center text-gray-white hover:text-gray-00 md:mr-0 " type="button">
                     <span class="sr-only">Open user menu</span>
                     <span class="gap-2 flex justify-center items-center">
-                        @if(Auth::user()->image != null)
-                            <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Profile Picture" class="rounded-full aspect-square w-8">
-                        @endif
+                        <img src="{{Auth::user()->image == null ? '/images/generic.png' : asset('storage/', Auth::user()->image)}}" alt="Profile Picture" class="rounded-full aspect-square w-8">
                         <p class="text-xl font-semibold mb-1">{{ Auth::user()->name }}</p>
                     </span>
                     <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
