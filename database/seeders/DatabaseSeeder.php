@@ -28,6 +28,12 @@ class DatabaseSeeder extends Seeder
             'password' => '1234',
         ]);
 
+        User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'adminadmin',
+        ]);
+
         $this->call([
             TypeSeeder::class,
             LocationSeeder::class,
