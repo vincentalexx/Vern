@@ -56,6 +56,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
 
+    Route::get('/change-password','ProfileController@change_password')->name('change_password');
+	Route::post('/update-password','ProfileController@update_password')->name('update_password');	
+
     Route::get('/order', [OrderController::class, 'orderform'])->name('order.form');
     Route::post('/order/pay', [OrderController::class, 'orderplace'])->name('order.place');
     Route::post('/order/pay/confirm', [OrderController::class, 'pay'])->name('order.pay');

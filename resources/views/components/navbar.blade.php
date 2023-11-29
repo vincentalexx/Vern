@@ -37,6 +37,12 @@
                             <a href="{{ route('profile') }}" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
                         </li>
                     </ul>
+                    <ul class="py-2 text-sm text-gray-700"
+                        aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                        <li>
+                            <a href="" class="block px-4 py-2 hover:bg-gray-100">Change Password</a>
+                        </li>
+                    </ul>
                     <div class="py-2">
                         <a href="{{ route('auth.logout') }}"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
