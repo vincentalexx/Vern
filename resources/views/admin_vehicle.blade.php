@@ -19,7 +19,7 @@
                     <div class="flex justify-between text-gray-600">
                         <div class="flex flex-col">
                             <label for="type" class="h-7 font-bold">Vehicle Type</label>
-                            <select name="type" id="type" class="border-2 pt-[2px] rounded-md w-[200px] mb-3 h-8 px-2">
+                            <select name="type" id="type" class="border pt-[2px] rounded-md w-[200px] mb-3 h-8 px-2">
                                 @foreach($types  as $type)
                                     <option value="{{ $type->id }}">{{ $type->name }}</option>
                                 @endforeach
@@ -27,7 +27,7 @@
                         </div>
                         <div class="flex flex-col">
                             <label for="location" class="h-7 font-bold">Location</label>
-                            <select name="location" id="location" class="border-2 pt-[2px] rounded-md w-[200px] mb-3 h-8 px-2">
+                            <select name="location" id="location" class="border pt-[2px] rounded-md w-[200px] mb-3 h-8 px-2">
                                 @foreach($locations  as $location)
                                     <option value="{{ $location->id }}">{{ $location->name }}</option>
                                 @endforeach
@@ -35,38 +35,38 @@
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Capacity</label>
-                            <input type="number" name="capacity" class="border-2 rounded-md w-[200px] mb-3 h-8 px-2">
+                            <input type="number" name="capacity" class="border rounded-md w-[200px] mb-3 h-8 px-2">
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Brand</label>
-                            <input name="brand" class="border-2  rounded-md w-[200px] mb-3 h-8 px-2">
+                            <input name="brand" class="border rounded-md w-[200px] mb-3 h-8 px-2">
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Model</label>
-                            <input name="model" class="border-2  rounded-md w-[200px] mb-3 h-8 px-2">
+                            <input name="model" class="border rounded-md w-[200px] mb-3 h-8 px-2">
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Year</label>
-                            <input name="year" type="number" class="border-2  rounded-md w-[200px] mb-3 h-8 px-2">
+                            <input name="year" type="number" class="border rounded-md w-[200px] mb-3 h-8 px-2">
                         </div>
                         <div class="flex flex-col">
                             <label class="h-7 font-bold">Color</label>
-                            <input name="color" class="border-2  rounded-md w-[200px] mb-3 h-8 px-2">
+                            <input name="color" class="border rounded-md w-[200px] mb-3 h-8 px-2">
                         </div>
                     </div>
                     <div class="flex justify-between text-gray-600">
                         <div class="flex gap-[23px]">
                             <div class="flex flex-col">
                                 <label class="h-7 font-bold">Transmission</label>
-                                <input name="transmission" class="border-2  rounded-md w-[200px] mb-3 h-8 px-2">
+                                <input name="transmission" class="border rounded-md w-[200px] mb-3 h-8 px-2">
                             </div>
                             <div class="flex flex-col">
                                 <label class="h-7 font-bold">Fuel</label>
-                                <input name="fuel" class="border-2 rounded-md w-[200px] mb-3 h-8 px-2">
+                                <input name="fuel" class="border rounded-md w-[200px] mb-3 h-8 px-2">
                             </div>
                             <div class="flex flex-col">
                                 <label class="h-7 font-bold">Price</label>
-                                <input name="price" type="number" class="border-2 rounded-md w-[200px] mb-3 h-8 px-2">
+                                <input name="price" type="number" class="border rounded-md w-[200px] mb-3 h-8 px-2">
                             </div>
                             <div class="flex flex-col">
                                 <label class="h-7 font-bold">Image</label>
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col">
-                            <button type="submit" class="bg-OrangeB w-[200px] h-8 flex justify-center items-center text-white rounded-md mt-7 font-semibold">
+                            <button type="submit" class="bg-OrangeA w-[200px] h-8 flex justify-center items-center text-white rounded-md mt-7 font-semibold">
                                 Create Vehicle
                             </button>
                         </div>
