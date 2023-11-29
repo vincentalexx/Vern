@@ -51,9 +51,10 @@
                     <label for="remember">Remember Me</label>
                 </div>
                 <button
-                    class="text-white text-center text-xl bg-gradient-to-b from-OrangeA to-OrangeB py-4 font-bold rounded">
-                    Login
-                </button>
+                class="text-white text-center text-xl bg-gradient-to-b from-OrangeA to-OrangeB py-4 font-bold rounded">
+                Login
+            </button>
+            <a href="{{route('password.email')}} " class="flex justify-center">Forgot Password?</a>
             </form>
             <div class="py-6 text-center">
                 <p class="text-center text-xl text-red-500 pb-6">{{ Session::pull('authError') }}</p>

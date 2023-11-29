@@ -91,5 +91,12 @@ Route::get('/admin_users/{user}', [AdminController::class, 'getUsersDetail'])->n
 Route::delete('/admin_users/{user}', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
 // ADMIN CHART
 Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
+
+Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
+Route::post('/forgot-password', [AuthController::class, 'forgotPasswordRequest'])->middleware('guest')->name('password.email');
+Route::get('/reset-password/{token}', [AuthController::class, 'forgotPasswordReset'])->middleware('guest')->name('password.reset');
+Route::post('/reset-password', [AuthController::class, 'forgotPasswordUpdate'])->middleware('guest')->name('password.update');
+
 Route::post('/admin_home', [AdminController::class, 'index']);
+
 
