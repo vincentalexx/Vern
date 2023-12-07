@@ -10,22 +10,18 @@ export default function SearchPage({
     onPriceEndChange,
 }) {
     function unCheck() {
-        var x = document.getElementsByClassName("checkbox");
-        for (var i = 0; i < x.length; i++) {
-            x[i].checked = false;
-        }
-        // window.location.reload();
+        // var x = document.getElementsByClassName("checkbox");
+        // for (var i = 0; i < x.length; i++) {
+        //     x[i].checked = false;
+        // }
+        window.location.reload();
     }
 
     return (
         <div className="flex drop-shadow mb-16 flex-col">
             <div className="flex justify-between">
                 <p className="font-bold text-lg mb-1">Filter</p>
-                <button
-                    className="text-sm text-gray-600"
-                    id="resetButton"
-                    onClick={unCheck}
-                >
+                <button className="text-sm text-gray-600" id="resetButton" onClick={unCheck}>
                     Reset
                 </button>
             </div>

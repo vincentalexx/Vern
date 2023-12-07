@@ -72,7 +72,7 @@ export default function History({orders}){
                 <div className="flex flex-col gap-y-2 w-full">
                     <p className="text-2xl font-bold">Ongoing</p>
                     <div
-                    className="py-2 border-2 rounded-lg shadow-md w-full divide-solid divide-y-[2px] divide-[#00000099] flex flex-col">
+                    className="py-2 border-2 rounded-lg shadow-md w-full divide-solid divide-y-[2px] flex flex-col">
                         {onGoingState.toReversed().map((order) => {
                             return (
                             <li key={order.id} className="list-none">
