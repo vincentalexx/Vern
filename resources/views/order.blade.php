@@ -35,7 +35,7 @@
                     <div class="border-2 w-full rounded-xl shadow-lg p-7 flex flex-col gap-3">
                         <div class="flex flex-col">
                             <label class="text-lg font-bold opacity-70 w-full" for="fullname">Full Name</label>
-                            <input type="text" id="fullname" name="fullname" placeholder="John Doe"
+                            <input type="text" id="fullname" name="fullname" placeholder="Your Name"
                                 class="border-2 w-full h-10 rounded-lg px-2 text-lg border-gray-400 font-semibold @error('fullname') border-red-500 @enderror">
                             @error('fullname')
                                 <p class="text-red-500 text-sm">{{ $message }}</p>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="flex flex-col">
                             <label class="text-lg font-bold opacity-70 w-full" for="email">Email</label>
-                            <input type="email" name="email" placeholder="john_doe@gmail.com" id="email"
+                            <input type="email" name="email" placeholder="example@email.com" id="email"
                                 class="border-2 w-full h-10 rounded-lg px-2 text-lg border-gray-400 font-semibold @error('email') border-red-500 @enderror">
                             @error('email')
                                 <p class="text-red-500 text-sm">{{ $message }}</p>
@@ -81,7 +81,7 @@
                     <div>
                         <h1 class="text-2xl font-bold mb-2">Rental Details</h1>
                         <div
-                            class="border-2 w-full rounded-xl shadow-lg p-7 flex flex-col gap-4 divide-y divide-black divide-opacity-30">
+                            class="border-2 w-full rounded-xl shadow-lg p-7 pb-[41px] flex flex-col gap-4 divide-y divide-black divide-opacity-30">
                             @if ($vehicle == null || $startDate == null || $endDate == null)
                                 <h1 class="text-4xl font-semibold text-center h-96">Error in fetching data, please try
                                     again

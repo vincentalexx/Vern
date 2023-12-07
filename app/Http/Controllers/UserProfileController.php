@@ -102,7 +102,7 @@ class UserProfileController extends Controller
 
     public function update_password(Request $request){
         $request->validate([
-        'old_password'=>'required|min:6|max:100',
+        'old_password'=>'required|max:100',
         'new_password'=>'required|min:6|max:100',
         'confirm_password'=>'required|same:new_password'
         ]);
@@ -115,16 +115,10 @@ class UserProfileController extends Controller
                 'password'=>bcrypt($request->new_password)
             ]);
 
-            return redirect()->back()->with('success','Password successfully updated.');
+            return redirect()->route('home');
 
         }else{
             return redirect()->back()->with('error','Old password does not matched.');
         }
-
-
-
     }
-
-
-
 }
