@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
 
 class UserProfileController extends Controller
 {
@@ -95,7 +96,7 @@ class UserProfileController extends Controller
     }
 
     public function change_password(){ 
-        return view('layouts.change_password');
+        return view('change_password');
     }
 
 

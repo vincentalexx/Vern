@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css"  rel="stylesheet" />
     <title>Order</title>
 </head>
 
@@ -20,6 +22,7 @@
                 <a onclick="window.history.back()" class="cursor-pointer">
                     <i class="fa-solid fa-chevron-left text-3xl text-black text-opacity-70"></i>
                 </a>
+
                 <h1 class="text-center text-black text-opacity-70 font-extrabold underline text-4xl">
                     Your Order
                 </h1>

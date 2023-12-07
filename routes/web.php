@@ -56,8 +56,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
 
-    Route::get('/change-password','UserProfileController@change_password')->name('change_password');
-	Route::post('/update-password','UserProfileController@update_password')->name('update_password');	
+    Route::get('/change-password',[UserProfileController::class, 'change_password'])->name('change_password');
+	Route::post('/update-password',[UserProfileController::class, 'update_password'])->name('update_password');	
 
     Route::get('/order', [OrderController::class, 'orderform'])->name('order.form');
     Route::post('/order/pay', [OrderController::class, 'orderplace'])->name('order.place');
@@ -95,6 +95,7 @@ Route::delete('/admin_users/{user}', [AdminController::class, 'deleteUser'])->na
 // ADMIN CHART
 Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
 
+// FORGOT PASSWORD
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
 Route::post('/forgot-password', [AuthController::class, 'forgotPasswordRequest'])->middleware('guest')->name('password.email');
 Route::get('/reset-password/{token}', [AuthController::class, 'forgotPasswordReset'])->middleware('guest')->name('password.reset');
