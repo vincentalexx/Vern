@@ -21,7 +21,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </div>
             </div>
-            
+
             <form method="POST" action={{ route('password.email') }} class="flex flex-col py-2 gap-y-3" >
                 @csrf
                 <div class="flex flex-col gap-y-2">
