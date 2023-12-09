@@ -92,18 +92,22 @@ export default function Search({ results, startDate, endDate }) {
     };
 
     const filteredResults = results.filter((result) => {
+        const parsedPriceStart = parseInt(priceStart);
+        const parsedPriceEnd = parseInt(priceEnd);
+        const isNaNValue = isNaN(parsedPriceEnd) || isNaN(parsedPriceStart);
         const meetsPriceRangeFilter =
-            ((priceStart === 0 && priceEnd === 0) || (priceStart === "" && priceEnd === "")) || // Both are 0
-            (priceStart === 0 &&
-                priceEnd !== 0 &&
-                result.price <= parseInt(priceEnd)) || // Only priceStart is 0
-            (priceStart !== 0 &&
-                priceEnd === 0 &&
-                result.price >= parseInt(priceStart)) || // Only priceEnd is 0
-            (priceStart !== 0 &&
-                priceEnd !== 0 &&
-                result.price >= parseInt(priceStart) &&
-                result.price <= parseInt(priceEnd)); // Both are not 0
+            isNaNValue ||
+            ((parsedPriceStart === 0 && parsedPriceEnd === 0)) || // Both are 0
+            (parsedPriceStart === 0 &&
+                parsedPriceEnd !== 0 &&
+                result.price <= parseInt(parsedPriceEnd)) || // Only priceStart is 0
+            (parsedPriceStart !== 0 &&
+                parsedPriceEnd === 0 &&
+                result.price >= parseInt(parsedPriceStart)) || // Only priceEnd is 0
+            (parsedPriceStart !== 0 &&
+                parsedPriceEnd !== 0 &&
+                result.price >= parseInt(parsedPriceStart) &&
+                result.price <= parseInt(parsedPriceEnd)); // Both are not 0
 
         const isAnyTransmissionFilterSelected = Object.values(
             transmissionFilters

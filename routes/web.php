@@ -57,7 +57,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
 
     Route::get('/change-password',[UserProfileController::class, 'change_password'])->name('change_password');
-	Route::post('/update-password',[UserProfileController::class, 'update_password'])->name('update_password');	
+	Route::post('/update-password',[UserProfileController::class, 'update_password'])->name('update_password');
 
     Route::get('/order', [OrderController::class, 'orderform'])->name('order.form');
     Route::post('/order/pay', [OrderController::class, 'orderplace'])->name('order.place');
@@ -79,15 +79,12 @@ Route::get('/admin_history', [AdminController::class, 'getAllHistory'])->name('a
 Route::get('/admin_orders', [AdminController::class, 'getAllOrders'])->name('admin.orders');
 Route::get('/admin_history/{order}', [AdminController::class, 'getOrderDetail'])->name('admin.history.detail');
 
-
 Route::get('/admin_vehicle', [AdminController::class, 'getAllVehicle'])->name('admin.vehicle');
 Route::get('/admin_vehicle/{vehicle}', [AdminController::class, 'getVehicleDetail'])->name('admin.vehicle.detail');
 Route::delete('/admin_vehicle/{vehicle}', [AdminController::class, 'deleteVehicle'])->name('admin.vehicle.delete');
 Route::post('/admin_vehicle/create', [AdminController::class, 'createVehicle'])->name('admin.vehicle.create');
 Route::post('/admin_vehicle/{vehicle}', [AdminController::class, 'updateVehicle'])->name('admin.vehicle.update');
 Route::get('/admin_vehicle/{vehicle}', [AdminController::class, 'getVehicleDetail'])->name('admin.vehicle.detail');
-
-
 
 Route::get('/admin_users', [AdminController::class, 'getAllUsers'])->name('admin.users');
 Route::get('/admin_users/{user}', [AdminController::class, 'getUsersDetail'])->name('admin.users.detail');
