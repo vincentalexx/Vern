@@ -56,6 +56,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/profile', [UserProfileController::class, 'updateProfile'])->name('profile.update');
 
+    Route::get('/change-password',[UserProfileController::class, 'change_password'])->name('change_password');
+	Route::post('/update-password',[UserProfileController::class, 'update_password'])->name('update_password');	
+
     Route::get('/order', [OrderController::class, 'orderform'])->name('order.form');
     Route::post('/order/pay', [OrderController::class, 'orderplace'])->name('order.place');
     Route::post('/order/pay/confirm', [OrderController::class, 'pay'])->name('order.pay');
@@ -88,7 +91,15 @@ Route::get('/admin_users/{user}', [AdminController::class, 'getUsersDetail'])->n
 Route::delete('/admin_users/{user}', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
 // ADMIN CHART
 Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
+
+// FORGOT PASSWORD
+Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
+Route::post('/forgot-password', [AuthController::class, 'forgotPasswordRequest'])->middleware('guest')->name('password.email');
+Route::get('/reset-password/{token}', [AuthController::class, 'forgotPasswordReset'])->middleware('guest')->name('password.reset');
+Route::post('/reset-password', [AuthController::class, 'forgotPasswordUpdate'])->middleware('guest')->name('password.update');
+
 Route::post('/admin_home', [AdminController::class, 'index']);
+
 
 // Middleware for authentication or any other specific middleware
 //Route::middleware(['admin'])->prefix('/admin')->group(function () {
@@ -112,5 +123,3 @@ Route::post('/admin_home', [AdminController::class, 'index']);
 //    Route::get('/home', [AdminController::class, 'adminHome'])->name('admin.home');
 //    Route::post('/home', [AdminController::class, 'index']);
 //});
-
-

@@ -13,9 +13,7 @@
                     class="flex items-center text-gray-white hover:text-gray-00 md:mr-0 " type="button">
                     <span class="sr-only">Open user menu</span>
                     <span class="gap-2 flex justify-center items-center">
-                        @if(Auth::user()->image != null)
-                            <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Profile Picture" class="rounded-full aspect-square w-8">
-                        @endif
+                        <img src="{{Auth::user()->image == null ? '/images/generic.png' : asset('storage/', Auth::user()->image)}}" alt="Profile Picture" class="rounded-full aspect-square w-8">
                         <p class="text-xl font-semibold mb-1">{{ Auth::user()->name }}</p>
                     </span>
                     <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -35,6 +33,12 @@
                         aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
                         <li>
                             <a href="{{ route('profile') }}" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+                        </li>
+                    </ul>
+                    <ul class="py-2 text-sm text-gray-700"
+                        aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                        <li>
+                            <a href="{{route('change_password')}} " class="block px-4 py-2 hover:bg-gray-100">Change Password</a>
                         </li>
                     </ul>
                     <div class="py-2">
