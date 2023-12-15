@@ -17,18 +17,18 @@ class AdminController extends Controller
         $allowedStatus = [4, 5];
         $orders = Order::whereIn('status', $allowedStatus)->get();
 
-        return view('admin_history', ['orders' => $orders]);
+        return view('admin.history', ['orders' => $orders]);
     }
 
     public function getAllOrders() {
         $allowedStatus = [1, 2, 3];
         $orders = Order::whereIn('status', $allowedStatus)->get();
 
-        return view('admin_orders', ['orders' => $orders]);
+        return view('admin.orders', ['orders' => $orders]);
     }
 
     public function getOrderDetail(Order $order) {
-        return view('admin_order_detail', ['order' => $order]);
+        return view('admin.order_detail', ['order' => $order]);
     }
 
     public function getAllVehicle() {
@@ -36,13 +36,13 @@ class AdminController extends Controller
         $locations = Location::all();
         $types = Type::all();
 
-        return view('admin_vehicle', ['vehicles' => $vehicles, 'locations' => $locations, 'types' => $types]);
+        return view('admin.vehicle', ['vehicles' => $vehicles, 'locations' => $locations, 'types' => $types]);
     }
 
     public function getVehicleDetail(Vehicle $vehicle) {
         $locations = Location::all();
         $types = Type::all();
-        return view('admin_vehicle_detail', ['vehicle' => $vehicle, 'locations' => $locations, 'types' => $types]);
+        return view('admin.vehicle_detail', ['vehicle' => $vehicle, 'locations' => $locations, 'types' => $types]);
     }
 
     public function createVehicle(Request $request)
@@ -132,11 +132,11 @@ class AdminController extends Controller
 
     public function getAllUsers() {
         $users = User::all();
-        return view('admin_users', ['users' => $users]);
+        return view('admin.users', ['users' => $users]);
     }
 
     public function getUsersDetail(User $user) {
-        return view('admin_users_detail', ['user' => $user]);
+        return view('admin.users_detail', ['user' => $user]);
     }
 
     public function adminHome() {
@@ -146,7 +146,7 @@ class AdminController extends Controller
         $countOrders = Order::whereIn('status', [1, 2, 3])->whereYear('start_time', date('Y'))->count();
         $countVehicles = Vehicle::whereYear('created_at', date('Y'))->count();
         $countHistory = Order::where('status', 4)->whereYear('start_time', date('Y'))->count();
-        return view('admin_home', compact('chartData', 'countUsers', 'countOrders', 'countVehicles', 'countHistory'));
+        return view('admin.home', compact('chartData', 'countUsers', 'countOrders', 'countVehicles', 'countHistory'));
     }
 
     public function index(MonthlyRentChart $chart, Request $request) {
@@ -160,7 +160,7 @@ class AdminController extends Controller
         $countHistory = Order::where('status', 4)->whereYear('start_time', $year)->count();
         $chartData = $chart->build($year);
 
-        return view('admin_home', compact('chartData', 'countUsers', 'countOrders', 'countVehicles', 'countHistory'));
+        return view('admin.home', compact('chartData', 'countUsers', 'countOrders', 'countVehicles', 'countHistory'));
     }
 
     public function deleteUser($id)

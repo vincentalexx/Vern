@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            $table->integer('role');
             $table->rememberToken();
             $table->timestamps();
         });

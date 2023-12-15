@@ -75,22 +75,25 @@ Route::get('/mailable', function(){
 
 
 // BUAT ADMIN
-Route::get('/admin_history', [AdminController::class, 'getAllHistory'])->name('admin.history');
-Route::get('/admin_orders', [AdminController::class, 'getAllOrders'])->name('admin.orders');
-Route::get('/admin_history/{order}', [AdminController::class, 'getOrderDetail'])->name('admin.history.detail');
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->group(function () {
+    Route::get('/home', [AdminController::class, 'adminHome'])->name('admin.home');
+    Route::post('/home', [AdminController::class, 'index']);
 
-Route::get('/admin_vehicle', [AdminController::class, 'getAllVehicle'])->name('admin.vehicle');
-Route::get('/admin_vehicle/{vehicle}', [AdminController::class, 'getVehicleDetail'])->name('admin.vehicle.detail');
-Route::delete('/admin_vehicle/{vehicle}', [AdminController::class, 'deleteVehicle'])->name('admin.vehicle.delete');
-Route::post('/admin_vehicle/create', [AdminController::class, 'createVehicle'])->name('admin.vehicle.create');
-Route::post('/admin_vehicle/{vehicle}', [AdminController::class, 'updateVehicle'])->name('admin.vehicle.update');
-Route::get('/admin_vehicle/{vehicle}', [AdminController::class, 'getVehicleDetail'])->name('admin.vehicle.detail');
+    Route::get('/history', [AdminController::class, 'getAllHistory'])->name('admin.history');
+    Route::get('/history/{order}', [AdminController::class, 'getOrderDetail'])->name('admin.history.detail');
+    Route::get('/orders', [AdminController::class, 'getAllOrders'])->name('admin.orders');
 
-Route::get('/admin_users', [AdminController::class, 'getAllUsers'])->name('admin.users');
-Route::get('/admin_users/{user}', [AdminController::class, 'getUsersDetail'])->name('admin.users.detail');
-Route::delete('/admin_users/{user}', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
-// ADMIN CHART
-Route::get('/admin_home', [AdminController::class, 'adminHome'])->name('admin.home');
+    Route::get('/vehicle', [AdminController::class, 'getAllVehicle'])->name('admin.vehicle');
+    Route::get('/vehicle/{vehicle}', [AdminController::class, 'getVehicleDetail'])->name('admin.vehicle.detail');
+    Route::delete('/vehicle/{vehicle}', [AdminController::class, 'deleteVehicle'])->name('admin.vehicle.delete');
+    Route::post('/vehicle/create', [AdminController::class, 'createVehicle'])->name('admin.vehicle.create');
+    Route::post('/vehicle/{vehicle}', [AdminController::class, 'updateVehicle'])->name('admin.vehicle.update');
+
+    Route::get('/users', [AdminController::class, 'getAllUsers'])->name('admin.users');
+    Route::get('/users/{user}', [AdminController::class, 'getUsersDetail'])->name('admin.users.detail');
+    Route::delete('/users/{user}', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
+});
+
 
 // FORGOT PASSWORD
 Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
@@ -98,6 +101,5 @@ Route::post('/forgot-password', [AuthController::class, 'forgotPasswordRequest']
 Route::get('/reset-password/{token}', [AuthController::class, 'forgotPasswordReset'])->middleware('guest')->name('password.reset');
 Route::post('/reset-password', [AuthController::class, 'forgotPasswordUpdate'])->middleware('guest')->name('password.update');
 
-Route::post('/admin_home', [AdminController::class, 'index']);
 
 

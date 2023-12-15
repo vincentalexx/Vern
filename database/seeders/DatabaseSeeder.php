@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => 'adminadmin',
+            'role' => 1,
         ]);
 
         $this->call([
