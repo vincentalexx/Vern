@@ -15,11 +15,18 @@ Execute these lines in your terminal
 
 Please do `php artisan optimize` and `composer dumpautoload` on every pull :D
 
-Default user (make sure u have done db:seed):
+### Default user
+
+(make sure u have done db:seed)
 
 Email: <user2@email.com>
 
 Password: 1234
+
+### Disclaimer
+
+1. Login using google hanya bisa digunakan oleh email tertentu karena status project masih dalam tahap testing di Google Console, mohon gunakan login yang biasa
+2. Order yang dibayar menggunakan midtrans statusnya akan selalu berada di menunggu pembayaran karena ada code yang hanya dapat berjalan di production
 
 ---
 
