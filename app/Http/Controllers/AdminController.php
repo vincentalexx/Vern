@@ -32,7 +32,7 @@ class AdminController extends Controller
     }
 
     public function getAllVehicle() {
-        $vehicles = Vehicle::all();
+        $vehicles = Vehicle::all()->sortBy('id');
         $locations = Location::all();
         $types = Type::all();
 

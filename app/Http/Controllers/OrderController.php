@@ -92,8 +92,8 @@ class OrderController extends Controller
             $order->status = 2;
             $order->payment_ref = $request->transaction_id;
             $order->save();
-            Mail::to('adm.vern@gmail.com')->send(new OrderSuccess($order)); // ga dikirim ke email yang diinput, tapi ke email kita
-            // Mail::to($order->email)->send(new OrderSuccess($order)); // real case but disable on development, kalo mau coba uncomment aja
+            Mail::to('adm.vern@gmail.com')->send(new OrderSuccess($order)); // ga dikirim ke email yang diinput, tapi ke email kita (buat logging)
+            Mail::to($order->email)->send(new OrderSuccess($order));
         }
     }
 

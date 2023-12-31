@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'VERN - Login')
+@section('title', 'Sign up')
 
 @section('content')
     <div class="w-screen h-[90vh] mt-[10vh] justify-center items-center flex">
         <div class="border-2 border-gray-400 rounded-xl w-[500px] py-4 px-6 text-sortBorder">
             <div class="flex flex-col gap-y-3 divide-solid divide-y-[1px] divide-sortBorder">
                 <div class="flex flex-col gap-y-2">
-                    <div class="text-2xl flex justify-between">
+                    <div class="text-2xl flex">
                         <p class="font-bold">Sign up</p>
-                        <i class="fa-solid fa-xmark"></i>
                     </div>
                     <a href="{{ route('auth.google') }}"
                         class="border border-sortBorder rounded-xl cursor-pointer w-full py-3 flex justify-center items-center gap-x-2">
