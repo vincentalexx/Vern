@@ -2,6 +2,8 @@
 
 ## Vehicle Rental
 
+Project made for Web Programming course, available to test on [vern.dta32.my.id](https://vern.dta32.my.id)
+
 ### How to install
 
 This project use PostgreSQL as Database, please make sure you have PostgreSQL installed and running on your computer
@@ -37,6 +39,5 @@ Password: adminadmin
 
 ### Disclaimer
 
-1. Login using google hanya bisa digunakan oleh email tertentu karena status project masih dalam tahap testing di Google Console, mohon gunakan login yang biasa
-2. Order yang dibayar menggunakan midtrans statusnya akan selalu berada di menunggu pembayaran karena ada code yang hanya dapat berjalan di production
-3. Mohon gunakan email asli pada detail pemesanan dan forgot password, karena akan ada email yang dikirimkan ke email tersebut
+1. Order yang dibayar menggunakan midtrans statusnya akan selalu berada di menunggu pembayaran karena ada code yang hanya dapat berjalan di production
+1. Mohon gunakan email asli pada detail pemesanan dan forgot password, karena akan ada email yang dikirimkan ke email tersebut

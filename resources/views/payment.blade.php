@@ -24,6 +24,7 @@
                             class="fa-solid fa-building-columns text-4xl px-2"></i>
                         <p class="text-2xl">Online Payment</p>
                     </div>
+		    <p>*if choosing this please use this console <a target="_blank" href="https://simulator.sandbox.midtrans.com">https://simulator.sandbox.midtrans.com</a></p>
                 </label>
                 <div class="flex flex-col">
                     @error('metode')
