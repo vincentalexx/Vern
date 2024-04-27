@@ -39,5 +39,5 @@ Password: adminadmin
 
 ### Disclaimer
 
-1. Order yang dibayar menggunakan midtrans statusnya akan selalu berada di menunggu pembayaran karena ada code yang hanya dapat berjalan di production
+1. ~~Order yang dibayar menggunakan midtrans statusnya akan selalu berada di menunggu pembayaran karena ada code yang hanya dapat berjalan di production~~
 1. Mohon gunakan email asli pada detail pemesanan dan forgot password, karena akan ada email yang dikirimkan ke email tersebut

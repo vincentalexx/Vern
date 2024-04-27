@@ -35,13 +35,15 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         window.onload = function() {
-            const visitCount = localStorage.getItem('visitCount');
-            if (visitCount === null) localStorage.setItem('visitCount', 0);
-            if (Number(visitCount) < 3) {
-                localStorage.setItem('visitCount', Number(visitCount) + 1);
+            const lastVisit = localStorage.getItem('lastVisit');
+            const todayRaw = new Date();
+            const today = todayRaw.toDateString();
+            if (lastVisit === null) localStorage.setItem('lastVisit', today);
+            if (lastVisit !== today) {
+                localStorage.setItem('lastVisit', today);
                 Swal.fire({
                     title: 'INFO',
-                    html: `Ini adalah staging version dari project VERN, akun dummy yang bisa dipakai dan info selengkapnya mengenai VERN bisa dilihat <a href="https://github.com/vincentalexx/Vern/blob/main/README.md#default-user" target="_blank" class="underline">disini</a>. Semua order yang dibuat di website ini hanyalah fiktif dan tidak dapat digunakan di dunia nyata`,
+                    html: `Ini adalah staging version dari project VERN, akun dummy yang bisa dipakai dan info selengkapnya mengenai VERN bisa dilihat <a href="https://github.com/vincentalexx/Vern/blob/server/README.md#default-user" target="_blank" class="underline">disini</a>. Semua order yang dibuat di website ini hanyalah fiktif dan tidak dapat digunakan di dunia nyata`,
                     icon: 'info',
                     confirmButtonText: 'OK',
                     allowOutsideClick: false,
