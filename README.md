@@ -12,14 +12,29 @@ Execute these lines in your terminal
 
 1. `composer install`
 1. `npm install`
-1. `php artisan env:decrypt --key=base64:cVuY9nkwttR/xQaBj3GO3uVVll5X5RhMNzAu5rLoI7Y=`
+1. `php artisan env:decrypt --key=[DECRYPTION_KEY]`
 1. `php artisan migrate`
 1. `php artisan db:seed`
 1. `php artisan storage:link`
 
+Obtain key to decrypt env by asking DTA32
+
 After executing those lines, run `php artisan serve` and `npm run dev` simultaneously (use two terminal)
 
 To access the web, please use `localhost:8000` rather than 127.0.0.1 as specific url (localhost) is required by some packages
+
+### Docker setup
+
+If you're intending to deploy to staging/production, or just to show off this project (not needing hot reload or any development features), you can use docker
+
+First step is to setup .env, two options, for staging/production can ask DTA32 for some tokens, for minimal config without google, mail, midtrans can use .env.example (execute `cp .env.example .env`)
+
+1. `docker compose up -d`
+1. `./docker-setup-db.sh` (for first time)
+
+Then access server on `localhost:7000`
+
+Any changes made might need to re-run `docker build`
 
 ### Default user
 

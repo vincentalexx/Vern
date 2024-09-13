@@ -1,0 +1,43 @@
+services:
+    vern:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: vern
+        restart: unless-stopped
+        working_dir: /var/www/html
+        volumes:
+            - ./:/var/www/html
+        networks:
+            - vern-net
+    vern-db:
+        image: postgres:latest
+        container_name: vern-db
+        restart: unless-stopped
+        environment:
+            POSTGRES_PASSWORD: 1234
+            PGDATA: /var/lib/postgresql/data/pgdata
+        volumes:
+            - pgdata:/var/lib/postgresql/data/pgdata
+        networks:
+            - vern-net
+
+    vern-webserver:
+        image: nginx:latest
+        container_name: vern-webserver
+        restart: unless-stopped
+        ports:
+            - "7000:80"
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+            - ./:/var/www/html
+        networks:
+            - vern-net
+
+networks:
+    vern-net:
+        driver: bridge
+
+volumes:
+    pgdata:
+        driver: local
