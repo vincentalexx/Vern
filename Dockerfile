@@ -1,55 +1,53 @@
-# Use the official PHP 8.1.2 FPM base image
-FROM php:8.1.2-fpm
-
-# Set the working directory to /var/www/html
-WORKDIR /var/www/html
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    build-essential \
-    libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    libonig-dev \
+# Ref: https://medium.com/@agungdarmanto/how-to-run-a-laravel-application-into-kubernetes-a6d0111dc98d
+# [BASE STAGE]
+FROM php:8.1-fpm-alpine as base
+# Install the php extension installer from its image
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
+# Install dependencies
+RUN apk add --no-cache \
+    openssl \
+    ca-certificates \
     libxml2-dev \
-    libpq-dev \
-    locales \
-    zip \
-    jpegoptim optipng pngquant gifsicle \
-    vim \
-    unzip \
-    curl \
-    libcurl4-openssl-dev \
-    pkg-config \
-    libssl-dev \
-    software-properties-common \
-    npm
+    oniguruma-dev
+# Install php extensions
+RUN install-php-extensions \
+    bcmath \
+    ctype \
+    dom \
+    fileinfo \
+    mbstring \
+    pdo pdo_pgsql \
+    tokenizer \
+    pcntl \
+    redis-stable
+# Install the composer packages using www-data user
+WORKDIR /app
+RUN chown www-data:www-data /app
+COPY --chown=www-data:www-data . .
+COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
+USER www-data
+RUN composer install --no-dev --prefer-dist
 
-# Install PHP extensions
-RUN docker-php-ext-configure gd
-RUN docker-php-ext-install pdo_pgsql zip mbstring exif pcntl bcmath -j$(nproc) gd intl
+# [FRONTEND STAGE]
+FROM node:18-alpine as frontend
+WORKDIR /app
+COPY . .
+RUN npm ci && npm run build
 
-# Install Node.js and npm
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-RUN apt-get install -y nodejs
+# [APP STAGE]
+FROM base
+# Prepare the frontend files & caching
+COPY --from=frontend --chown=www-data:www-data /app/public /app/public
+RUN php artisan view:cache
+# Setup nginx & supervisor as root user
+USER root
+RUN apk add --no-progress --quiet --no-cache nginx supervisor
+COPY nginx.conf /etc/nginx/http.d/default.conf
+COPY supervisord.conf /etc/supervisord.conf
+# Apply the required changes to run nginx as www-data user
+RUN chown -R www-data:www-data /run/nginx /var/lib/nginx /var/log/nginx && \
+    sed -i '/user nginx;/d' /etc/nginx/nginx.conf
+# Switch to www-user
+USER www-data
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-
-RUN groupadd -g 1000 www
-RUN useradd -u 1000 -ms /bin/bash -g www www
-
-COPY --chown=www:www  . .
-USER www
-RUN composer install
-RUN php artisan storage:link
-
-# Build the frontend assets
-RUN npm install
-RUN npm run build
-
-# Start PHP-FPM
-EXPOSE 9000
-CMD ["php-fpm"]

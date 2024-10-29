@@ -12,12 +12,11 @@ Execute these lines in your terminal
 
 1. `composer install`
 1. `npm install`
-1. `php artisan env:decrypt --key=[DECRYPTION_KEY]`
+1. `cp .env.example .env`
+1. edit .env
 1. `php artisan migrate`
 1. `php artisan db:seed`
 1. `php artisan storage:link`
-
-Obtain key to decrypt env by asking DTA32
 
 After executing those lines, run `php artisan serve` and `npm run dev` simultaneously (use two terminal)
 
@@ -25,16 +24,18 @@ To access the web, please use `localhost:8000` rather than 127.0.0.1 as specific
 
 ### Docker setup
 
-If you're intending to deploy to staging/production, or just to show off this project (not needing hot reload or any development features), you can use docker
+For quick preview, image is available on docker hub and can be pulled by `docker pull dta32/vern:latest` then step 2-3, but it's based on main branch, so if there's code changes can do step 1 first
 
-First step is to setup .env, two options, for staging/production can ask DTA32 for some tokens, for minimal config without google, mail, midtrans can use .env.example (execute `cp .env.example .env`)
+1. `docker build -t dta32/vern .`
+1. `cp .env.example .env` (then edit accordingly)
+1. `docker run -d -p {externalPort}:8080 --env-file .env dta32/vern:latest`
 
+Re-run these steps if there's any code changes
+
+Can also use docker compose, it will autorun vern and database
+
+1. Step 1 and 2 on previous instructions
 1. `docker compose up -d`
-1. `./docker-setup-db.sh` (for first time)
-
-Then access server on `localhost:7000`
-
-Any changes made might need to re-run `docker build`
 
 ### Default user
 

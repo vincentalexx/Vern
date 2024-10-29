@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vern-db
+  labels:
+    app: vern-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vern-db
+  template:
+    metadata:
+      labels:
+        app: vern-db
+    spec:
+      containers:
+        - name: vern-db
+          image: postgres:15
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - secretRef:
+                name: vern-db-secret
+          volumeMounts:
+            - name: vern-db-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: vern-db-storage
+          persistentVolumeClaim:
+            claimName: vern-db-pvc
