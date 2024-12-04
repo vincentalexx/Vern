@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: vern
-          image: dta32/vern:latest
+          image: replacedbycicd
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
