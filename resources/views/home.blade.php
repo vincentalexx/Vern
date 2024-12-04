@@ -31,12 +31,42 @@
         }
     </style>
 @endpush
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.onload = function() {
+            const lastVisit = localStorage.getItem('lastVisit');
+            const todayRaw = new Date();
+            const today = todayRaw.toDateString();
+            if (lastVisit === null) localStorage.setItem('lastVisit', today);
+            if (lastVisit !== today) {
+                localStorage.setItem('lastVisit', today);
+                Swal.fire({
+                    title: 'INFO',
+                    html: `Ini adalah staging version dari project VERN, akun dummy yang bisa dipakai dan info selengkapnya mengenai VERN bisa dilihat <a href="https://github.com/vincentalexx/Vern/blob/server/README.md#default-user" target="_blank" class="underline">disini</a>. Semua order yang dibuat di website ini hanyalah fiktif dan tidak dapat digunakan di dunia nyata`,
+                    icon: 'info',
+                    confirmButtonText: 'OK',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    allowEnterKey: false,
+                    didOpen: (modal) => {
+                        modal.querySelector('.swal2-confirm').disabled = true;
+                        setTimeout(() => {
+                            modal.querySelector('.swal2-confirm').disabled = false;
+                        }, 5000);
+                    }
+                })
+            }
+        }
+    </script>
+@endpush
 
 @section('content')
     <div class="w-screen h-screen flex justify-center items-center bg-cover bg-blend-multiply bg-black bg-opacity-70"
         style="background-image: url('{{ asset('images/mobil.jpg') }}'); ">
         <div class="space-y-24">
-            <h1 class="text-center text-5xl leading-[60px] max-w-4xl font-semibold text-white shadow-inner">Explore Jakarta Anytime You Want With Our Rental Services!</h1>
+            <h1 class="text-center text-5xl leading-[60px] max-w-4xl font-semibold text-white shadow-inner">Explore Jakarta
+                Anytime You Want With Our Rental Services!</h1>
             <form method="GET" action="{{ route('search') }}" class="flex flex-col gap-6">
                 @csrf
                 <div class="grid grid-cols-3 text-center">

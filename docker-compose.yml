@@ -1,0 +1,27 @@
+services:
+    vern:
+        image: dta32/vern
+        container_name: vern
+        env_file: .env
+        ports:
+            - "7000:80"
+        networks:
+            - vern-net
+    vern-db:
+        image: postgres:15
+        container_name: vern-db
+        environment:
+            POSTGRES_PASSWORD: 1234
+            PGDATA: /var/lib/postgresql/data/pgdata
+        volumes:
+            - pgdata:/var/lib/postgresql/data/pgdata
+        networks:
+            - vern-net
+
+networks:
+    vern-net:
+        driver: bridge
+
+volumes:
+    pgdata:
+        driver: local

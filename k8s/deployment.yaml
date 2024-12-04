@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vern
+  labels:
+    app: vern
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vern
+  template:
+    metadata:
+      labels:
+        app: vern
+    spec:
+      containers:
+        - name: vern
+          image: replacedbycicd
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: vern-config
+            - secretRef:
+                name: vern-secret
